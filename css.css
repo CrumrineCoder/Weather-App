@@ -51,11 +51,10 @@ nav > div{
 
 #transparentGreyBackground{
 	  margin: 4%;
-	 opacity: .8;
+	 opacity: .9;
 	 background: #312c32;
 	 color: white; 
 }
-/* LEFT/CURRENT */
 
 #fcButtons > button, span {
   text-align: center;
@@ -67,6 +66,10 @@ nav > div{
   border: none; 
   text-decoration: none; 
 }
+
+/* LEFT SIDE OF TABLE */
+
+
 
 
 

@@ -24,9 +24,9 @@
     <div id="transparentGreyBackground">
         <!-- Buttons to change the temperature reading to Farenheit or to Celsius -->
         <div id="fcButtons">
-            <button type="button" id="f" class="">F </button>
+            <button type="button" id="f" class="">Farenheit </button>
             <span> | </span>
-            <button type="button" id="c" class="">C</button>
+            <button type="button" id="c" class="">Celsius</button>
         </div>
 
         <table style="width:100%">
@@ -82,47 +82,46 @@
             <p id="sunset"> </p>
             <p id="todaySummary"> </p>
 		</div>
-         <div id="forecast">
+        <table id="forecast">
             <!-- Naming convention starts with today as Sunday, because reasons -->
-            <div id="names">
-                <div id="1days"> Tomm </div>
-                <div id="2days"> Over </div>
-                <div id="3days"> Wed </div>
-                <div id="4days"> Thur </div>
-                <div id="5days"> Fri </div>
-                <div id="6days"> Sat </div>
-            </div>
+            <tr id="names">
+                <td id="1days"> Tomm </td>
+                <td id="2days"> Over </td>
+                <td id="3days"> Wed </td>
+                <td id="4days"> Thur </td>
+                <td id="5days"> Fri </td>
+                <td id="6days"> Sat </td>
+            </tr>
             <!-- End of names -->
-            <div id="forecast-icons">
-                <div id="mon-icon"> </div>
-                <div id="tues-icon"> </div>
-                <div id="wed-icon"> </div>
-                <div id="thur-icon"> </div>
-                <div id="fri-icon"> </div>
-                <div id="sat-icon"> </div>
-            </div>
-            <!-- forecast icons -->
+            <tr id="forecast-icons">
+                <td id="mon-icon"> </td>
+                <td id="tues-icon"> </td>
+                <td id="wed-icon"> </td>
+                <td id="thur-icon"> </td>
+                <td id="fri-icon"> </td>
+                <td id="sat-icon"> </td>
+            </tr>
+            <!-- end of forecast icons -->
             <div id="highlows">
-               <div id="high">
-                    <div id="monhigh"> Mon-High </div>
-                    <div id="tueshigh"> Tues-high </div>
-                    <div id="wedhigh"> Wed-high </div>
-                    <div id="thurhigh"> Thur-high </div>
-                    <div id="frihigh"> Fri-high </div>
-                    <div id="sathigh"> Sat-high </div>
-                </div>
-                <div id="low">
-                    <div id="monlow"> Mon-low </div>
-                    <div id="tueslow"> Tues-low </div>
-                    <div id="wedlow"> Wed-low </div>
-                    <div id="thurlow"> Thur-low </div>
-                    <div id="frilow"> Fri-low </div>
-                    <div id="satlow"> Sat-low </div>
-                </div>
+               <tr id="high">
+                    <td id="monhigh"> Mon-High </td>
+                    <td id="tueshigh"> Tues-high </td>
+                    <td id="wedhigh"> Wed-high </td>
+                    <td id="thurhigh"> Thur-high </td>
+                    <td id="frihigh"> Fri-high </td>
+                    <td id="sathigh"> Sat-high </td>
+                </tr>
+                <tr id="low">
+                    <td id="monlow"> Mon-low </td>
+                    <td id="tueslow"> Tues-low </td>
+                    <td id="wedlow"> Wed-low </td>
+                    <td id="thurlow"> Thur-low </td>
+                    <td id="frilow"> Fri-low </td>
+                    <td id="satlow"> Sat-low </td>
+                </tr>
             </div>
            <!-- end of highlow -->
-		</div>
-        <!-- End of forecast -->
+		</table>
      </div>
    <script type="text/javascript" src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script type="text/javascript" src="data.js"></script>
