@@ -1,9 +1,18 @@
+/* Entire Document */
+
+body {
+  color: white; 
+  font-family: "Circle";
+}
+
+/* !!NAV!! */
+
 @font-face {
     font-family: "Circle";
     src: url(https://ufonts.com/q115111) format("truetype");
 }
 
-#nav {
+nav {
   background: black;
   color: white;
   padding: 1%;
@@ -13,158 +22,13 @@
    font-family: "Circle", Verdana, Tahoma;
 }
 
-#nav > div{
-  display: inline; 
-  
+nav > div{
+  display: inline;  
 }
 
 #ad{
   float: left; 
   padding-right: 20px; 
-}
-
-body {
-  color: white; 
-  font-family: "Circle";
-}
-
-#box {
-  margin: 4%;
-  background: #312c32;
-  padding: 2%; 
-}
-
-#search-bar{
-  color: grey; 
-}
-
-#Location{
-  float: right; 
-}
-
-#icon{
-  font-size: 50px; 
-}
-#temp{
-  font-size: 50px; 
-}
-#icon-temp-fc {
-  text-align: center;
-}
-
-#icon-temp-fc > div {
-  display: inline;
-}
-
-#fc > button, span {
-  text-align: center;
-  vertical-align: top; 
-}
-
-#f,  #c {
-  background-color: #312c32; 
-  border: none; 
-  text-decoration: none;
-}
-
-
-
-#feels{
-  text-indent: 20px; 
-}
-#summ-feels{
-  text-align: center;
-  font-size: 23px; 
-}
-
-#summ-feels > div{
-  display: inline; 
-}
-
-
-#descriptions{
-  text-align: center; 
-}
-
-#raindrop{
-  
-  color: #0E5D9E; 
-}
-#rain > div {
-  display: inline; 
-  font-size: 20px; 
-}
-#realrain > div{
-  display: inline; 
-}
-
-
-#wind > div {
-  display: inline; 
-  font-size: 20px; 
-}
-#windspeed > div{
-  display: inline; 
-}
-
-
-#summary{
-  text-align: center;
-  font-size: 20px; 
-}
-#sur > div{
-  display: inline; 
-}
-#surp > div{
-  display: inline; 
-}
-#sunriseset{
-  text-align: center; 
-  font-size: 18px; 
-}
-
-
-#names > div {
-   display: inline; 
-  font-size: 18px; 
-
-}
-#names{
-  text-align: center; 
-  word-spacing: 10px; 
-}
-#forecast-icons > div {
-  font-size: 30px; 
- 
-}
-#forecast-icons{
-  text-align: center; 
-   display: block;
-    width: 100%;
-}
-
-#high > div { display: inline}
-#low > div {display: inline}
-#high{text-align: center}
-#low{text-align: center}
-
-#highlows{
-  font-size: 17px; 
-  text-align: center; 
-  word-spacing: 20px; 
-  padding-top: 10px; 
-}
-
-.footer{
-  background: black; 
-  width: 100%; 
-  padding-top: 1%;
-  
-}
-#q-gen{
-  color: white;
-   text-indent: 50px; 
-  
 }
 
 #nic{
@@ -175,24 +39,28 @@ body {
   color: #4A9943;
 }
 
-@media screen and (max-width: 1000px) {
-  #nav > div{
-    display: block; 
-    
-  }
-  #ad{
-    text-align: center;
-    width: 100%; 
-    font-size: 20px; 
-  }
-  #search-bar{
-    width: 100%; 
-  }
-  #Time{
-    font-size: 20px; 
-  }
-  #Location{
-    font-size: 20px; 
-    padding-right: 150px;  
-  }
+#search-bar{
+  color: grey; 
 }
+
+#Location{
+  float: right; 
+}
+
+/* !! BODY!! */
+
+/* LEFT/CURRENT */
+
+#fcButtons > button, span {
+  text-align: center;
+  vertical-align: top; 
+}
+
+#f,  #c {
+  background-color: #312c32; 
+  border: none; 
+  text-decoration: none; 
+}
+
+
+
