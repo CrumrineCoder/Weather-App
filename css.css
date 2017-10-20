@@ -7,10 +7,6 @@ body {
 
 /* !!NAV!! */
 
-@font-face {
-    font-family: "Circle";
-    src: url(https://ufonts.com/q115111) format("truetype");
-}
 
 nav {
   background: black;
@@ -19,7 +15,6 @@ nav {
   padding-bottom: 40px; 
   width: 100%; 
   font-family:  sans-serif; 
-   font-family: "Circle", Verdana, Tahoma;
 }
 
 nav > div{

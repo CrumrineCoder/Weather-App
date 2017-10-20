@@ -3,9 +3,12 @@
 <head>
     <title>Weather App</title>
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css.css" />
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://erikflowers.github.io/weather-icons/css/weather-icons.min.css">
+
+	    <link rel="stylesheet" type="text/css" href="css.css" />
 </head>
 
 <body>
@@ -35,40 +38,37 @@
                 <td>Actual Temperature:
                     <p id="actualTemp"> </p>
                 </td>
-                <td>Today's Low:
-                    <p id="todayLow"> </p>
-                </td>
+                <td>Today's High:
+                   <p id="todayHigh"> </p>
+                </td>  
             </tr>
             <tr>
                 <td>Due to humidity, the Temperature feels like:
                     <p id="feelsTemp"> </p>
                 </td>
-                <td>Today's High:
-                    <p id="todayHigh"> </p>
+                <td>Today's Low:
+                   <p id="todayLow"> </p>
                 </td>
             </tr>
 
             <!-- Cloudiness -->
             <tr>
-                <td><i id="cloudinessIcon"> </i><br> <p id="cloudinessForeCast"> </p></td>
-            </tr>
-            <tr>
-                <td>
+                <td><div id="cloudinessIcon"> </div><br> <p id="cloudinessForeCast"> </p></td>
+				 <td>
                     <p id="cloudinessCurrentDescription"> </p>
                 </td>
             </tr>
-
         </table>
 
         <div id="current">
 
             <!-- Rain -->
-            <i id="rainIcon"> </i>
+            <i id ="raindrop" class="wi wi-raindrop"></i>
             <p id="rainDescription"> </p>
             <p id="rainNumber"> </p>
 
             <!-- Wind -->
-            <i id="windIcon"> </i>
+            <i id="wind-blow" class="wi wi-strong-wind"></i>
             <p id="windDescription"> </p>
             <p id="windNumber"> </p>
 
@@ -76,7 +76,7 @@
 
         <div id="today">
 			Sunrise:
-            <p id="sunrirse"></p>
+            <p id="sunrise"></p>
             <br> 
 			Sunset:
             <p id="sunset"> </p>
@@ -103,6 +103,7 @@
             </tr>
             <!-- end of forecast icons -->
             <div id="highlows">
+			  <tr> <td> Highs </td> </tr>
                <tr id="high">
                     <td id="monhigh"> Mon-High </td>
                     <td id="tueshigh"> Tues-high </td>
@@ -111,6 +112,7 @@
                     <td id="frihigh"> Fri-high </td>
                     <td id="sathigh"> Sat-high </td>
                 </tr>
+			  <tr> <td> Lows </td> </tr>
                 <tr id="low">
                     <td id="monlow"> Mon-low </td>
                     <td id="tueslow"> Tues-low </td>

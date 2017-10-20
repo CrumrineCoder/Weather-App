@@ -32,11 +32,10 @@ var dayIcons = [{
     icon: "wi-night-alt-cloudy"
 }];
 
-function getIcon(icon, id) {
+function getIcon(iconName, id) {
     for (i = 0; i < dayIcons.length; i++) {
-        if (dayIcons[i].summary == icon) {
-            console.log(id);
-            document.getElementById(id).className = "wi " + dayIcons[i].icon;
+        if (dayIcons[i].summary == iconName) {
+			document.getElementById(id).className = "wi " + dayIcons[i].icon;
         }
     }
 }
@@ -136,8 +135,6 @@ $(document).ready(function() {
 });
 
 function getWeather() {
-    // Forecast Naming
-    console.log("Hi!");
 
     function success(position) {
         // API stuff
@@ -172,8 +169,11 @@ function getWeather() {
                 }
 
                 function getTemp() {
+				//	console.log(weatherInfo); 
                     $("#actualTemp").html(Math.round(weatherInfo.currently.temperature));
                     $("#feelsTemp").html(Math.round(weatherInfo.currently.apparentTemperature));
+					$("#todayLow").html(Math.round(weatherInfo.daily.data[0].apparentTemperatureLow)); 
+					$("#todayHigh").html(Math.round(weatherInfo.daily.data[0].apparentTemperatureHigh)); 
                     document.getElementById("f").style.color = "#FFFFF2";
                     document.getElementById("c").style.color = "#C2C2B8";
                     document.getElementById("f").style.background = "#201D21";
@@ -206,47 +206,42 @@ function getWeather() {
 					getTemp();
                 }
                 document.getElementById('f').onclick = function() {
-                    getHighLow();
                     changeBackground(weatherInfo.currently.apparentTemperature);
-                    getFtemp();
+                    getTemp();
                 }
-                document.getElementById('c').onclick = function() {
+           /*     document.getElementById('c').onclick = function() {
                     if (country == "USA") {
                         CgetHighLow();
                     } else {
                         getHighLow();
                     }
                     changeBackground((weatherInfo.currently.apparentTemperature))
-                    //console.log((weatherInfo.currently.apparentTemperature))
-                    //document.body.style.backgroundColor = "#37343F";
                     getCtemp();
-                }
-                // get today's forecast 
-                $("#summary").html(weatherInfo.daily.data[0].summary)
-                // get desc 
-                $("#descup").html(weatherInfo.currently.summary)
-                // get witty precip and wind descs
-                $("#witty-wind").html(getWindDesc(weatherInfo.currently.windSpeed));
-                $("#witty-precip").html(getPrecipDesc(weatherInfo.currently.precipIntensity));
+                } */
+                // get the current cloudiness 
+                $("#cloudinessCurrentDescription").html(weatherInfo.daily.data[0].summary)
+                // get the cloudiness for the rest of the day 
+                $("#cloudinessForeCast").html(weatherInfo.currently.summary)
+                // get witty precip and wind descriptions
+                $("#windDescription").html(getWindDesc(weatherInfo.currently.windSpeed));
+                $("#rainDescription").html(getPrecipDesc(weatherInfo.currently.precipIntensity));
                 // get actual precip and wind
-                $("#actual-wind").html(weatherInfo.currently.windSpeed);
-                $("#actual-precip").html(weatherInfo.currently.precipIntensity);
+                $("#windNumber").html(weatherInfo.currently.windSpeed);
+                $("#rainNumber").html(weatherInfo.currently.precipIntensity);
+				
                 // get sunrise time and sunset time
                 var sec = weatherInfo.daily.data[0].sunriseTime;
                 var date = new Date(sec * 1000);
                 var timestr = date.toLocaleTimeString();
-                $(".sunrise").html(timestr);
+                $("#sunrise").html(timestr);
                 var sec = weatherInfo.daily.data[0].sunsetTime;
                 var date = new Date(sec * 1000);
                 var timestr = date.toLocaleTimeString();
-                $(".sunset").html(timestr);
+                $("#sunset").html(timestr);
                 // get weekly forecast icons
                 for (j = 0; j < forecasticon.length; j++) {
                     getIcon(weatherInfo.daily.data[j + 1].icon, forecasticon[j] + "-icon"); // example #mon-icon
                 }
-                // get weekly highs and lows
-                // var highlowicon = ["monhigh", "monlow", "tuehigh", "tuelow", "wedhigh", "wedlow", "thurhigh", "thurlow", "frihigh", "frilow", "sathigh", "satlow"];
-                // console.log(highlowicon.length)
             }); // END OF FORECAST.IO 
         }); // End of GEOCODE 
     } // End of Success
