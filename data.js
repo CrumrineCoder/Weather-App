@@ -134,9 +134,11 @@ $(document).ready(function() {
     }
 });
 
-function getWeather() {
-
-    function success(position) {
+function callByPostal(postal){
+	
+}
+function callByIP(position) {
+	
         // API stuff
         var lat = position.coords.latitude;
         var long = position.coords.longitude;
@@ -144,6 +146,9 @@ function getWeather() {
         var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + "," + long + "&key=" + apikey;
         var for_key = "813195e09d571d569dfc52a878bea90c";
         var for_call = "https://api.forecast.io/forecast/" + for_key + "/" + lat + "," + long + "?callback=?";
+		/*  $.getJSON("https://api.forecast.io/forecast/813195e09d571d569dfc52a878bea90c/41.316809, -0.999647?callback=?", function(INFO){
+			  console.log(INFO); 
+		  }); */ 
         $.getJSON(GEOCODING, function(json) {
             // get location 
             var address = json.results[2].formatted_address;
@@ -168,30 +173,59 @@ function getWeather() {
                     setTimeout(updateClock, 1000);
                 }
 
-                function getTemp() {
+				function changeFCButtonsBasedOnCountry(){
+					if(country == "USA"){
+							document.getElementById("f").style.color = "#FFFFF2";
+							document.getElementById("c").style.color = "#C2C2B8";
+							document.getElementById("f").style.background = "#201D21";
+							document.getElementById("c").style.background = "#312c32";
+						}
+						else{
+							 document.getElementById("f").style.color = "#C2C2B8";
+							document.getElementById("c").style.color = "#FFFFF2";
+							document.getElementById("f").style.background = "#312c32";
+							document.getElementById("c").style.background = "#201D21";	
+						}
+				}
+                function getDefaultTemp() {
 				//	console.log(weatherInfo); 
                     $("#actualTemp").html(Math.round(weatherInfo.currently.temperature));
                     $("#feelsTemp").html(Math.round(weatherInfo.currently.apparentTemperature));
 					$("#todayLow").html(Math.round(weatherInfo.daily.data[0].apparentTemperatureLow)); 
-					$("#todayHigh").html(Math.round(weatherInfo.daily.data[0].apparentTemperatureHigh)); 
-                    document.getElementById("f").style.color = "#FFFFF2";
-                    document.getElementById("c").style.color = "#C2C2B8";
-                    document.getElementById("f").style.background = "#201D21";
-                    document.getElementById("c").style.background = "#312c32";
+					$("#todayHigh").html(Math.round(weatherInfo.daily.data[0].apparentTemperatureHigh));
+					changeFCButtonsBasedOnCountry();                    
                     for (k = 0; k < 7; k++) {
                         $("#" + forecasticon[k] + "high").html(Math.round(getTemperatureMax(k)));
                         $("#" + forecasticon[k] + "low").html(Math.round(getTemperatureMin(k)));;
                     }
                 }
-
-                function getCtemp() {
-                    $("#temp").html(Math.round(fTOc(weatherInfo.currently.temperature)));
-                    $("#Feels").html(Math.round(fTOc(weatherInfo.currently.apparentTemperature)));
-                    document.getElementById("f").style.color = "#C2C2B8";
-                    document.getElementById("c").style.color = "#FFFFF2";
-                    document.getElementById("f").style.background = "#312c32";
-                    document.getElementById("c").style.background = "#201D21";
-                    CgetHighLow()
+				function getFarenheitTemp() {
+                    $("#actualTemp").html(Math.round(cTOf(weatherInfo.currently.temperature)));
+                    $("#feelsTemp").html(Math.round(cTOf(weatherInfo.currently.apparentTemperature)));
+					$("#todayLow").html(Math.round(cTOf(weatherInfo.daily.data[0].apparentTemperatureLow))); 
+					$("#todayHigh").html(Math.round(cTOf(weatherInfo.daily.data[0].apparentTemperatureHigh)));
+					document.getElementById("f").style.color = "#FFFFF2";
+					document.getElementById("c").style.color = "#C2C2B8";
+					document.getElementById("f").style.background = "#201D21";
+					document.getElementById("c").style.background = "#312c32";                    
+                    for (k = 0; k < 7; k++) {
+                        $("#" + forecasticon[k] + "high").html(Math.round(cTOf(getTemperatureMax(k))));
+                        $("#" + forecasticon[k] + "low").html(Math.round(cTOf(getTemperatureMin(k))));
+                    }
+                }
+				function getCelsiusTemp() {
+                    $("#actualTemp").html(Math.round(fTOc(weatherInfo.currently.temperature)));
+                    $("#feelsTemp").html(Math.round(fTOc(weatherInfo.currently.apparentTemperature)));
+					$("#todayLow").html(Math.round(fTOc(weatherInfo.daily.data[0].apparentTemperatureLow))); 
+					$("#todayHigh").html(Math.round(fTOc(weatherInfo.daily.data[0].apparentTemperatureHigh)));
+					 document.getElementById("f").style.color = "#C2C2B8";
+					 document.getElementById("c").style.color = "#FFFFF2";
+					 document.getElementById("f").style.background = "#312c32";
+					 document.getElementById("c").style.background = "#201D21";	                    
+                    for (k = 0; k < 7; k++) {
+                        $("#" + forecasticon[k] + "high").html(Math.round(fTOc(getTemperatureMax(k))));
+                        $("#" + forecasticon[k] + "low").html(Math.round(fTOc(getTemperatureMin(k))));
+                    }
                 }
                 setInterval(updateClock, 1000);
                 // Show the user the cloudiness icon for the current day
@@ -201,23 +235,29 @@ function getWeather() {
                     changeBackground(weatherInfo.currently.apparentTemperature);
                     getCtemp();
                 } else */
-				if (country == "USA") {
-                    changeBackground(weatherInfo.currently.apparentTemperature);
-					getTemp();
-                }
+                changeBackground(weatherInfo.currently.apparentTemperature);
+				getDefaultTemp();
                 document.getElementById('f').onclick = function() {
-                    changeBackground(weatherInfo.currently.apparentTemperature);
-                    getTemp();
+					if(country == "USA"){
+						getDefaultTemp(); 
+					}
+					else{
+						getFarenheitTemp();
+					}
+					changeBackground(weatherInfo.currently.apparentTemperature);
+                   
+                   
                 }
-           /*     document.getElementById('c').onclick = function() {
-                    if (country == "USA") {
-                        CgetHighLow();
-                    } else {
-                        getHighLow();
-                    }
-                    changeBackground((weatherInfo.currently.apparentTemperature))
-                    getCtemp();
-                } */
+				document.getElementById('c').onclick = function() {
+                    if(country != "USA"){
+						getDefaultTemp(); 
+					}
+					else{
+						getCelsiusTemp();
+					}
+					changeBackground(weatherInfo.currently.apparentTemperature);
+                }
+               
                 // get the current cloudiness 
                 $("#cloudinessCurrentDescription").html(weatherInfo.daily.data[0].summary)
                 // get the cloudiness for the rest of the day 
@@ -245,8 +285,12 @@ function getWeather() {
             }); // END OF FORECAST.IO 
         }); // End of GEOCODE 
     } // End of Success
+
+function getWeather() {
+
+    
     function error() {
         console.log("error");
     }
-    navigator.geolocation.getCurrentPosition(success, error);
+    navigator.geolocation.getCurrentPosition(callByIP, error);
 }
