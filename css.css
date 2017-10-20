@@ -49,6 +49,12 @@ nav > div{
 
 /* !! BODY!! */
 
+#transparentGreyBackground{
+	  margin: 4%;
+	 opacity: .8;
+	 background: #312c32;
+	 color: white; 
+}
 /* LEFT/CURRENT */
 
 #fcButtons > button, span {

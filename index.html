@@ -1,137 +1,129 @@
 <!DOCTYPE html>
+
 <head>
-   <title>Weather App</title>
-   <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
-   <link rel="stylesheet" type="text/css" href="css.css" />
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Weather App</title>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
-<body >
-   <nav>
-		<div id="ad">
-			<span id="weatherApp"> Weather App by</span> 
-			<a href="https://codepen.io/CrumrineCoder/pen/XKbwEe" id="nic"> Nicolas Crumrine</span></a>
-			<br>
-			Powered by   <a href="https://darksky.net/poweredby/" >Dark Skys </a>  and Geolocation
-		</div>
-  
-		<input type="text" name="firstname" placeholder="Search by postal code" id="search-bar" class="col-md-4 text-center">
-		<div id="Location" class="col-md-3"> Location </div>
-		<div id="Time" class="col-md-2 text-center"> Time </div>
-   </nav>
-   
-   <table style="width:100%">
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
- 
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
- 
-  </tr>
-</table>
 
-   <div id="current">
-   
-	<!-- Buttons to change the temperature reading to Farenheit or to Celsius --> 
-	 <div id="fcButtons">
-          <button type="button" id="f" class="">F </button>
-          <span> | </span>
-          <button type="button" id="c" class ="" >C</button>
+<body>
+    <nav>
+        <div id="ad">
+            <span id="weatherApp"> Weather App by</span>
+            <a href="https://codepen.io/CrumrineCoder/pen/XKbwEe" id="nic"> Nicolas Crumrine</span></a>
+            <br> Powered by <a href="https://darksky.net/poweredby/">Dark Skys </a> and Geolocation
+        </div>
+
+        <input type="text" name="firstname" placeholder="Search by postal code" id="search-bar" class="col-md-4 text-center">
+        <div id="Location" class="col-md-3"> Location </div>
+        <div id="Time" class="col-md-2 text-center"> Time </div>
+    </nav>
+
+    <div id="transparentGreyBackground">
+        <!-- Buttons to change the temperature reading to Farenheit or to Celsius -->
+        <div id="fcButtons">
+            <button type="button" id="f" class="">F </button>
+            <span> | </span>
+            <button type="button" id="c" class="">C</button>
+        </div>
+
+        <table style="width:100%">
+            <!-- Temperature -->
+            <tr>
+                <td>Actual Temperature:
+                    <p id="actualTemp"> </p>
+                </td>
+                <td>Today's Low:
+                    <p id="todayLow"> </p>
+                </td>
+            </tr>
+            <tr>
+                <td>Due to humidity, the Temperature feels like:
+                    <p id="feelsTemp"> </p>
+                </td>
+                <td>Today's High:
+                    <p id="todayHigh"> </p>
+                </td>
+            </tr>
+
+            <!-- Cloudiness -->
+            <tr>
+                <td><i id="cloudinessIcon"> </i><br> <p id="cloudinessForeCast"> </p></td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="cloudinessCurrentDescription"> </p>
+                </td>
+            </tr>
+
+        </table>
+
+        <div id="current">
+
+            <!-- Rain -->
+            <i id="rainIcon"> </i>
+            <p id="rainDescription"> </p>
+            <p id="rainNumber"> </p>
+
+            <!-- Wind -->
+            <i id="windIcon"> </i>
+            <p id="windDescription"> </p>
+            <p id="windNumber"> </p>
+
+        </div>
+
+        <div id="today">
+			Sunrise:
+            <p id="sunrirse"></p>
+            <br> 
+			Sunset:
+            <p id="sunset"> </p>
+            <p id="todaySummary"> </p>
+		</div>
+         <div id="forecast">
+            <!-- Naming convention starts with today as Sunday, because reasons -->
+            <div id="names">
+                <div id="1days"> Tomm </div>
+                <div id="2days"> Over </div>
+                <div id="3days"> Wed </div>
+                <div id="4days"> Thur </div>
+                <div id="5days"> Fri </div>
+                <div id="6days"> Sat </div>
+            </div>
+            <!-- End of names -->
+            <div id="forecast-icons">
+                <div id="mon-icon"> </div>
+                <div id="tues-icon"> </div>
+                <div id="wed-icon"> </div>
+                <div id="thur-icon"> </div>
+                <div id="fri-icon"> </div>
+                <div id="sat-icon"> </div>
+            </div>
+            <!-- forecast icons -->
+            <div id="highlows">
+               <div id="high">
+                    <div id="monhigh"> Mon-High </div>
+                    <div id="tueshigh"> Tues-high </div>
+                    <div id="wedhigh"> Wed-high </div>
+                    <div id="thurhigh"> Thur-high </div>
+                    <div id="frihigh"> Fri-high </div>
+                    <div id="sathigh"> Sat-high </div>
+                </div>
+                <div id="low">
+                    <div id="monlow"> Mon-low </div>
+                    <div id="tueslow"> Tues-low </div>
+                    <div id="wedlow"> Wed-low </div>
+                    <div id="thurlow"> Thur-low </div>
+                    <div id="frilow"> Fri-low </div>
+                    <div id="satlow"> Sat-low </div>
+                </div>
+            </div>
+           <!-- end of highlow -->
+		</div>
+        <!-- End of forecast -->
      </div>
-	 
-	 <!-- Actual Temperature and Apparent Temperature -->
-	 <div id="currentTemperature">
-		Actual Temperature:  <p id="actualTemp"> </p>
-		<br>
-		Due to humidity, the Temperature feels like:  <p id="feelsTemp"> </p>
-	 </div>
-	 
-	 <!-- Cloudiness -->
-	 <i id="cloudinessIcon"> </i>
-	 <p id="cloudinessDescription"> </p> 
-	 
-	 <!-- Rain --> 
-	 <i id="rainIcon"> </i>
-	 <p id="rainDescription"> </p>
-	 <p id="rainNumber"> </p>
-	 
-	  <!-- Wind --> 
-	 <i id="windIcon"> </i>
-	 <p id="windDescription"> </p>
-	 <p id="windNumber"> </p>
-	 
-   </div>
-   
-   <div id="weekly">
-		Today's Low: <p id="todayLow"> </p>
-		Today's High: <p id="todayHigh"> </p>
-	
-		<p id="todayCloudiness"> </p> 
-		<p id="sunrirse"> </p> 
-		<p id="sunset"> </p>
-	
-		<p id="todaySummary"> </p>
-	
-		<div id="forecast">
-		  <!-- Naming convention starts with today as Sunday, because reasons -->
-		  <div id="names">
-			<div id="1days"> Tomm </div>
-			<div id="2days"> Over </div>
-			<div id="3days"> Wed </div>
-			<div id="4days"> Thur </div>
-			<div id="5days"> Fri </div>
-			<div id="6days"> Sat </div>
-		  </div>
-		  <!-- End of names -->
-
-		  <div id="forecast-icons">
-			<div id="mon-icon"> </div> 
-			<div id="tues-icon"> </div>
-			<div id="wed-icon"> </div>
-			<div id="thur-icon"> </div>
-			<div id="fri-icon"> </div>
-			<div id="sat-icon"> </div>
-
-		  </div>
-		  <!-- forecast icons -->
-
-
-		  <div id="highlows">
-			<div id="high">
-			<div id="monhigh" > Mon-High </div>
-			<div id="tueshigh"> Tues-high </div>
-			<div id="wedhigh"> Wed-high </div>
-			 <div id="thurhigh"> Thur-high </div>
-			 <div id="frihigh"> Fri-high </div>
-			 <div id="sathigh"> Sat-high </div>
-			</div>
-			
-			<div id="low">
-			<div id="monlow"> Mon-low </div>
-			<div id="tueslow"> Tues-low </div> 
-			<div id="wedlow"> Wed-low </div>     
-			<div id="thurlow"> Thur-low </div>      
-			<div id="frilow"> Fri-low </div>    
-			<div id="satlow"> Sat-low </div>
-			</div>
-		  </div> 
-		  <!-- end of highlow -->
-
-		</div>
-		<!-- End of forecast -->
-   
-   </div>
    <script type="text/javascript" src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script type="text/javascript" src="data.js"> </script>
+   <script type="text/javascript" src="data.js"></script>
 </body>
