@@ -2,13 +2,13 @@
 
 <head>
     <title>Weather App</title>
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://erikflowers.github.io/weather-icons/css/weather-icons.min.css">
+    <link rel="stylesheet" href="https://erikflowers.github.io/weather-icons/css/weather-icons.min.css">
 
-	    <link rel="stylesheet" type="text/css" href="css.css" />
+    <link rel="stylesheet" type="text/css" href="css.css" />
 </head>
 
 <body>
@@ -19,113 +19,126 @@
             <br> Powered by <a href="https://darksky.net/poweredby/">Dark Skys </a> and Geolocation
         </div>
 
-		<form action="submit('36.315125, -74.146729')">
-        <input type="text" name="firstname" placeholder="Search by postal code" id="search-bar" class="col-md-4 text-center">
-        <div id="Location" class="col-md-3"> Location </div>
-        <div id="Time" class="col-md-2 text-center"> Time </div>
+        <form action="submit('36.315125, -74.146729')">
+            <input type="text" name="firstname" placeholder="Search by postal code" id="search-bar" class="col-md-4 text-center">
+            <div id="Location" class="col-md-3"> Location </div>
+            <div id="Time" class="col-md-2 text-center"> Time </div>
     </nav>
 
     <div id="transparentGreyBackground">
         <!-- Buttons to change the temperature reading to Farenheit or to Celsius -->
         <div id="fcButtons">
-            <button type="button" id="f" class="">Farenheit </button>
+            <button type="button" id="f" class="">Fahrenheit </button>
             <span> | </span>
             <button type="button" id="c" class="">Celsius</button>
         </div>
 
-        <table style="width:100%">
+        <table id="todaysForecast" style="width:100%">
             <!-- Temperature -->
             <tr>
                 <td>Actual Temperature:
-                    <p id="actualTemp"> </p>
+                    <p id="actualTemp" class="temperatureReading"> </p>
                 </td>
                 <td>Today's High:
-                   <p id="todayHigh"> </p>
-                </td>  
+                    <p id="todayHigh" class="temperatureReading"> </p>
+                </td>
             </tr>
             <tr>
                 <td>Due to humidity, the Temperature feels like:
-                    <p id="feelsTemp"> </p>
+                    <p id="feelsTemp" class="temperatureReading"> </p>
                 </td>
                 <td>Today's Low:
-                   <p id="todayLow"> </p>
+                    <p id="todayLow" class="temperatureReading"> </p>
                 </td>
             </tr>
 
             <!-- Cloudiness -->
             <tr>
-                <td><div id="cloudinessIcon"> </div><br> <p id="cloudinessForeCast"> </p></td>
-				 <td>
+                <td>Right now, it is
+                    <p id="cloudinessForeCast"> </p>
+                    <div id="cloudinessIcon"> </div>
+                </td>
+                <td>
+                    It will probably be
                     <p id="cloudinessCurrentDescription"> </p>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <br />
+                    <br /> </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- Rain -->
+                    <i class="wi wi-raindrop"></i>
+                    <p id="rainDescription"> </p>
+                    (Rain intensity: <span id="rainNumber"> </span> mm/h)
+                </td>
+                <td>
+                    <i class="wi wi-sunrise"></i> Sunrise:
+                    <p id="sunrise"></p>
+                    <i class="wi wi-sunset"></i> Sunset:
+                    <p id="sunset"> </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <br /> </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <!-- Wind -->
+                    <i class="wi wi-strong-wind"></i>
+                    <p id="windDescription"> </p>
+
+                    (Wind speed: <span id="windNumber"> </span> mph)
+                </td>
+                <td>
+
+                    <p id="todaySummary"> </p>
+                </td>
+            </tr>
+
         </table>
 
-        <div id="current">
-
-            <!-- Rain -->
-            <i id ="raindrop" class="wi wi-raindrop"></i>
-            <p id="rainDescription"> </p>
-            <p id="rainNumber"> </p>
-
-            <!-- Wind -->
-            <i id="wind-blow" class="wi wi-strong-wind"></i>
-            <p id="windDescription"> </p>
-            <p id="windNumber"> </p>
-
+        <br />
+        <br />
+        <div id="tableContainer">
+            <table id="weeklyForecast">
+                <!-- Naming convention starts with today as Sunday, because reasons -->
+                <tr id="names">
+                    <td id="1days"> Tomm </td>
+                    <td id="2days"> Over </td>
+                    <td id="3days"> Wed </td>
+                    <td id="4days"> Thur </td>
+                    <td id="5days"> Fri </td>
+                    <td id="6days"> Sat </td>
+                </tr>
+                <!-- End of names -->
+                <tr id="forecast-icons">
+                    <td id="mon-icon"> </td>
+                    <td id="tues-icon"> </td>
+                    <td id="wed-icon"> </td>
+                    <td id="thur-icon"> </td>
+                    <td id="fri-icon"> </td>
+                    <td id="sat-icon"> </td>
+                </tr>
+                <!-- end of forecast icons	 -->
+                <tr id="high">
+                    <td> <span id="monhigh"> Mon-High </span> <span id="monlow" style="color: grey" > Mon-low </span> </td>
+                    <td> <span id="tueshigh"> Tues-High </span> <span id="tueslow" style="color: grey"> Tues-low </span> </td>
+                    <td> <span id="wedhigh"> Wed-High </span> <span id="wedlow" style="color: grey"> Wed-low </span> </td>
+                    <td> <span id="thurhigh"> Thur-High </span> <span id="thurlow" style="color: grey"> Thur-low </span> </td>
+                    <td> <span id="frihigh"> Fri-High </span> <span id="frilow" style="color: grey"> Fri-low </span> </td>
+                    <td> <span id="sathigh"> Sat-High </span> <span id="satlow" style="color: grey"> Sat-low </span> </td>
+                </tr>
+                <!-- end of highlow -->
+            </table>
         </div>
-
-        <div id="today">
-			Sunrise:
-            <p id="sunrise"></p>
-            <br> 
-			Sunset:
-            <p id="sunset"> </p>
-            <p id="todaySummary"> </p>
-		</div>
-        <table id="forecast">
-            <!-- Naming convention starts with today as Sunday, because reasons -->
-            <tr id="names">
-                <td id="1days"> Tomm </td>
-                <td id="2days"> Over </td>
-                <td id="3days"> Wed </td>
-                <td id="4days"> Thur </td>
-                <td id="5days"> Fri </td>
-                <td id="6days"> Sat </td>
-            </tr>
-            <!-- End of names -->
-            <tr id="forecast-icons">
-                <td id="mon-icon"> </td>
-                <td id="tues-icon"> </td>
-                <td id="wed-icon"> </td>
-                <td id="thur-icon"> </td>
-                <td id="fri-icon"> </td>
-                <td id="sat-icon"> </td>
-            </tr>
-            <!-- end of forecast icons -->
-            <div id="highlows">
-			  <tr> <td> Highs </td> </tr>
-               <tr id="high">
-                    <td id="monhigh"> Mon-High </td>
-                    <td id="tueshigh"> Tues-high </td>
-                    <td id="wedhigh"> Wed-high </td>
-                    <td id="thurhigh"> Thur-high </td>
-                    <td id="frihigh"> Fri-high </td>
-                    <td id="sathigh"> Sat-high </td>
-                </tr>
-			  <tr> <td> Lows </td> </tr>
-                <tr id="low">
-                    <td id="monlow"> Mon-low </td>
-                    <td id="tueslow"> Tues-low </td>
-                    <td id="wedlow"> Wed-low </td>
-                    <td id="thurlow"> Thur-low </td>
-                    <td id="frilow"> Fri-low </td>
-                    <td id="satlow"> Sat-low </td>
-                </tr>
-            </div>
-           <!-- end of highlow -->
-		</table>
-     </div>
-   <script type="text/javascript" src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script type="text/javascript" src="data.js"></script>
+    </div>
+    <script type="text/javascript" src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="data.js"></script>
 </body>

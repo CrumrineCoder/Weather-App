@@ -35,7 +35,7 @@ var dayIcons = [{
 function getIcon(iconName, id) {
     for (i = 0; i < dayIcons.length; i++) {
         if (dayIcons[i].summary == iconName) {
-			document.getElementById(id).className = "wi " + dayIcons[i].icon;
+			document.getElementById(id).innerHTML  = "<i class='wi " + dayIcons[i].icon + " '> </i>" ;
         }
     }
 }
@@ -80,7 +80,7 @@ function getWindDesc(speed) {
     } else if (speed < 1.5) {
         return "Pretty much no wind.";
     } else if (speed < 3.3) {
-        return "Some wind on ya body bro.";
+        return "You'll feel a bit of wind.";
     } else if (speed < 5.4) {
         return "While the twigs do look possessed, don't call the Ghostbusters";
     } else if (speed < 7.9) {
@@ -200,8 +200,8 @@ function callByIP(position) {
 					document.getElementById("f").style.background = "#201D21";
 					document.getElementById("c").style.background = "#312c32";                    
                     for (k = 0; k < 7; k++) {
-                        $("#" + forecasticon[k] + "high").html(Math.round(getTemperatureMax(k)));
-                        $("#" + forecasticon[k] + "low").html(Math.round(getTemperatureMin(k)));;
+                        $("#" + forecasticon[k] + "high").html("<p class='wi wi-degrees'>" + Math.round(getTemperatureMax(k)) + "</p>");
+                        $("#" + forecasticon[k] + "low").html("<p class='wi wi-degrees'>" + Math.round(getTemperatureMin(k)) + "</p>");;
                     }
                 }
 				
@@ -271,6 +271,9 @@ function callByIP(position) {
                 $("#windNumber").html(weatherInfo.currently.windSpeed);
                 $("#rainNumber").html(weatherInfo.currently.precipIntensity);
 				
+				
+				$("#todaySummary").html(weatherInfo.daily.data[0].summary); 
+				
                 // get sunrise time and sunset time
                 var sec = weatherInfo.daily.data[0].sunriseTime;
                 var date = new Date(sec * 1000);
@@ -281,7 +284,7 @@ function callByIP(position) {
                 var timestr = date.toLocaleTimeString();
                 $("#sunset").html(timestr);
                 // get weekly forecast icons
-                for (j = 0; j < forecasticon.length; j++) {
+               for (j = 0; j < forecasticon.length; j++) {
                     getIcon(weatherInfo.daily.data[j + 1].icon, forecasticon[j] + "-icon"); // example #mon-icon
                 }
             }); // END OF FORECAST.IO 
