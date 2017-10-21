@@ -42,6 +42,17 @@ nav > div{
   color: grey; 
 }
 
+#searchButton{
+	background: #8F92E0;
+border: none; 
+width: 50px;
+height: 28px; 
+border-radius: 0px 15px 15px  0px; 
+}
+#searchButton:hover{
+	background: #6D6FAB; 
+}
+
 #Location{
   float: right; 
 }
