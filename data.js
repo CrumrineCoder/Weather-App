@@ -128,14 +128,24 @@ function changeBackground(val) {
     }
 }
 $(document).ready(function() {
-	console.log("test"); 
+
     getWeather();
     for (o = 0; o < 7; o++) {
         $("#" + o.toString() + "days").html(getDays(o));
     }
 });
 
-function changeHTML(weatherInfo, country) {
+var clock;
+
+function updateClockHome() {
+    var date = new Date(Date.now());
+    //	console.log("Date: " + date); 
+    var timestr = date.toLocaleTimeString();
+    document.getElementById('Time').innerHTML = timestr;
+    clock = setTimeout(updateClockHome, 1000);
+}
+
+function changeHTML(weatherInfo, country, home) {
     // Long List to convert the temperature to the color of the background			
     var forecasticon = ["mon", "tues", "wed", "thur", "fri", "sat"];
 
@@ -146,12 +156,41 @@ function changeHTML(weatherInfo, country) {
     function getTemperatureMin(k) {
         return Math.round(weatherInfo.daily.data[k + 1].temperatureMin);
     }
+    // get sunrise time and sunset time
+    var secRise = weatherInfo.daily.data[0].sunriseTime;
+    var dateRise = new Date(secRise * 1000);
+    var timestrRise = dateRise;
+    var secSet = weatherInfo.daily.data[0].sunsetTime;
+    var dateSet = new Date(secSet * 1000);
+    var timestrSet = dateSet;
+    if (home == null || home == "") {
+        clearTimeout(clock);
+        updateClockHome();
+        timestrRise = timestrRise.toLocaleTimeString();
+        timestrSet = timestrSet.toLocaleTimeString();
+        $("#sunrise").html(timestrRise);
 
-    function updateClock() {
-        var date = new Date(Date.now());
-        var timestr = date.toLocaleTimeString();
-        document.getElementById('Time').innerHTML = timestr;
-        setTimeout(updateClock, 1000);
+        $("#sunset").html(timestrSet);
+    } else {
+        clearTimeout(clock);
+
+        function updateClock() {
+            var timestr = new Date().toLocaleString('en-US', {
+                timeZone: home
+            })
+            document.getElementById('Time').innerHTML = timestr.split(',')[1];
+            clock = setTimeout(updateClock, 1000);
+        }
+        timestrRise = dateRise.toLocaleTimeString('en-US', {
+            timeZone: home
+        });
+        timestrSet = dateSet.toLocaleTimeString('en-US', {
+            timeZone: home
+        });
+
+        $("#sunrise").html(timestrRise);
+
+        $("#sunset").html(timestrSet);
     }
 
     // Will return Farenheit
@@ -217,50 +256,49 @@ function changeHTML(weatherInfo, country) {
 
     $("#todaySummary").html(weatherInfo.daily.data[0].summary);
 
-    // get sunrise time and sunset time
-    var sec = weatherInfo.daily.data[0].sunriseTime;
-    var date = new Date(sec * 1000);
-    var timestr = date.toLocaleTimeString();
-    $("#sunrise").html(timestr);
-    var sec = weatherInfo.daily.data[0].sunsetTime;
-    var date = new Date(sec * 1000);
-    var timestr = date.toLocaleTimeString();
-    $("#sunset").html(timestr);
     // get weekly forecast icons
     for (j = 0; j < forecasticon.length; j++) {
         getIcon(weatherInfo.daily.data[j + 1].icon, forecasticon[j] + "-icon"); // example #mon-icon
     }
 }; // END OF FORECAST.IO 
- var for_key = "813195e09d571d569dfc52a878bea90c";
-  var apikey = "AIzaSyDCZSr-AlvZAUyBbAytuXVfVlkoGDLkFYA";
-  $("#searchButton").on('click', function(){
-	  callByPostal( $("#search-bar").val()); 
-  }); 
+var for_key = "813195e09d571d569dfc52a878bea90c";
+var apikey = "AIzaSyDCZSr-AlvZAUyBbAytuXVfVlkoGDLkFYA";
+var timeZoneKey = "AIzaSyBpIn1cOyM3O9Ud1LBmNeHAa0U9M54tx5U";
+$("#searchButton").on('click', function() {
+    callByPostal($("#search-bar").val());
+});
+
 function callByPostal(postal) {
-	console.log(postal); 
-	var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
-	console.log(GEOCODING); 
-	$.getJSON(GEOCODING, function(json) {
-		var lat = json.results["0"].geometry.location.lat;
-		var long = json.results["0"].geometry.location.lng; 
-		var for_call = "https://api.forecast.io/forecast/" + for_key + "/" + lat + "," + long + "?callback=?";
-		var address= json.results["0"].formatted_address; 
-	    $('#Location').text(address);
-		var country = address.slice(-3);
-		$.getJSON(for_call, function(json) {
-            changeHTML(json, country);
-        }); 
-	}); 
-}	
+
+    var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
+
+    $.getJSON(GEOCODING, function(json) {
+        var lat = json.results["0"].geometry.location.lat;
+        var long = json.results["0"].geometry.location.lng;
+        var for_call = "https://api.forecast.io/forecast/" + for_key + "/" + lat + "," + long + "?callback=?";
+        var address = json.results["0"].formatted_address;
+        $('#Location').text(address);
+        var country = address.slice(-3);
+        var timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + long + "&timestamp=" + new Date(Date.now()).getTime() / 1000 + "&key=" + timeZoneKey;
+        var timeZoneID;
+        $.getJSON(timezone, function(json) {
+            timeZoneID = json.timeZoneId;
+            $.getJSON(for_call, function(json) {
+                changeHTML(json, country, timeZoneID);
+            });
+        });
+
+    });
+}
 
 function callByIP(position) {
 
     // API stuff
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
-   
+
     var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + "," + long + "&key=" + apikey;
-   
+
     var for_call = "https://api.forecast.io/forecast/" + for_key + "/" + lat + "," + long + "?callback=?";
     /*  $.getJSON("https://api.forecast.io/forecast/813195e09d571d569dfc52a878bea90c/41.316809, -0.999647?callback=?", function(INFO){
     	  console.log(INFO); 
