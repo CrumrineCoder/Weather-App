@@ -127,22 +127,20 @@ function changeBackground(val) {
         document.body.style.backgroundColor = "#FF5337";
     }
 }
+//var clock;
+var intervals = [];  
 $(document).ready(function() {
-
+			intervals.push(setInterval(updateClockHome, 1000));
     getWeather();
     for (o = 0; o < 7; o++) {
         $("#" + o.toString() + "days").html(getDays(o));
     }
 });
 
-var clock;
-
 function updateClockHome() {
     var date = new Date(Date.now());
-    //	console.log("Date: " + date); 
     var timestr = date.toLocaleTimeString();
     document.getElementById('Time').innerHTML = timestr;
-    clock = setTimeout(updateClockHome, 1000);
 }
 
 function changeHTML(weatherInfo, country, home) {
@@ -163,36 +161,30 @@ function changeHTML(weatherInfo, country, home) {
     var secSet = weatherInfo.daily.data[0].sunsetTime;
     var dateSet = new Date(secSet * 1000);
     var timestrSet = dateSet;
-    if (home == null || home == "") {
-        clearTimeout(clock);
-        updateClockHome();
+	
+    if (typeof(home) == "undefined") {
         timestrRise = timestrRise.toLocaleTimeString();
         timestrSet = timestrSet.toLocaleTimeString();
         $("#sunrise").html(timestrRise);
-
         $("#sunset").html(timestrSet);
     } else {
-        clearTimeout(clock);
-
+           intervals.forEach( clearInterval );
         function updateClock() {
             var timestr = new Date().toLocaleString('en-US', {
                 timeZone: home
             })
             document.getElementById('Time').innerHTML = timestr.split(',')[1];
-            clock = setTimeout(updateClock, 1000);
         }
+		intervals.push(setInterval(updateClock, 1000));
         timestrRise = dateRise.toLocaleTimeString('en-US', {
             timeZone: home
         });
         timestrSet = dateSet.toLocaleTimeString('en-US', {
             timeZone: home
         });
-
         $("#sunrise").html(timestrRise);
-
         $("#sunset").html(timestrSet);
     }
-
     // Will return Farenheit
     function getFarenheitTemp() {
         //	console.log(weatherInfo); 
@@ -224,13 +216,11 @@ function changeHTML(weatherInfo, country, home) {
             $("#" + forecasticon[k] + "low").html(Math.round(fTOc(getTemperatureMin(k))));
         }
     }
-    setInterval(updateClock, 1000);
+    // setInterval(updateClockHome, 1000);
     // Show the user the cloudiness icon for the current day
     getIcon(weatherInfo.currently.icon, "cloudinessIcon");
-
     changeBackground(weatherInfo.currently.apparentTemperature);
     //getDefaultTemp();
-
     if (country == "USA") {
         getFarenheitTemp();
     } else {
@@ -242,20 +232,17 @@ function changeHTML(weatherInfo, country, home) {
     document.getElementById('c').onclick = function() {
         getCelsiusTemp();
     }
-
     // get the current cloudiness 
     $("#cloudinessCurrentDescription").html(weatherInfo.daily.data[0].summary)
-        // get the cloudiness for the rest of the day 
+    // get the cloudiness for the rest of the day 
     $("#cloudinessForeCast").html(weatherInfo.currently.summary)
-        // get witty precip and wind descriptions
+    // get witty precip and wind descriptions
     $("#windDescription").html(getWindDesc(weatherInfo.currently.windSpeed));
     $("#rainDescription").html(getPrecipDesc(weatherInfo.currently.precipIntensity));
     // get actual precip and wind
     $("#windNumber").html(weatherInfo.currently.windSpeed);
     $("#rainNumber").html(weatherInfo.currently.precipIntensity);
-
     $("#todaySummary").html(weatherInfo.daily.data[0].summary);
-
     // get weekly forecast icons
     for (j = 0; j < forecasticon.length; j++) {
         getIcon(weatherInfo.daily.data[j + 1].icon, forecasticon[j] + "-icon"); // example #mon-icon
@@ -269,9 +256,7 @@ $("#searchButton").on('click', function() {
 });
 
 function callByPostal(postal) {
-
     var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
-
     $.getJSON(GEOCODING, function(json) {
         var lat = json.results["0"].geometry.location.lat;
         var long = json.results["0"].geometry.location.lng;
@@ -287,18 +272,14 @@ function callByPostal(postal) {
                 changeHTML(json, country, timeZoneID);
             });
         });
-
     });
 }
 
 function callByIP(position) {
-
     // API stuff
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
-
     var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + "," + long + "&key=" + apikey;
-
     var for_call = "https://api.forecast.io/forecast/" + for_key + "/" + lat + "," + long + "?callback=?";
     /*  $.getJSON("https://api.forecast.io/forecast/813195e09d571d569dfc52a878bea90c/41.316809, -0.999647?callback=?", function(INFO){
     	  console.log(INFO); 
@@ -308,15 +289,12 @@ function callByIP(position) {
         var address = json.results[2].formatted_address;
         var country = address.slice(-3);
         $('#Location').text(address);
-
         $.getJSON(for_call, function(json) {
             changeHTML(json, country);
         });
     }); // End of GEOCODE 
 } // End of Success
-
 function getWeather() {
-
     function error() {
         console.log("error");
     }
