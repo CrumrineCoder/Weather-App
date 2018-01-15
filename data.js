@@ -31,7 +31,7 @@ var dayIcons = [{
     summary: "partly-cloudy-night",
     icon: "wi-night-alt-cloudy"
 }];
-
+// Find the icon by summary, get the class for the icon, and change the HTML of the element with the id given. 
 function getIcon(iconName, id) {
     for (i = 0; i < dayIcons.length; i++) {
         if (dayIcons[i].summary == iconName) {
@@ -39,18 +39,18 @@ function getIcon(iconName, id) {
         }
     }
 }
-
+// Get the time
 function getDays(days) {
     var currentDate = new Date(new Date().getTime() + (24 * 60 * 60 * 1000) * days);
     var thisDay = currentDate.getDay();
     thisDay = myDays[thisDay];
     return thisDay;
 }
-// Formulas for converting F to C and C to F
+// Convert celsius to farenheit
 function cTOf(temp) {
     return (temp * 1.8) + 32;
 }
-
+// Convert farenheit to celsius 
 function fTOc(temp) {
     return (temp - 32) * (5 / 9);
 }
@@ -95,7 +95,7 @@ function getWindDesc(speed) {
         return "WHY THE FUCK ARE YOU OUTSIDE?";
     }
 }
-
+// Based on the temperature outside, change the color of the background
 function changeBackground(val) {
     if (val < 0) {
         document.body.style.backgroundColor = "#D7FFF7";
@@ -127,16 +127,17 @@ function changeBackground(val) {
         document.body.style.backgroundColor = "#FF5337";
     }
 }
-//var clock;
+// Manage  the clock interval 
 var intervals = [];  
 $(document).ready(function() {
-			intervals.push(setInterval(updateClockHome, 1000));
+	intervals.push(setInterval(updateClockHome, 1000));
     getWeather();
     for (o = 0; o < 7; o++) {
         $("#" + o.toString() + "days").html(getDays(o));
     }
 });
 
+// Update the clock on screen
 function updateClockHome() {
     var date = new Date(Date.now());
     var timestr = date.toLocaleTimeString();
@@ -146,11 +147,11 @@ function updateClockHome() {
 function changeHTML(weatherInfo, country, home) {
     // Long List to convert the temperature to the color of the background			
     var forecasticon = ["mon", "tues", "wed", "thur", "fri", "sat"];
-
+	// Get the maximum temperature that will happen today. 
     function getTemperatureMax(k) {
         return Math.round(weatherInfo.daily.data[k + 1].temperatureMax);
     }
-
+	// Get the minimum temperature that will happen today. 
     function getTemperatureMin(k) {
         return Math.round(weatherInfo.daily.data[k + 1].temperatureMin);
     }
@@ -161,13 +162,14 @@ function changeHTML(weatherInfo, country, home) {
     var secSet = weatherInfo.daily.data[0].sunsetTime;
     var dateSet = new Date(secSet * 1000);
     var timestrSet = dateSet;
-	
+	// This is for when the home is changed by search and it can't be found by the API. It just will default to the normal time. 
     if (typeof(home) == "undefined") {
         timestrRise = timestrRise.toLocaleTimeString();
         timestrSet = timestrSet.toLocaleTimeString();
         $("#sunrise").html(timestrRise);
         $("#sunset").html(timestrSet);
     } else {
+		// If the home area CAN be found, reset the intervals and make a new one. 
            intervals.forEach( clearInterval );
         function updateClock() {
             var timestr = new Date().toLocaleString('en-US', {
@@ -185,9 +187,8 @@ function changeHTML(weatherInfo, country, home) {
         $("#sunrise").html(timestrRise);
         $("#sunset").html(timestrSet);
     }
-    // Will return Farenheit
+    // Update the temperature with Farenheit. 
     function getFarenheitTemp() {
-        //	console.log(weatherInfo); 
         $("#actualTemp").html(Math.round(weatherInfo.currently.temperature));
         $("#feelsTemp").html(Math.round(weatherInfo.currently.apparentTemperature));
         $("#todayLow").html(Math.round(weatherInfo.daily.data[0].apparentTemperatureLow));
@@ -201,7 +202,7 @@ function changeHTML(weatherInfo, country, home) {
             $("#" + forecasticon[k] + "low").html("<span class='wi wi-degrees'>" + Math.round(getTemperatureMin(k)) + "</span>");;
         }
     }
-
+// Update the temperature with Celsius. 
     function getCelsiusTemp() {
         $("#actualTemp").html(Math.round(fTOc(weatherInfo.currently.temperature)));
         $("#feelsTemp").html(Math.round(fTOc(weatherInfo.currently.apparentTemperature)));
@@ -216,16 +217,18 @@ function changeHTML(weatherInfo, country, home) {
             $("#" + forecasticon[k] + "low").html(Math.round(fTOc(getTemperatureMin(k))));
         }
     }
-    // setInterval(updateClockHome, 1000);
+  
     // Show the user the cloudiness icon for the current day
     getIcon(weatherInfo.currently.icon, "cloudinessIcon");
+	// Change the background based on the APPARENT temperature. 
     changeBackground(weatherInfo.currently.apparentTemperature);
-    //getDefaultTemp();
+    // If we're in the USA, then use Farenheit. If not, use Celsius. 
     if (country == "USA") {
         getFarenheitTemp();
     } else {
         getCelsiusTemp();
     }
+	// Set the onclicks for changing from Farenheit to Celsius and vice versa. 
     document.getElementById('f').onclick = function() {
         getFarenheitTemp();
     }
@@ -248,8 +251,11 @@ function changeHTML(weatherInfo, country, home) {
         getIcon(weatherInfo.daily.data[j + 1].icon, forecasticon[j] + "-icon"); // example #mon-icon
     }
 }; // END OF FORECAST.IO 
+
+// Geolocation API Call
 var for_key = "813195e09d571d569dfc52a878bea90c";
 var apikey = "AIzaSyDCZSr-AlvZAUyBbAytuXVfVlkoGDLkFYA";
+// TimeZone API Call. 
 var timeZoneKey = "AIzaSyBpIn1cOyM3O9Ud1LBmNeHAa0U9M54tx5U";
 $("#searchButton").on('click', function() {
     callByPostal($("#search-bar").val());
@@ -258,11 +264,16 @@ $("#searchButton").on('click', function() {
 function callByPostal(postal) {
     var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
     $.getJSON(GEOCODING, function(json) {
+		// get the longitude and latitutde. 
         var lat = json.results["0"].geometry.location.lat;
         var long = json.results["0"].geometry.location.lng;
+		// Forecast.io api call. 
         var for_call = "https://api.forecast.io/forecast/" + for_key + "/" + lat + "," + long + "?callback=?";
+		// Get the address. 
         var address = json.results["0"].formatted_address;
+		// Show the address. 
         $('#Location').text(address);
+		// Get the country. 
         var country = address.slice(-3);
         var timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + long + "&timestamp=" + new Date(Date.now()).getTime() / 1000 + "&key=" + timeZoneKey;
         var timeZoneID;
@@ -281,9 +292,6 @@ function callByIP(position) {
     var long = position.coords.longitude;
     var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + "," + long + "&key=" + apikey;
     var for_call = "https://api.forecast.io/forecast/" + for_key + "/" + lat + "," + long + "?callback=?";
-    /*  $.getJSON("https://api.forecast.io/forecast/813195e09d571d569dfc52a878bea90c/41.316809, -0.999647?callback=?", function(INFO){
-    	  console.log(INFO); 
-      }); */
     $.getJSON(GEOCODING, function(json) {
         // get location 
         var address = json.results[2].formatted_address;
@@ -293,7 +301,7 @@ function callByIP(position) {
             changeHTML(json, country);
         });
     }); // End of GEOCODE 
-} // End of Success
+}
 function getWeather() {
     function error() {
         console.log("error");
