@@ -236,7 +236,8 @@ function changeHTML(weatherInfo, country, home) {
         getCelsiusTemp();
     }
     // get the current cloudiness 
-    $("#cloudinessCurrentDescription").html(weatherInfo.daily.data[0].summary)
+	console.log(weatherInfo);
+    $("#cloudinessCurrentDescription").html(weatherInfo.currently.cloudCover*100 + " percent cloudy")
     // get the cloudiness for the rest of the day 
     $("#cloudinessForeCast").html(weatherInfo.currently.summary)
     // get witty precip and wind descriptions
@@ -246,6 +247,9 @@ function changeHTML(weatherInfo, country, home) {
     $("#windNumber").html(weatherInfo.currently.windSpeed);
     $("#rainNumber").html(weatherInfo.currently.precipIntensity);
     $("#todaySummary").html(weatherInfo.daily.data[0].summary);
+	
+	$("#weekSummary	").html(weatherInfo.daily.summary);
+	
     // get weekly forecast icons
     for (j = 0; j < forecasticon.length; j++) {
         getIcon(weatherInfo.daily.data[j + 1].icon, forecasticon[j] + "-icon"); // example #mon-icon
