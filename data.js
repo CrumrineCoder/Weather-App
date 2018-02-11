@@ -11,7 +11,10 @@ app.controller('weatherController', function($scope) {
 
 	$scope.success = function(pos) {
 	  var crd = pos.coords;
-
+	  
+	  document.getElementById("index").style.display = "block";
+      document.getElementById("splash").style.display = "none";
+	  console.log(crd.latitude);
 	  console.log('Your current position is:');
 	  console.log(`Latitude : ${crd.latitude}`);
 	  console.log(`Longitude: ${crd.longitude}`);
@@ -19,11 +22,11 @@ app.controller('weatherController', function($scope) {
 	};
 
 	$scope.error = function(err) {
+		// Have some funny phrases appear below the button and it just keeps adding on. Add like 30 of these. Haha.
 	  console.warn(`ERROR(${err.code}): ${err.message}`);
 	};
 
 	$scope.getLocation = function(){
-		console.log("HI");
 		navigator.geolocation.getCurrentPosition($scope.success, $scope.error, $scope.options);
 	}
 });

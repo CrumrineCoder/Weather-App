@@ -22,7 +22,7 @@ body, html {
 /* line 35, ../sass/screen.scss */
 #splash h2 {
   font-size: 16px;
-  padding: 10px;
+  padding: 30px;
   width: 80%;
   position: absolute;
   top: 50%;
@@ -53,15 +53,10 @@ body, html {
   display: block;
   width: 80%;
   padding: 5px;
-  background: white;
+  background-color: white;
   border: #409834 3px solid;
   color: black;
   margin: 10px auto;
-  -webkit-transition: .5s;
-  -moz-transition: .5s;
-  -ms-transition: .5s;
-  -o-transition: .5s;
-  transition: .5s;
 }
 @media (min-width: 1200px) {
   /* line 54, ../sass/screen.scss */
@@ -81,9 +76,18 @@ body, html {
     font-size: 20px;
   }
 }
-/* line 76, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 #splash button:hover {
-  background: #204c1a;
-  border: #204c1a 2px solid;
+  background-color: #204c1a;
+  border: #204c1a 3px solid;
   color: white;
+}
+/* line 77, ../sass/screen.scss */
+#splash button:focus {
+  outline: 0;
+}
+
+/* line 83, ../sass/screen.scss */
+#index {
+  display: none;
 }
