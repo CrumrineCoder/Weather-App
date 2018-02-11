@@ -15,6 +15,8 @@ $medium: "(min-width: 992px) and (max-width: 1199px)";
 /* Large devices (large desktops, 1200px and up) */
 $large: "(min-width:1200px)";
 
+$smallToLarge: "(min-width:768px)";
+
 @mixin media($queryString){
 	@media #{$queryString} {
       @content;
@@ -89,13 +91,33 @@ body, html{
 	nav {
 		 display: block;
 		 background: black;
-		@include media(($small)){
-			display: inline; 
+		  @include media(($large)){
+			nav > div{
+				display: inline; 
+			}
+			padding: 10px;
+		  }
+		@include media(($smallToLarge)) {
+			#columns{
+				padding-top: 10px;
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: center;
+				#ad, #Location, #Time{
+					flex: 1;
+				}
+				 @include media(($large)){
+					padding: 0px; 
+					width: 70%;
+					float: left; 
+				 }
+			}
 		}
 		#ad {
 			 text-align: center;
 			 font-size: 14px;
 			 margin: 0 auto;
+			 width: 100%;
 			 #nic {
 				 color: #40CC33;
 				 text-decoration: none;
@@ -103,34 +125,42 @@ body, html{
 			 #nic:hover {
 				 color: #4A9943;
 			 }
-	/*		 @include media(($large)){
-				font-size: 30px; 
-			}
-			@include media(($medium)){
-				font-size: 24px; 
-			} */
-			@include media(($small)){
-				float: left; 
-			}
+			  @include media(($large)){
+				font-size: 12px; 
+			  }
+		}
+		#Location{
+			text-align: center; 
+			width: 100%;
+		}
+		#Time{	
+			text-align: center; 
+			width: 100%;
 		}
 		#search-bar {
 			width: 100%;
 			color: grey;
 			font-size: 14px;
 			height: 28px;
+			@include media(($medium)){
+				width: 80%;
+			}
+			@include media(($large)){
+				float: left; 
+				width: 25%; 
+			}
 		}
 		#searchButton {
 			 width: 100%;
 			 background: #8F92E0;
 			 border: none;
 			 height: 28px;
-		}
-		#Location{
-			text-align: center; 
-		}
-		#Time{
-			@include media(($small)){
-				float: right; 
+			 @include media(($medium)){
+				width: 20%;
+			}
+			@include media(($large)){
+				width: 5%;
+				border-radius: 0px 15px 15px 0px;
 			}
 		}
 		#searchButton:hover {

@@ -4,22 +4,22 @@
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
-/* line 24, ../sass/screen.scss */
+/* line 26, ../sass/screen.scss */
 body, html {
   height: 100%;
   background: #409834;
 }
 
-/* line 29, ../sass/screen.scss */
+/* line 31, ../sass/screen.scss */
 #splash {
   position: relative;
   height: 100%;
 }
-/* line 32, ../sass/screen.scss */
+/* line 34, ../sass/screen.scss */
 #splash span {
   color: red;
 }
-/* line 35, ../sass/screen.scss */
+/* line 37, ../sass/screen.scss */
 #splash h2 {
   font-size: 16px;
   padding: 30px;
@@ -31,24 +31,24 @@ body, html {
   background: #B9E5B3;
 }
 @media (min-width: 1200px) {
-  /* line 35, ../sass/screen.scss */
+  /* line 37, ../sass/screen.scss */
   #splash h2 {
     font-size: 30px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 35, ../sass/screen.scss */
+  /* line 37, ../sass/screen.scss */
   #splash h2 {
     font-size: 24px;
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
-  /* line 35, ../sass/screen.scss */
+  /* line 37, ../sass/screen.scss */
   #splash h2 {
     font-size: 20px;
   }
 }
-/* line 54, ../sass/screen.scss */
+/* line 56, ../sass/screen.scss */
 #splash button {
   display: block;
   width: 80%;
@@ -59,42 +59,42 @@ body, html {
   margin: 10px auto;
 }
 @media (min-width: 1200px) {
-  /* line 54, ../sass/screen.scss */
+  /* line 56, ../sass/screen.scss */
   #splash button {
     font-size: 30px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 54, ../sass/screen.scss */
+  /* line 56, ../sass/screen.scss */
   #splash button {
     font-size: 24px;
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
-  /* line 54, ../sass/screen.scss */
+  /* line 56, ../sass/screen.scss */
   #splash button {
     font-size: 20px;
   }
 }
-/* line 72, ../sass/screen.scss */
+/* line 74, ../sass/screen.scss */
 #splash button:hover {
   background-color: #204c1a;
   border: #204c1a 3px solid;
   color: white;
 }
-/* line 77, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 #splash button:focus {
   outline: 0;
 }
 
-/* line 83, ../sass/screen.scss */
+/* line 85, ../sass/screen.scss */
 #index {
   display: none;
   color: white;
   font-family: 'Questrial', sans-serif;
   font-size: 16px;
 }
-/* line 89, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 #index nav {
   display: block;
   background: black;
@@ -103,64 +103,111 @@ body, html {
   	width: 50px;
    */
 }
-@media (min-width: 768px) and (max-width: 992px) {
-  /* line 89, ../sass/screen.scss */
+@media (min-width: 1200px) {
+  /* line 91, ../sass/screen.scss */
   #index nav {
+    padding: 10px;
+  }
+  /* line 95, ../sass/screen.scss */
+  #index nav nav > div {
     display: inline;
   }
 }
-/* line 95, ../sass/screen.scss */
+@media (min-width: 768px) {
+  /* line 101, ../sass/screen.scss */
+  #index nav #columns {
+    padding-top: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  /* line 106, ../sass/screen.scss */
+  #index nav #columns #ad, #index nav #columns #Location, #index nav #columns #Time {
+    flex: 1;
+  }
+}
+@media (min-width: 768px) and (min-width: 1200px) {
+  /* line 101, ../sass/screen.scss */
+  #index nav #columns {
+    padding: 0px;
+    width: 70%;
+    float: left;
+  }
+}
+
+/* line 116, ../sass/screen.scss */
 #index nav #ad {
   text-align: center;
   font-size: 14px;
   margin: 0 auto;
-  /*		 @include media(($large)){
-  			font-size: 30px; 
-  		}
-  		@include media(($medium)){
-  			font-size: 24px; 
-  		} */
+  width: 100%;
 }
-/* line 99, ../sass/screen.scss */
+/* line 121, ../sass/screen.scss */
 #index nav #ad #nic {
   color: #40CC33;
   text-decoration: none;
 }
-/* line 103, ../sass/screen.scss */
+/* line 125, ../sass/screen.scss */
 #index nav #ad #nic:hover {
   color: #4A9943;
 }
-@media (min-width: 768px) and (max-width: 992px) {
-  /* line 95, ../sass/screen.scss */
+@media (min-width: 1200px) {
+  /* line 116, ../sass/screen.scss */
   #index nav #ad {
-    float: left;
+    font-size: 12px;
   }
 }
-/* line 116, ../sass/screen.scss */
+/* line 132, ../sass/screen.scss */
+#index nav #Location {
+  text-align: center;
+  width: 100%;
+}
+/* line 136, ../sass/screen.scss */
+#index nav #Time {
+  text-align: center;
+  width: 100%;
+}
+/* line 140, ../sass/screen.scss */
 #index nav #search-bar {
   width: 100%;
   color: grey;
   font-size: 14px;
   height: 28px;
 }
-/* line 122, ../sass/screen.scss */
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* line 140, ../sass/screen.scss */
+  #index nav #search-bar {
+    width: 80%;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 140, ../sass/screen.scss */
+  #index nav #search-bar {
+    float: left;
+    width: 25%;
+  }
+}
+/* line 153, ../sass/screen.scss */
 #index nav #searchButton {
   width: 100%;
   background: #8F92E0;
   border: none;
   height: 28px;
 }
-/* line 128, ../sass/screen.scss */
-#index nav #Location {
-  text-align: center;
-}
-@media (min-width: 768px) and (max-width: 992px) {
-  /* line 131, ../sass/screen.scss */
-  #index nav #Time {
-    float: right;
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* line 153, ../sass/screen.scss */
+  #index nav #searchButton {
+    width: 20%;
   }
 }
-/* line 136, ../sass/screen.scss */
+@media (min-width: 1200px) {
+  /* line 153, ../sass/screen.scss */
+  #index nav #searchButton {
+    width: 5%;
+    border-radius: 0px 15px 15px 0px;
+  }
+}
+/* line 166, ../sass/screen.scss */
 #index nav #searchButton:hover {
   background: #6D6FAB;
 }

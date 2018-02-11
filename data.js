@@ -39,11 +39,9 @@ app.controller('weatherController', function($scope) {
 	// Find the icon by summary, get the class for the icon, and change the HTML of the element with the id given. 
 	$scope.currentWeather = {}
 	$scope.getIcon = function(iconName) {
-		console.log(iconName);
 		for (i = 0; i < $scope.dayIcons.length; i++) {
 			if ($scope.dayIcons[i].summary == iconName) {
 				$scope.$apply(function () {
-					console.log($scope.dayIcons[i].icon);
 					$scope.currentWeather.icon = "wi " + $scope.dayIcons[i].icon;
 				});
 			}

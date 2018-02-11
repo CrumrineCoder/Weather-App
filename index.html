@@ -22,14 +22,15 @@
 	<div id="index" >
 	
 		<nav>
-		
-			<div id="ad">
-				<span id="weatherApp"> Weather App by</span>
-				<a href="https://crumrinecoder.github.io/Profile-Website-version2/" id="nic"> Nicolas Crumrine</span></a>
-				<br> Powered by <a href="https://darksky.net/poweredby/">Dark Skys </a> and Geolocation
+			<div id="columns"> 
+				<div id="ad">
+					<span id="weatherApp"> Weather App by</span>
+					<a href="https://crumrinecoder.github.io/Profile-Website-version2/" id="nic"> Nicolas Crumrine</span></a>
+					<br> Powered by <a href="https://darksky.net/poweredby/">Dark Skys </a> and Geolocation
+				</div>
+				<div id="Location"> {{Location}} </div>
+				<div id="Time"> {{Time}} </div>
 			</div>
-			<div id="Location" class="col-md-3"> {{Location}} </div>
-			<div id="Time" class="col-md-2 text-center"> {{Time}} </div>
 			<input type="text" placeholder="Search. Be specific. API is not perfect." id="search-bar" class="col-md-4 text-center">
 			<!-- Angular up this search -->
 			<button id="searchButton" ng-click="callByPostal($('#search-bar').val());">
