@@ -89,6 +89,9 @@ body, html{
 	nav {
 		 display: block;
 		 background: black;
+		@include media(($small)){
+			display: inline; 
+		}
 		#ad {
 			 text-align: center;
 			 font-size: 14px;
@@ -100,6 +103,15 @@ body, html{
 			 #nic:hover {
 				 color: #4A9943;
 			 }
+	/*		 @include media(($large)){
+				font-size: 30px; 
+			}
+			@include media(($medium)){
+				font-size: 24px; 
+			} */
+			@include media(($small)){
+				float: left; 
+			}
 		}
 		#search-bar {
 			width: 100%;
@@ -111,14 +123,23 @@ body, html{
 			 width: 100%;
 			 background: #8F92E0;
 			 border: none;
-			
 			 height: 28px;
-			 
+		}
+		#Location{
+			text-align: center; 
+		}
+		#Time{
+			@include media(($small)){
+				float: right; 
+			}
 		}
 		#searchButton:hover {
 			background: #6D6FAB;
 		}
-		
+		/*
+			border-radius: 0px 15px 15px 0px;
+			width: 50px;
+		 */
 
     }
      

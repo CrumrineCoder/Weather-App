@@ -2,6 +2,148 @@
 
 var app = angular.module('weatherApp', []);
 app.controller('weatherController', function($scope) {
+	
+	$scope.myDays = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"];
+	// Convert the summary of the day to an icon
+	$scope.dayIcons = [{
+		summary: "clear-day",
+		icon: "wi-day-sunny"
+	}, {
+		summary: "clear-night",
+		icon: "wi-night-clear"
+	}, {
+		summary: "rain",
+		icon: "wi-rain"
+	}, {
+		summary: "snow",
+		icon: "wi-snow"
+	}, {
+		summary: "sleet",
+		icon: "wi-sleet"
+	}, {
+		summary: "wind",
+		icon: "wi-windy"
+	}, {
+		summary: "fog",
+		icon: "wi-fog"
+	}, {
+		summary: "cloudy",
+		icon: "wi-cloudy"
+	}, {
+		summary: "partly-cloudy-day",
+		icon: "wi-day-cloudy"
+	}, {
+		summary: "partly-cloudy-night",
+		icon: "wi-night-alt-cloudy"
+	}];
+	// Find the icon by summary, get the class for the icon, and change the HTML of the element with the id given. 
+	$scope.currentWeather = {}
+	$scope.getIcon = function(iconName) {
+		console.log(iconName);
+		for (i = 0; i < $scope.dayIcons.length; i++) {
+			if ($scope.dayIcons[i].summary == iconName) {
+				$scope.$apply(function () {
+					console.log($scope.dayIcons[i].icon);
+					$scope.currentWeather.icon = "wi " + $scope.dayIcons[i].icon;
+				});
+			}
+		}
+	} 
+	
+	
+	
+	// Get the time
+	$scope.getDays = function(days) {
+		var currentDate = new Date(new Date().getTime() + (24 * 60 * 60 * 1000) * days);
+		var thisDay = currentDate.getDay();
+		thisDay = myDays[thisDay];
+		return thisDay;
+	}
+	// Convert celsius to farenheit
+	$scope.cTOf = function(temp) {
+		return (temp * 1.8) + 32;
+	}
+	// Convert farenheit to celsius 
+	$scope.fTOc = function(temp) {
+		return (temp - 32) * (5 / 9);
+	}
+	// Descriptions for the Preciptiation
+	$scope.getPrecipDesc = function(precip) {
+		if (precip < 0.01) {
+			return "The flowers would be crying if they had water";
+		}
+		if (precip < 0.098) {
+			return "You could carry this rain it's so light";
+		}
+		if (precip < .1) {
+			return "Meh, bring an umbrella";
+		}
+		if (precip < .3) {
+			return "Bring your shampoo to work and shower on the way"
+		}
+		if (precip >= .3) {
+			return "GET IN THE ARK, NOAH";
+		}
+	}
+	// Descriptions for the Wind Speed
+	$scope.getWindDesc = function(speed) {
+		/* Ack: https://www.windfinder.com/wind/windspeed.htm for brief descriptions of windspeed, which I based these off of */
+		if (speed < .2) {
+			return "Wind? We don't know of Wind in this country.";
+		} else if (speed < 1.5) {
+			return "Pretty much no wind.";
+		} else if (speed < 3.3) {
+			return "You'll feel a bit of wind.";
+		} else if (speed < 5.4) {
+			return "While the twigs do look possessed, don't call the Ghostbusters";
+		} else if (speed < 7.9) {
+			return "WATCH OUT IT'S A MINI TORNADO AAAAAAH!";
+		} else if (speed < 10.7) {
+			return "Be on the lookout for long branches on the ground, they might attack you.";
+		} else if (speed < 13.8) {
+			return "HAHAHA GOOD LUCK USING THAT UMBRELLA HAHAHAHAH";
+		} else if (speed < 17.1) {
+			return "AAAAH THE TREES ARE POSSESSED AAAAH!!!";
+		} else if (speed >= 17.1) {
+			return "WHY THE FUCK ARE YOU OUTSIDE?";
+		}
+	}
+	$scope.backgroundColor = {background: "#FFFFF2"}; 
+	// Based on the temperature outside, change the color of the background
+	$scope.changeBackground = function(val) {
+		if (val < 0) {
+			$scope.backgroundColor.background = "#D7FFF7";
+		} else if (val < 9) {
+			$scope.backgroundColor.background = "#C9FFF7";
+		} else if (val < 19) {
+			$scope.backgroundColor.background = "#BDFFF7";
+		} else if (val < 29) {
+			$scope.backgroundColor.background = "#AAFFF7";
+		} else if (val < 39) {
+			$scope.backgroundColor.background = "#86FFE6";
+		} else if (val < 49) {
+			$scope.backgroundColor.background = "#61FFBE";
+		} else if (val < 59) {
+			$scope.backgroundColor.background = "#55FF8C";
+		} else if (val < 69) {
+			$scope.backgroundColor.background = "#4AFF6A";
+		} else if (val < 79) {
+			$scope.backgroundColor.background = "#40DE40";
+		} else if (val < 85) {
+			$scope.backgroundColor.background = "#C6FF3E";
+		} else if (val < 90) {
+			$scope.backgroundColor.background = "#FFF744";
+		} else if (val < 95) {
+			$scope.backgroundColor.background = "#FFC92B";
+		} else if (val < 100) {
+			$scope.backgroundColor.background = "#FF9036";
+		} else if (val >= 100) {
+			$scope.backgroundColor.background = "#FF5337";
+		}
+	}
+	
+
+
 	// Forecast.io API Call
 	var forkey = "813195e09d571d569dfc52a878bea90c";
 	// Geolocation API Call
@@ -37,8 +179,33 @@ app.controller('weatherController', function($scope) {
 			});
 		}); // End of GEOCODE 
 	}
+	$scope.callByPostal =function(postal) {
+		var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
+		$.getJSON(GEOCODING, function(json) {
+			// get the longitude and latitutde. 
+			var lat = json.results["0"].geometry.location.lat;
+			var long = json.results["0"].geometry.location.lng;
+			// Forecast.io api call. 
+			var for_call = "https://api.forecast.io/forecast/" + for_key + "/" + lat + "," + long + "?callback=?";
+			// Get the address. 
+			var address = json.results["0"].formatted_address;
+			// Show the address. 
+			$('#Location').text(address);
+			// Get the country. 
+			var country = address.slice(-3);
+			var timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + long + "&timestamp=" + new Date(Date.now()).getTime() / 1000 + "&key=" + timeZoneKey;
+			var timeZoneID;
+			$.getJSON(timezone, function(json) {
+				timeZoneID = json.timeZoneId;
+				$.getJSON(for_call, function(json) {
+					changeHTML(json, country, timeZoneID);
+				});
+			});
+		});
+	}
 	
 	$scope.getForecastData = function(weatherInfo, country, home) {
+		$scope.getIcon(weatherInfo.currently.icon);
 		var intervals = []; 
 		
 		$(document).ready(function() {
@@ -158,30 +325,35 @@ app.controller('weatherController', function($scope) {
 			getCelsiusTemp();
 		}
 		// Set the onclicks for changing from Farenheit to Celsius and vice versa. 
-	/*	document.getElementById('f').onclick = function() {
+		document.getElementById('f').onclick = function() {
 			getFarenheitTemp();
 		}
 		document.getElementById('c').onclick = function() {
 			getCelsiusTemp();
-		} */
-		// get the current cloudiness 
-	/*	$("#cloudinessCurrentDescription").html(weatherInfo.currently.cloudCover*100 + " percent cloudy")
-		// get the cloudiness for the rest of the day 
-		$("#cloudinessForeCast").html(weatherInfo.currently.summary)
-		// get witty precip and wind descriptions
-		$("#windDescription").html(getWindDesc(weatherInfo.currently.windSpeed));
-		$("#rainDescription").html(getPrecipDesc(weatherInfo.currently.precipIntensity));
-		// get actual precip and wind
-		$("#windNumber").html(weatherInfo.currently.windSpeed);
-		$("#rainNumber").html(weatherInfo.currently.precipIntensity);
-		$("#todaySummary").html(weatherInfo.daily.data[0].summary);
+		} 
 		
-		$("#weekSummary	").html(weatherInfo.daily.summary);
-		
+		$scope.$apply(function () {
+			// get the current cloudiness 
+			$scope.cloudiness = Math.round(weatherInfo.currently.cloudCover*100) + " percent cloudy";
+			// get the cloudiness for the rest of the day 
+			$scope.cloudinessForecast = weatherInfo.currently.summary;
+
+			// get witty precip and wind descriptions
+			$scope.wind = $scope.getWindDesc(weatherInfo.currently.windSpeed);
+			$scope.rain = $scope.getPrecipDesc(weatherInfo.currently.precipIntensity);
+
+			// get actual precip and wind
+			$scope.windIntensity = weatherInfo.currently.windSpeed;
+			$scope.rainIntensity = weatherInfo.currently.precipIntensity;
+
+			// get the summaries
+			$scope.todaySummary = weatherInfo.daily.data[0].summary;
+			$scope.weekSummary = weatherInfo.daily.summary;
+		});
 		// get weekly forecast icons
-		for (j = 0; j < forecasticon.length; j++) {
-			getIcon(weatherInfo.daily.data[j + 1].icon, forecasticon[j] + "-icon"); // example #mon-icon
-		} */
+	//	for (j = 0; j < forecasticon.length; j++) {
+	//		getIcon(weatherInfo.daily.data[j + 1].icon, forecasticon[j] + "-icon"); // example #mon-icon
+	//	} 
 	}; // END OF FORECAST.IO 
 
 	$scope.error = function(err) {

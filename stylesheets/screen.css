@@ -98,37 +98,69 @@ body, html {
 #index nav {
   display: block;
   background: black;
+  /*
+  	border-radius: 0px 15px 15px 0px;
+  	width: 50px;
+   */
 }
-/* line 92, ../sass/screen.scss */
+@media (min-width: 768px) and (max-width: 992px) {
+  /* line 89, ../sass/screen.scss */
+  #index nav {
+    display: inline;
+  }
+}
+/* line 95, ../sass/screen.scss */
 #index nav #ad {
   text-align: center;
   font-size: 14px;
   margin: 0 auto;
+  /*		 @include media(($large)){
+  			font-size: 30px; 
+  		}
+  		@include media(($medium)){
+  			font-size: 24px; 
+  		} */
 }
-/* line 96, ../sass/screen.scss */
+/* line 99, ../sass/screen.scss */
 #index nav #ad #nic {
   color: #40CC33;
   text-decoration: none;
 }
-/* line 100, ../sass/screen.scss */
+/* line 103, ../sass/screen.scss */
 #index nav #ad #nic:hover {
   color: #4A9943;
 }
-/* line 104, ../sass/screen.scss */
+@media (min-width: 768px) and (max-width: 992px) {
+  /* line 95, ../sass/screen.scss */
+  #index nav #ad {
+    float: left;
+  }
+}
+/* line 116, ../sass/screen.scss */
 #index nav #search-bar {
   width: 100%;
   color: grey;
   font-size: 14px;
   height: 28px;
 }
-/* line 110, ../sass/screen.scss */
+/* line 122, ../sass/screen.scss */
 #index nav #searchButton {
   width: 100%;
   background: #8F92E0;
   border: none;
   height: 28px;
 }
-/* line 118, ../sass/screen.scss */
+/* line 128, ../sass/screen.scss */
+#index nav #Location {
+  text-align: center;
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  /* line 131, ../sass/screen.scss */
+  #index nav #Time {
+    float: right;
+  }
+}
+/* line 136, ../sass/screen.scss */
 #index nav #searchButton:hover {
   background: #6D6FAB;
 }
