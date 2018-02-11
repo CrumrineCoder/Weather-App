@@ -23,9 +23,9 @@ $large: "(min-width:1200px)";
 
 body, html{
 	height: $container-height;
-	background: darken($defaultBackground, 40%);
-	
+	background: darken($defaultBackground, 40%);	
 }
+
 #splash{
 	position: relative; 
 	height: $container-height;
@@ -82,4 +82,24 @@ body, html{
 
 #index{
 	display: none; 
+	color: white;
+	font-family: 'Questrial', sans-serif;
+	font-size: 16px;
+	
+	nav {
+		 display: block;
+		#ad {
+			 text-align: center;
+			 font-size: 14px;
+			 float: none; 
+			 margin: 0 auto;
+		}
+		 #search-bar {
+			 width: 100%;
+		}
+		 #searchButton {
+			 width: 100%;
+		}
+    }
+     
 }

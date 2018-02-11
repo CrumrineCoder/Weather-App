@@ -90,4 +90,26 @@ body, html {
 /* line 83, ../sass/screen.scss */
 #index {
   display: none;
+  color: white;
+  font-family: 'Questrial', sans-serif;
+  font-size: 16px;
+}
+/* line 89, ../sass/screen.scss */
+#index nav {
+  display: block;
+}
+/* line 91, ../sass/screen.scss */
+#index nav #ad {
+  text-align: center;
+  font-size: 14px;
+  float: none;
+  margin: 0 auto;
+}
+/* line 97, ../sass/screen.scss */
+#index nav #search-bar {
+  width: 100%;
+}
+/* line 100, ../sass/screen.scss */
+#index nav #searchButton {
+  width: 100%;
 }
