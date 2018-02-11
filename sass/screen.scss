@@ -33,6 +33,9 @@ body, html{
 		color: red;
 	}
 	h2{
+	  font-size: 16px; 
+	  padding: 10px; 
+	  width: 80%;
 	  position: absolute;
 	  top: 50%;
 	  left: 50%;
@@ -40,15 +43,12 @@ body, html{
 	  background: $defaultBackground; 
 		@include media(($large)){
 			font-size: 30px; 
-			color: red; 
 		}
 		@include media(($medium)){
 			font-size: 24px; 
-			color: green; 
 		}
 		@include media(($small)){
 			font-size: 20px; 
-			color: blue; 
 		}
     }
 }
