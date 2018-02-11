@@ -236,7 +236,6 @@ function changeHTML(weatherInfo, country, home) {
         getCelsiusTemp();
     }
     // get the current cloudiness 
-	console.log(weatherInfo);
     $("#cloudinessCurrentDescription").html(weatherInfo.currently.cloudCover*100 + " percent cloudy")
     // get the cloudiness for the rest of the day 
     $("#cloudinessForeCast").html(weatherInfo.currently.summary)

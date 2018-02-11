@@ -124,9 +124,8 @@ text-align: center;
 }
 
 @media screen and (max-width: 1000px) {
-  nav > div{
-    display: block; 
-    
+  nav{
+	margin: 0 auto; 
   }
   #ad{
     text-align: center;
@@ -141,8 +140,11 @@ text-align: center;
 	  border-radius: 0px; 	
   }
   #Time{
-    font-size: 20px; 
-	width: 100%; 
+     font-size: 20px; 
+    width: 100%;  
+	text-align: center; 
+	background: red; 
+	
   }
   #Location{
     font-size: 20px; 

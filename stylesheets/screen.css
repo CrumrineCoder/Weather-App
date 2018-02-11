@@ -2,24 +2,21 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../../../../Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-
-
 /* Entire Document */
-/* line 10, ../sass/screen.scss */
+/* line 9, ../sass/screen.scss */
 body {
   color: white;
   font-family: 'Questrial', sans-serif;
   font-size: 16px;
 }
 
-/* line 17, ../sass/screen.scss */
+/* line 16, ../sass/screen.scss */
 button:focus {
   outline: 0;
 }
 
 /* !!NAV!! */
-/* line 22, ../sass/screen.scss */
+/* line 21, ../sass/screen.scss */
 nav {
   background: black;
   color: white;
@@ -29,37 +26,37 @@ nav {
   font-family: sans-serif;
 }
 
-/* line 31, ../sass/screen.scss */
+/* line 30, ../sass/screen.scss */
 nav > div {
   display: inline;
 }
 
-/* line 35, ../sass/screen.scss */
+/* line 34, ../sass/screen.scss */
 #ad {
   float: left;
   padding-right: 20px;
   font-size: 10px;
 }
 
-/* line 41, ../sass/screen.scss */
+/* line 40, ../sass/screen.scss */
 #nic {
   color: #40CC33;
   text-decoration: none;
 }
 
-/* line 45, ../sass/screen.scss */
+/* line 44, ../sass/screen.scss */
 #nic:hover {
   color: #4A9943;
 }
 
-/* line 49, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 #search-bar {
   color: grey;
   font-size: 14px;
   height: 28px;
 }
 
-/* line 55, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 #searchButton {
   background: #8F92E0;
   border: none;
@@ -68,18 +65,18 @@ nav > div {
   border-radius: 0px 15px 15px  0px;
 }
 
-/* line 62, ../sass/screen.scss */
+/* line 61, ../sass/screen.scss */
 #searchButton:hover {
   background: #6D6FAB;
 }
 
-/* line 66, ../sass/screen.scss */
+/* line 65, ../sass/screen.scss */
 #Location {
   float: right;
 }
 
 /* !! BODY!! */
-/* line 72, ../sass/screen.scss */
+/* line 71, ../sass/screen.scss */
 #transparentGreyBackground {
   margin: 4%;
   opacity: .9;
@@ -88,20 +85,20 @@ nav > div {
   padding: 2%;
 }
 
-/* line 80, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 #fcButtons {
   text-align: center;
   width: 100%;
 }
 
-/* line 84, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 #fcButtons > button, #fcButtons > span {
   text-align: center;
   vertical-align: top;
   font-size: 20px;
 }
 
-/* line 90, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 #f, #c {
   background-color: #312c32;
   border: none;
@@ -109,7 +106,7 @@ nav > div {
 }
 
 /* TODAYS FORECAST */
-/* line 98, ../sass/screen.scss */
+/* line 97, ../sass/screen.scss */
 #todaysForecast td {
   font-size: 16px;
   padding-left: 10%;
@@ -117,65 +114,56 @@ nav > div {
   text-align: center;
 }
 
-/* line 105, ../sass/screen.scss */
+/* line 104, ../sass/screen.scss */
 .temperatureReading {
   font-size: 24px;
   text-align: center;
   font-style: bold;
 }
 
-/* line 111, ../sass/screen.scss */
+/* line 110, ../sass/screen.scss */
 #cloudinessIcon {
   font-size: 50px;
 }
 
-/* line 115, ../sass/screen.scss */
+/* line 114, ../sass/screen.scss */
 .wi-raindrop {
   color: #0E5D9E;
 }
 
 /* WEEKLY FORECAST */
-/* line 121, ../sass/screen.scss */
+/* line 120, ../sass/screen.scss */
 #weeklyForecast {
   width: 100%;
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 1000px) {
-  /* line 128, ../sass/screen.scss */
-  nav > div {
-    display: block;
+  /* line 127, ../sass/screen.scss */
+  nav {
+    margin: 0 auto;
   }
 
-  /* line 132, ../sass/screen.scss */
+  /* line 130, ../sass/screen.scss */
   #ad {
     text-align: center;
     width: 100%;
-    font-size: 20px;
+    font-size: 14px;
   }
 
-  /* line 137, ../sass/screen.scss */
+  /* line 135, ../sass/screen.scss */
   #search-bar {
     width: 100%;
   }
 
-  /* line 140, ../sass/screen.scss */
+  /* line 138, ../sass/screen.scss */
   #searchButton {
     width: 100%;
     border-radius: 0px;
   }
 
-  /* line 144, ../sass/screen.scss */
-  #Time {
-    font-size: 20px;
-    width: 100%;
-  }
-
-  /* line 148, ../sass/screen.scss */
-  #Location {
-    font-size: 20px;
-    width: 100%;
-    text-align: center;
-  }
+	#Location{
+		text-align: center; 
+	}
 }
