@@ -97,19 +97,38 @@ body, html {
 /* line 89, ../sass/screen.scss */
 #index nav {
   display: block;
+  background: black;
 }
-/* line 91, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 #index nav #ad {
   text-align: center;
   font-size: 14px;
-  float: none;
   margin: 0 auto;
 }
-/* line 97, ../sass/screen.scss */
-#index nav #search-bar {
-  width: 100%;
+/* line 96, ../sass/screen.scss */
+#index nav #ad #nic {
+  color: #40CC33;
+  text-decoration: none;
 }
 /* line 100, ../sass/screen.scss */
+#index nav #ad #nic:hover {
+  color: #4A9943;
+}
+/* line 104, ../sass/screen.scss */
+#index nav #search-bar {
+  width: 100%;
+  color: grey;
+  font-size: 14px;
+  height: 28px;
+}
+/* line 110, ../sass/screen.scss */
 #index nav #searchButton {
   width: 100%;
+  background: #8F92E0;
+  border: none;
+  height: 28px;
+}
+/* line 118, ../sass/screen.scss */
+#index nav #searchButton:hover {
+  background: #6D6FAB;
 }

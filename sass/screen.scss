@@ -88,18 +88,38 @@ body, html{
 	
 	nav {
 		 display: block;
+		 background: black;
 		#ad {
 			 text-align: center;
 			 font-size: 14px;
-			 float: none; 
 			 margin: 0 auto;
+			 #nic {
+				 color: #40CC33;
+				 text-decoration: none;
+			 }
+			 #nic:hover {
+				 color: #4A9943;
+			 }
 		}
-		 #search-bar {
+		#search-bar {
+			width: 100%;
+			color: grey;
+			font-size: 14px;
+			height: 28px;
+		}
+		#searchButton {
 			 width: 100%;
+			 background: #8F92E0;
+			 border: none;
+			
+			 height: 28px;
+			 
 		}
-		 #searchButton {
-			 width: 100%;
+		#searchButton:hover {
+			background: #6D6FAB;
 		}
+		
+
     }
      
 }
