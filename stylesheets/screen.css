@@ -1,22 +1,50 @@
 /* Splash page */
-/* line 5, ../sass/screen.scss */
+/* Extra small devices (phones, less than 768px) */
+/* No media query because I'm doing Mobile first design. */
+/* Small devices (tablets, 768px and up) */
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
+/* line 24, ../sass/screen.scss */
 body, html {
   height: 100%;
+  background: #409834;
 }
 
-/* line 8, ../sass/screen.scss */
+/* line 29, ../sass/screen.scss */
 #splash {
   position: relative;
   height: 100%;
 }
-/* line 11, ../sass/screen.scss */
+/* line 32, ../sass/screen.scss */
 #splash span {
   color: red;
 }
-/* line 14, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 #splash h2 {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: #B9E5B3;
+}
+@media (min-width: 1200px) {
+  /* line 35, ../sass/screen.scss */
+  #splash h2 {
+    font-size: 30px;
+    color: red;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* line 35, ../sass/screen.scss */
+  #splash h2 {
+    font-size: 24px;
+    color: green;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  /* line 35, ../sass/screen.scss */
+  #splash h2 {
+    font-size: 20px;
+    color: blue;
+  }
 }

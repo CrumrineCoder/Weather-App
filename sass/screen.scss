@@ -1,9 +1,30 @@
 /* Splash page */
 
 $container-height: 100%;
+$defaultBackground: #B9E5B3;
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query because I'm doing Mobile first design. */
+
+/* Small devices (tablets, 768px and up) */
+$small: "(min-width: 768px) and (max-width: 992px)";
+
+/* Medium devices (desktops, 992px and up) */
+$medium: "(min-width: 992px) and (max-width: 1199px)";
+
+/* Large devices (large desktops, 1200px and up) */
+$large: "(min-width:1200px)";
+
+@mixin media($queryString){
+	@media #{$queryString} {
+      @content;
+    }
+}
 
 body, html{
 	height: $container-height;
+	background: darken($defaultBackground, 40%);
+	
 }
 #splash{
 	position: relative; 
@@ -16,5 +37,19 @@ body, html{
 	  top: 50%;
 	  left: 50%;
 	  transform: translate(-50%, -50%);
+	  background: $defaultBackground; 
+		@include media(($large)){
+			font-size: 30px; 
+			color: red; 
+		}
+		@include media(($medium)){
+			font-size: 24px; 
+			color: green; 
+		}
+		@include media(($small)){
+			font-size: 20px; 
+			color: blue; 
+		}
     }
 }
+
