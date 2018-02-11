@@ -1,22 +1,20 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* Welcome to Compass. * In this file you should write your main styles. (or centralize your imports) * Import this file using the following HTML or equivalent: * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* Welcome to Compass. * In this file you should write your main styles. (or centralize your imports) * Import this file using the following HTML or equivalent: * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* Entire Document */
-/* line 9, ../sass/screen.scss */
+/* line 5, ../sass/screen.scss */
 body {
   color: white;
   font-family: 'Questrial', sans-serif;
   font-size: 16px;
 }
 
-/* line 16, ../sass/screen.scss */
+/* line 10, ../sass/screen.scss */
 button:focus {
   outline: 0;
 }
 
 /* !!NAV!! */
-/* line 21, ../sass/screen.scss */
+/* line 15, ../sass/screen.scss */
 nav {
   background: black;
   color: white;
@@ -26,57 +24,57 @@ nav {
   font-family: sans-serif;
 }
 
-/* line 30, ../sass/screen.scss */
+/* line 23, ../sass/screen.scss */
 nav > div {
   display: inline;
 }
 
-/* line 34, ../sass/screen.scss */
+/* line 26, ../sass/screen.scss */
 #ad {
   float: left;
   padding-right: 20px;
   font-size: 10px;
 }
 
-/* line 40, ../sass/screen.scss */
+/* line 31, ../sass/screen.scss */
 #nic {
   color: #40CC33;
   text-decoration: none;
 }
 
-/* line 44, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 #nic:hover {
   color: #4A9943;
 }
 
-/* line 48, ../sass/screen.scss */
+/* line 38, ../sass/screen.scss */
 #search-bar {
   color: grey;
   font-size: 14px;
   height: 28px;
 }
 
-/* line 54, ../sass/screen.scss */
+/* line 43, ../sass/screen.scss */
 #searchButton {
   background: #8F92E0;
   border: none;
   width: 50px;
   height: 28px;
-  border-radius: 0px 15px 15px  0px;
+  border-radius: 0px 15px 15px 0px;
 }
 
-/* line 61, ../sass/screen.scss */
+/* line 50, ../sass/screen.scss */
 #searchButton:hover {
   background: #6D6FAB;
 }
 
-/* line 65, ../sass/screen.scss */
+/* line 53, ../sass/screen.scss */
 #Location {
   float: right;
 }
 
 /* !! BODY!! */
-/* line 71, ../sass/screen.scss */
+/* line 58, ../sass/screen.scss */
 #transparentGreyBackground {
   margin: 4%;
   opacity: .9;
@@ -85,20 +83,20 @@ nav > div {
   padding: 2%;
 }
 
-/* line 79, ../sass/screen.scss */
+/* line 65, ../sass/screen.scss */
 #fcButtons {
   text-align: center;
   width: 100%;
 }
 
-/* line 83, ../sass/screen.scss */
+/* line 69, ../sass/screen.scss */
 #fcButtons > button, #fcButtons > span {
   text-align: center;
   vertical-align: top;
   font-size: 20px;
 }
 
-/* line 89, ../sass/screen.scss */
+/* line 74, ../sass/screen.scss */
 #f, #c {
   background-color: #312c32;
   border: none;
@@ -106,7 +104,7 @@ nav > div {
 }
 
 /* TODAYS FORECAST */
-/* line 97, ../sass/screen.scss */
+/* line 81, ../sass/screen.scss */
 #todaysForecast td {
   font-size: 16px;
   padding-left: 10%;
@@ -114,25 +112,25 @@ nav > div {
   text-align: center;
 }
 
-/* line 104, ../sass/screen.scss */
+/* line 87, ../sass/screen.scss */
 .temperatureReading {
   font-size: 24px;
   text-align: center;
   font-style: bold;
 }
 
-/* line 110, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 #cloudinessIcon {
   font-size: 50px;
 }
 
-/* line 114, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 .wi-raindrop {
   color: #0E5D9E;
 }
 
 /* WEEKLY FORECAST */
-/* line 120, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 #weeklyForecast {
   width: 100%;
   text-align: center;
@@ -140,30 +138,42 @@ nav > div {
 }
 
 @media screen and (max-width: 1000px) {
-  /* line 127, ../sass/screen.scss */
+  /* line 107, ../sass/screen.scss */
   nav {
     margin: 0 auto;
   }
 
-  /* line 130, ../sass/screen.scss */
+  /* line 110, ../sass/screen.scss */
   #ad {
     text-align: center;
     width: 100%;
     font-size: 14px;
   }
 
-  /* line 135, ../sass/screen.scss */
+  /* line 115, ../sass/screen.scss */
   #search-bar {
     width: 100%;
   }
 
-  /* line 138, ../sass/screen.scss */
+  /* line 118, ../sass/screen.scss */
   #searchButton {
     width: 100%;
     border-radius: 0px;
   }
 
-	#Location{
-		text-align: center; 
-	}
+  /* line 122, ../sass/screen.scss */
+  #Location {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 128, ../sass/screen.scss */
+  #transparentGreyBackground {
+    padding: 0px;
+  }
+
+  /* line 131, ../sass/screen.scss */
+  #todaysForecast td {
+    padding: 0px;
+  }
 }
