@@ -51,5 +51,33 @@ body, html{
 			font-size: 20px; 
 		}
     }
+	button{
+		display: block; 
+		width: 80%; 
+		padding: 5px; 
+		background: lighten($defaultBackground, 20%); 
+		border: darken($defaultBackground, 40%) 3px solid;
+		color: darken($defaultBackground, 90%); 
+		margin: 10px auto;
+		-webkit-transition: .5s;
+		-moz-transition: .5s;
+		-ms-transition: .5s;
+		-o-transition: .5s;
+		transition: .5s;
+		@include media(($large)){
+			font-size: 30px; 
+		}
+		@include media(($medium)){
+			font-size: 24px; 
+		}
+		@include media(($small)){
+			font-size: 20px; 
+		}
+		&:hover {
+			background: darken($defaultBackground, 60%); 
+			border: darken($defaultBackground, 60%) 2px solid;
+			color: lighten($defaultBackground, 90%); 
+		}
+	}
 }
 
