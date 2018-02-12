@@ -69,7 +69,7 @@
 				<tr>
 					<td>Right now, it is
 						<p id="cloudinessForeCast">{{cloudinessForecast}} </p>
-						<i id="cloudinessIcon" class="{{currentWeather.icon}}"> </i>
+						<i id="cloudinessIcon" class="{{currentWeather}}"> </i>
 					</td>
 					<td>
 						Current Cloudiness: 
@@ -127,13 +127,9 @@
 					</tr>
 					<!-- End of names -->
 					<tr id="forecast-icons">
-						<td id="mon-icon"> </td>
-						<td id="tues-icon"> </td>
-						<td id="wed-icon"> </td>
-						<td id="thur-icon"> </td>
-						<td id="fri-icon"> </td>
-						<td id="sat-icon"> </td>
+						<td ng-repeat="icon in forecastIcons track by $index"><i id="cloudinessIcon" class="wi {{icon}}"> </i> </td>
 					</tr>
+					
 					<!-- end of forecast icons	 -->
 					<tr id="high">
 						<td ng-repeat="temperature in forecastTemperatures"> <span class='wi wi-degrees'> {{temperature.high}} </span> <span class='wi wi-degrees' style="color: grey" > {{temperature.low}} </span> </td>

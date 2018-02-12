@@ -41,9 +41,8 @@ app.controller('weatherController', function($scope) {
 	$scope.getIcon = function(iconName) {
 		for (i = 0; i < $scope.dayIcons.length; i++) {
 			if ($scope.dayIcons[i].summary == iconName) {
-				$scope.$apply(function () {
-					$scope.currentWeather.icon = "wi " + $scope.dayIcons[i].icon;
-				});
+				console.log("wi " + $scope.dayIcons[i].icon);
+				return "wi " + $scope.dayIcons[i].icon;
 			}
 		}
 	} 
@@ -56,7 +55,6 @@ app.controller('weatherController', function($scope) {
 		var currentDate = new Date(new Date().getTime() + (24 * 60 * 60 * 1000) * days);
 		var thisDay = currentDate.getDay();
 		thisDay = $scope.myDays[thisDay];
-		console.log(thisDay);
 		return thisDay;
 	}
 	
@@ -210,7 +208,9 @@ app.controller('weatherController', function($scope) {
 	}
 	
 	$scope.getForecastData = function(weatherInfo, country, home) {
-		$scope.getIcon(weatherInfo.currently.icon);
+	//	$scope.$apply(function () {
+			$scope.currentWeather = $scope.getIcon(weatherInfo.currently.icon);
+	//	});
 		var intervals = []; 
 		
 		$(document).ready(function() {
@@ -221,7 +221,6 @@ app.controller('weatherController', function($scope) {
 					$scope.thisWeek.push($scope.getDays(o));
 				});
 			}
-			console.log($scope.thisWeek);
 		}); 
 		
 		// Update the clock on screen
@@ -233,8 +232,7 @@ app.controller('weatherController', function($scope) {
 			});
 		}
 
-		
-		$scope.forecasticon = ["mon", "tues", "wed", "thur", "fri", "sat"];
+	
 		// Get the maximum temperature that will happen today. 
 		$scope.getTemperatureMax = function(k) {
 			return Math.round(weatherInfo.daily.data[k + 1].temperatureMax);
@@ -320,14 +318,16 @@ app.controller('weatherController', function($scope) {
 				document.getElementById("f").style.background = "#312c32";
 				document.getElementById("c").style.background = "#201D21";
 			//
-		//	for (k = 0; k < 7; k++) {
-		//		$("#" + forecasticon[k] + "high").html(Math.round(fTOc(getTemperatureMax(k))));
-		//		$("#" + forecasticon[k] + "low").html(Math.round(fTOc(getTemperatureMin(k))));
-		//	}
+			$scope.forecastTemperatures = [];
+			for (k = 0; k < 7; k++) {
+				var obj = {};
+				obj.high = Math.round(fTOc($scope.getTemperatureMax(k)));
+				obj.low = Math.round(fTOc($scope.getTemperatureMin(k)));
+				$scope.forecastTemperatures.push(obj);
+			}
 		}
 	    
-		// Show the user the cloudiness icon for the current day
-	//	getIcon(weatherInfo.currently.icon, "cloudinessIcon");
+
 		// Change the background based on the APPARENT temperature. 
 		$scope.changeBackground(weatherInfo.currently.apparentTemperature);
 		// If we're in the USA, then use Farenheit. If not, use Celsius. 
@@ -362,10 +362,15 @@ app.controller('weatherController', function($scope) {
 			$scope.todaySummary = weatherInfo.daily.data[0].summary;
 			$scope.weekSummary = weatherInfo.daily.summary;
 		});
+		
 		// get weekly forecast icons
-	//	for (j = 0; j < forecasticon.length; j++) {
-	//		getIcon(weatherInfo.daily.data[j + 1].icon, forecasticon[j] + "-icon"); // example #mon-icon
-	//	} 
+		$scope.forecastIcons =[]; 
+	//	$scope.$apply(function () {
+			for (j = 0; j < 7; j++) {
+				$scope.forecastIcons.push($scope.getIcon(weatherInfo.daily.data[j + 1].icon)); // example #mon-icon
+			} 
+	//	});
+		console.log($scope.forecastIcons);
 	}; // END OF FORECAST.IO 
 
 	$scope.error = function(err) {
