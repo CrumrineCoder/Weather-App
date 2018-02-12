@@ -224,12 +224,15 @@ app.controller('weatherController', function($scope) {
 	
 		
 	$scope.getForecastData = function(weatherInfo, country, region, offset) {
+		console.log(region);
+		console.log(offset);
 	//	$scope.$apply(function () {
 		$scope.currentWeather = $scope.getIcon(weatherInfo.currently.icon);
 	//	});
 
 		// Get the maximum temperature that will happen today. 
 		$scope.getTemperatureMax = function(k) {
+		//	console.log(weatherInfo.daily.data[k + 1]);
 			return Math.round(weatherInfo.daily.data[k + 1].temperatureMax);
 		}
 		// Get the minimum temperature that will happen today. 
@@ -265,7 +268,27 @@ app.controller('weatherController', function($scope) {
 					$scope.Time = timestr.split(",")[1];
 				});
 			}
+			
+			var d = new Date(),
+			msSinceMidnight = d.getTime() - d.setHours(0,0,0,0);
+			console.log(msSinceMidnight);
+			
+			/*function toTimeZone(time, zone) {
+				var format = 'YYYY/MM/DD HH:mm:ss ZZ';
+				return moment(time, format).tz(zone).format(format);
+			}
+			console.log(toTimeZone(d, region)); */
+			
 			interval = window.setInterval(updateClock, 1000);
+			var z = "1518537600";
+			var n = z.getUTCDay();
+			console.log(n);
+			$scope.thisWeek = [];
+			for (z = 0; z < 7; z++) {
+				$scope.$apply(function () {
+					$scope.thisWeek.push($scope.getDays(z));
+				});
+			}
 			$scope.$apply(function () {
 				$scope.timestrRise = $scope.dateRise.toLocaleTimeString('en-US', {
 					timeZone: region
