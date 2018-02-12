@@ -119,15 +119,11 @@
 			<br />
 			<br />
 			<div id="tableContainer">
+			<!-- Replace this table? -->
 				<table id="weeklyForecast">
 					<!-- Naming convention starts with today as Sunday, because reasons -->
-					<tr id="names">
-						<td id="1days"> Tomm </td>
-						<td id="2days"> Over </td>
-						<td id="3days"> Wed </td>
-						<td id="4days"> Thur </td>
-						<td id="5days"> Fri </td>
-						<td id="6days"> Sat </td>
+					<tr id="names" >
+						<td ng-repeat="day in thisWeek"> {{day}} </td>
 					</tr>
 					<!-- End of names -->
 					<tr id="forecast-icons">
@@ -140,12 +136,7 @@
 					</tr>
 					<!-- end of forecast icons	 -->
 					<tr id="high">
-						<td> <span id="monhigh"> Mon-High </span> <span id="monlow" style="color: grey" > Mon-low </span> </td>
-						<td> <span id="tueshigh"> Tues-High </span> <span id="tueslow" style="color: grey"> Tues-low </span> </td>
-						<td> <span id="wedhigh"> Wed-High </span> <span id="wedlow" style="color: grey"> Wed-low </span> </td>
-						<td> <span id="thurhigh"> Thur-High </span> <span id="thurlow" style="color: grey"> Thur-low </span> </td>
-						<td> <span id="frihigh"> Fri-High </span> <span id="frilow" style="color: grey"> Fri-low </span> </td>
-						<td> <span id="sathigh"> Sat-High </span> <span id="satlow" style="color: grey"> Sat-low </span> </td>
+						<td ng-repeat="temperature in forecastTemperatures"> <span class='wi wi-degrees'> {{temperature.high}} </span> <span class='wi wi-degrees' style="color: grey" > {{temperature.low}} </span> </td>
 					</tr>
 					<!-- end of highlow -->
 				</table>

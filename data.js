@@ -50,6 +50,7 @@ app.controller('weatherController', function($scope) {
 	
 	
 	$scope.myDays = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"];
+	$scope.thisWeek = [];
 	// Get the time
 	$scope.getDays = function(days) {
 		var currentDate = new Date(new Date().getTime() + (24 * 60 * 60 * 1000) * days);
@@ -112,7 +113,6 @@ app.controller('weatherController', function($scope) {
 	$scope.backgroundColor; 
 	// Based on the temperature outside, change the color of the background
 	$scope.changeBackground = function(val) {
-		console.log("Yes?");
 		$scope.$apply(function () {
 			if (val < 0) {
 				$scope.backgroundColor = "#D7FFF7";
@@ -183,6 +183,7 @@ app.controller('weatherController', function($scope) {
 			});
 		}); // End of GEOCODE 
 	}
+	// TO DO
 	$scope.callByPostal =function(postal) {
 		var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
 		$.getJSON(GEOCODING, function(json) {
@@ -215,9 +216,12 @@ app.controller('weatherController', function($scope) {
 		$(document).ready(function() {
 			intervals.push(setInterval(updateClockHome, 1000));
 		//	$scope.getLocation();
-		//	for (o = 0; o < 7; o++) {
-			//	$("#" + o.toString() + "days").html(getDays(o));
-		//	}
+			for (o = 0; o < 7; o++) {
+				$scope.$apply(function () {
+					$scope.thisWeek.push($scope.getDays(o));
+				});
+			}
+			console.log($scope.thisWeek);
 		}); 
 		
 		// Update the clock on screen
@@ -229,7 +233,7 @@ app.controller('weatherController', function($scope) {
 			});
 		}
 
-		// Long List to convert the temperature to the color of the background			
+		
 		$scope.forecasticon = ["mon", "tues", "wed", "thur", "fri", "sat"];
 		// Get the maximum temperature that will happen today. 
 		$scope.getTemperatureMax = function(k) {
@@ -262,8 +266,9 @@ app.controller('weatherController', function($scope) {
 				var timestr = new Date().toLocaleString('en-US', {
 					timeZone: home
 				})
-				
-			//	document.getElementById('Time').innerHTML = timestr.split(',')[1];
+				$scope.$apply(function () {		
+					$scope.Time = timestr.split(",")[1];
+				});
 			}
 			intervals.push(setInterval(updateClock, 1000));
 			$scope.$apply(function () {
@@ -293,18 +298,21 @@ app.controller('weatherController', function($scope) {
 				document.getElementById("f").style.background = "#201D21";
 				document.getElementById("c").style.background = "#312c32";
 			//
-		//	for (k = 0; k < 7; k++) {
-		//		$("#" + forecasticon[k] + "high").html("<span class='wi wi-degrees'>" + Math.round(getTemperatureMax(k)) + "</span>");
-		//		$("#" + forecasticon[k] + "low").html("<span class='wi wi-degrees'>" + Math.round(getTemperatureMin(k)) + "</span>");;
-		//	}
+			$scope.forecastTemperatures = [];
+			for (k = 0; k < 7; k++) {
+				var obj = {};
+				obj.high = Math.round($scope.getTemperatureMax(k));
+				obj.low = Math.round($scope.getTemperatureMin(k));
+				$scope.forecastTemperatures.push(obj);
+			}
 		}
 		// Update the temperature with Celsius. 
 		function getCelsiusTemp() {
 			$scope.$apply(function () {
-				$scope.actualTemperature =(Math.round(fTOc(weatherInfo.currently.temperature)));
-				$scope.feelTemperature =(Math.round(fTOc(weatherInfo.currently.apparentTemperature)));
-				$scope.todayLow =(Math.round(fTOc(weatherInfo.daily.data[0].apparentTemperatureLow)));
-				$scope.todayHigh =(Math.round(fTOc(weatherInfo.daily.data[0].apparentTemperatureHigh)));
+				$scope.actualTemperature =(Math.round($scope.fTOc(weatherInfo.currently.temperature)));
+				$scope.feelTemperature =(Math.round($scope.fTOc(weatherInfo.currently.apparentTemperature)));
+				$scope.todayLow =(Math.round($scope.fTOc(weatherInfo.daily.data[0].apparentTemperatureLow)));
+				$scope.todayHigh =(Math.round($scope.fTOc(weatherInfo.daily.data[0].apparentTemperatureHigh)));
 			});
 			// Not sure if I should change this
 				document.getElementById("f").style.color = "#C2C2B8";
