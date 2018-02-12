@@ -98,10 +98,6 @@ body, html {
 #index nav {
   display: block;
   background: black;
-  /*
-  	border-radius: 0px 15px 15px 0px;
-  	width: 50px;
-   */
 }
 @media (min-width: 1200px) {
   /* line 91, ../sass/screen.scss */
@@ -210,4 +206,12 @@ body, html {
 /* line 166, ../sass/screen.scss */
 #index nav #searchButton:hover {
   background: #6D6FAB;
+}
+/* line 171, ../sass/screen.scss */
+#index #transparentGreyBackground {
+  margin: 4%;
+  opacity: .9;
+  background: #312c32;
+  color: white;
+  padding: 2%;
 }

@@ -166,11 +166,14 @@ body, html{
 		#searchButton:hover {
 			background: #6D6FAB;
 		}
-		/*
-			border-radius: 0px 15px 15px 0px;
-			width: 50px;
-		 */
 
     }
+	 #transparentGreyBackground {
+		 margin: 4%;
+		 opacity: .9;
+		 background: #312c32;
+		 color: white;
+		 padding: 2%;
+	}
      
 }

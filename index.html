@@ -19,7 +19,7 @@
 		 <button ng-click="getLocation()"> Get Weather By IP</button> 
 		 </h2>
 	</div>
-	<div id="index" >
+	<div id="index" ng-style="{'background': backgroundColor}">
 	
 		<nav>
 			<div id="columns"> 
@@ -31,9 +31,9 @@
 				<div id="Location"> {{Location}} </div>
 				<div id="Time"> {{Time}} </div>
 			</div>
-			<input type="text" placeholder="Search. Be specific. API is not perfect." id="search-bar" class="col-md-4 text-center">
+			<input type="text" placeholder="Search. Be specific. API is not perfect." id="search-bar" class="col-md-4 text-center" 	ng-model="postal"> </input>
 			<!-- Angular up this search -->
-			<button id="searchButton" ng-click="callByPostal($('#search-bar').val());">
+			<button id="searchButton" ng-click="callByPostal(postal);">
 				  <i class="fa fa-search"  style="color: #fff"></i>
 			 </button>
 		</nav>
@@ -115,7 +115,6 @@
 				</tr>
 
 			</table> 
-	<div ng-style="{'background': backgroundColor}"> Test </div>
 			<br />
 			<br />
 			<div id="tableContainer">

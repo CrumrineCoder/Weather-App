@@ -41,14 +41,13 @@ app.controller('weatherController', function($scope) {
 	$scope.getIcon = function(iconName) {
 		for (i = 0; i < $scope.dayIcons.length; i++) {
 			if ($scope.dayIcons[i].summary == iconName) {
-				console.log("wi " + $scope.dayIcons[i].icon);
 				return "wi " + $scope.dayIcons[i].icon;
 			}
 		}
 	} 
 	
 	
-	$scope.myDays = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"];
+	$scope.myDays = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
 	$scope.thisWeek = [];
 	// Get the time
 	$scope.getDays = function(days) {
@@ -181,19 +180,23 @@ app.controller('weatherController', function($scope) {
 			});
 		}); // End of GEOCODE 
 	}
-	// TO DO
-	$scope.callByPostal =function(postal) {
+	$scope.postal; 
+
+	$scope.callByPostal = function(postal) {
+		console.log(postal);
 		var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
 		$.getJSON(GEOCODING, function(json) {
 			// get the longitude and latitutde. 
 			var lat = json.results["0"].geometry.location.lat;
 			var long = json.results["0"].geometry.location.lng;
+			console.log(lat);
+			console.log(long);
 			// Forecast.io api call. 
-			var for_call = "https://api.forecast.io/forecast/" + for_key + "/" + lat + "," + long + "?callback=?";
+			var for_call = "https://api.forecast.io/forecast/" + forkey + "/" + lat + "," + long + "?callback=?";
 			// Get the address. 
 			var address = json.results["0"].formatted_address;
 			// Show the address. 
-			$('#Location').text(address);
+			$scope.Location = address;
 			// Get the country. 
 			var country = address.slice(-3);
 			var timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + long + "&timestamp=" + new Date(Date.now()).getTime() / 1000 + "&key=" + timeZoneKey;
@@ -201,7 +204,7 @@ app.controller('weatherController', function($scope) {
 			$.getJSON(timezone, function(json) {
 				timeZoneID = json.timeZoneId;
 				$.getJSON(for_call, function(json) {
-					changeHTML(json, country, timeZoneID);
+					$scope.getForecastData(json, country, timeZoneID);
 				});
 			});
 		});
@@ -270,10 +273,10 @@ app.controller('weatherController', function($scope) {
 			}
 			intervals.push(setInterval(updateClock, 1000));
 			$scope.$apply(function () {
-				$scope.timestrRise = dateRise.toLocaleTimeString('en-US', {
+				$scope.timestrRise = $scope.dateRise.toLocaleTimeString('en-US', {
 					timeZone: home
 				});
-				$scope.timestrSet = dateSet.toLocaleTimeString('en-US', {
+				$scope.timestrSet = $scope.dateSet.toLocaleTimeString('en-US', {
 					timeZone: home
 				});
 			});
@@ -321,8 +324,8 @@ app.controller('weatherController', function($scope) {
 			$scope.forecastTemperatures = [];
 			for (k = 0; k < 7; k++) {
 				var obj = {};
-				obj.high = Math.round(fTOc($scope.getTemperatureMax(k)));
-				obj.low = Math.round(fTOc($scope.getTemperatureMin(k)));
+				obj.high = Math.round($scope.fTOc($scope.getTemperatureMax(k)));
+				obj.low = Math.round($scope.fTOc($scope.getTemperatureMin(k)));
 				$scope.forecastTemperatures.push(obj);
 			}
 		}
@@ -365,12 +368,11 @@ app.controller('weatherController', function($scope) {
 		
 		// get weekly forecast icons
 		$scope.forecastIcons =[]; 
-	//	$scope.$apply(function () {
+		$scope.$apply(function () {
 			for (j = 0; j < 7; j++) {
 				$scope.forecastIcons.push($scope.getIcon(weatherInfo.daily.data[j + 1].icon)); // example #mon-icon
 			} 
-	//	});
-		console.log($scope.forecastIcons);
+		});
 	}; // END OF FORECAST.IO 
 
 	$scope.error = function(err) {
