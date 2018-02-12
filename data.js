@@ -47,14 +47,19 @@ app.controller('weatherController', function($scope) {
 	} 
 	
 	
-	$scope.myDays = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
+//	$scope.myDays = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
 	$scope.thisWeek = [];
 	// Get the time
 	$scope.getDays = function(days) {
 		var currentDate = new Date(new Date().getTime() + (24 * 60 * 60 * 1000) * days);
+		var stringArray = currentDate.toString().split(" ");
+		return stringArray[0];
+/*		console.log(currentDate);
 		var thisDay = currentDate.getDay();
+		console.log(thisDay);
 		thisDay = $scope.myDays[thisDay];
-		return thisDay;
+		console.log(thisDay);
+		return thisDay; */
 	}
 	
 	// Convert celsius to farenheit
@@ -142,9 +147,6 @@ app.controller('weatherController', function($scope) {
 			}
 		});
 	}
-	
-
-
 	// Forecast.io API Call
 	var forkey = "813195e09d571d569dfc52a878bea90c";
 	// Geolocation API Call
@@ -165,20 +167,20 @@ app.controller('weatherController', function($scope) {
 		$scope.$apply(function () {
 			$scope.Time = timestr; 
 		});
+		
 	}
 	$scope.Time; 
 	$scope.Location;
 	var interval; 
 	$scope.callByIP = function(position) {
 		$(document).ready(function() {
-			 interval = window.setInterval(updateClockHome, 1000);
+			interval = window.setInterval(updateClockHome, 1000);
 			for (o = 0; o < 7; o++) {
 				$scope.$apply(function () {
 					$scope.thisWeek.push($scope.getDays(o));
 				});
 			}
-		}); 
-		
+		}); 	
 		// API call
 		var lat = position.coords.latitude;
 		var long = position.coords.longitude;
@@ -223,14 +225,9 @@ app.controller('weatherController', function($scope) {
 			});
 		});
 	}
-	
-	
-		
+			
 	$scope.getForecastData = function(weatherInfo, country, home) {
-	//	$scope.$apply(function () {
 		$scope.currentWeather = $scope.getIcon(weatherInfo.currently.icon);
-	//	});
-
 		// Get the maximum temperature that will happen today. 
 		$scope.getTemperatureMax = function(k) {
 			return Math.round(weatherInfo.daily.data[k + 1].temperatureMax);
@@ -248,8 +245,7 @@ app.controller('weatherController', function($scope) {
 			$scope.dateSet = new Date($scope.secSet * 1000);
 			$scope.timestrSet = $scope.dateSet;
 		});
-		// This is for when the home is changed by search and it can't be found by the API. It just will default to the normal time. 
-		
+		// This is for when the home is changed by search and it can't be found by the API. It just will default to the normal time. 	
 		if (typeof(home) == "undefined") {
 			$scope.$apply(function () {
 				$scope.timestrRise = $scope.timestrRise.toLocaleTimeString();
@@ -257,18 +253,38 @@ app.controller('weatherController', function($scope) {
 			});
 		} else {
 			// If the home area CAN be found, reset the intervals and make a new one. 
-
 		   clearInterval(interval);
-
 			function updateClock() {
 				var timestr = new Date().toLocaleString('en-US', {
 					timeZone: home
 				})
+
 				$scope.$apply(function () {		
 					$scope.Time = timestr.split(",")[1];
 				});
 			}
 			interval = window.setInterval(updateClock, 1000);
+
+			$scope.thisWeek = [];
+			 var d = new Date();
+			var currentTimezone = d.getTimezoneOffset();	
+			console.log(currentTimezone);
+			var otherTimezone = new Date().toLocaleString('en-US', {
+					timeZone: home
+				})
+			console.log(otherTimezone);
+			var timezoneOffset; 
+			var currentDate = new Date(new Date().getTime());
+		var thisDay = currentDate.getDay();
+		console.log(currentDate);
+		console.log(thisDay);
+
+			for (z = 0; z < 7; z++) {
+				$scope.$apply(function () {
+					$scope.thisWeek.push($scope.getDays(z + timezoneOffset));
+				});
+			}
+
 			$scope.$apply(function () {
 				$scope.timestrRise = $scope.dateRise.toLocaleTimeString('en-US', {
 					timeZone: home
