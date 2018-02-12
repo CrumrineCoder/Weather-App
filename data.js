@@ -269,20 +269,33 @@ app.controller('weatherController', function($scope) {
 				});
 			}
 			
+			function calcTime(city, offset) {
+
+				// create Date object for current location
+				var d = new Date();
+
+				// convert to msec
+				// add local time zone offset
+				// get UTC time in msec
+				var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+
+				// create new Date object for different city
+				// using supplied offset
+				var nd = new Date(utc + (3600000*offset));
+
+				// return time as a string
+				return "The local time in " + city + " is " + nd.toLocaleString();
+			}
+			
+			console.log(calcTime(region, offset/3600));
+
 			var d = new Date(),
 			msSinceMidnight = d.getTime() - d.setHours(0,0,0,0);
 			console.log(msSinceMidnight);
 			
-			/*function toTimeZone(time, zone) {
-				var format = 'YYYY/MM/DD HH:mm:ss ZZ';
-				return moment(time, format).tz(zone).format(format);
-			}
-			console.log(toTimeZone(d, region)); */
 			
 			interval = window.setInterval(updateClock, 1000);
-			var z = "1518537600";
-			var n = z.getUTCDay();
-			console.log(n);
+
 			$scope.thisWeek = [];
 			for (z = 0; z < 7; z++) {
 				$scope.$apply(function () {
