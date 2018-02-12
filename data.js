@@ -224,15 +224,10 @@ app.controller('weatherController', function($scope) {
 	
 		
 	$scope.getForecastData = function(weatherInfo, country, region, offset) {
-		console.log(region);
-		console.log(offset);
-	//	$scope.$apply(function () {
 		$scope.currentWeather = $scope.getIcon(weatherInfo.currently.icon);
-	//	});
 
 		// Get the maximum temperature that will happen today. 
 		$scope.getTemperatureMax = function(k) {
-		//	console.log(weatherInfo.daily.data[k + 1]);
 			return Math.round(weatherInfo.daily.data[k + 1].temperatureMax);
 		}
 		// Get the minimum temperature that will happen today. 
@@ -263,13 +258,13 @@ app.controller('weatherController', function($scope) {
 			function updateClock() {
 				var timestr = new Date().toLocaleString('en-US', {
 					timeZone: region
-				})
+				});
 				$scope.$apply(function () {		
 					$scope.Time = timestr.split(",")[1];
 				});
 			}
 			
-			function calcTime(city, offset) {
+			function calcTime(offset) {
 
 				// create Date object for current location
 				var d = new Date();
@@ -284,22 +279,17 @@ app.controller('weatherController', function($scope) {
 				var nd = new Date(utc + (3600000*offset));
 
 				// return time as a string
-				return "The local time in " + city + " is " + nd.toLocaleString();
+				return nd.toLocaleString();
 			}
-			
-			console.log(calcTime(region, offset/3600));
-
-			var d = new Date(),
-			msSinceMidnight = d.getTime() - d.setHours(0,0,0,0);
-			console.log(msSinceMidnight);
-			
+			var offshoreTime = calcTime(offset/3600).split("/")[1];
+			var ourTime = new Date().toLocaleString('en-US').split("/")[1];
 			
 			interval = window.setInterval(updateClock, 1000);
 
 			$scope.thisWeek = [];
 			for (z = 0; z < 7; z++) {
 				$scope.$apply(function () {
-					$scope.thisWeek.push($scope.getDays(z));
+					$scope.thisWeek.push($scope.getDays(z + (offshoreTime - ourTime)));
 				});
 			}
 			$scope.$apply(function () {
