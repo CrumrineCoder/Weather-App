@@ -24,24 +24,22 @@ $smallToLarge: "(min-width:768px)";
 }
 
 body, html{
-	height: $container-height;
 	background: darken($defaultBackground, 40%);	
 }
 
 #splash{
-	position: relative; 
+	 display: flex;
+	justify-content: center;
+	align-items: center;
 	height: $container-height;
 	span{
 		color: red;
 	}
 	h2{
+	  margin-top: 10%;
 	  font-size: 16px; 
 	  padding: 30px; 
 	  width: 80%;
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  transform: translate(-50%, -50%);
 	  background: $defaultBackground; 
 		@include media(($large)){
 			font-size: 30px; 
@@ -87,7 +85,8 @@ body, html{
 	color: white;
 	font-family: 'Questrial', sans-serif;
 	font-size: 16px;
-	
+	height: 100%;
+	width: 100%;
 	nav {
 		 display: block;
 		 background: black;
@@ -168,12 +167,52 @@ body, html{
 		}
 
     }
-	 #transparentGreyBackground {
+	
+	#transparentGreyBackground {
 		 margin: 4%;
 		 opacity: .9;
 		 background: #312c32;
 		 color: white;
 		 padding: 2%;
+	}
+	
+	#fcButtons {
+		 text-align: center;
+		 width: 100%;
+	}
+	 #fcButtons > button, #fcButtons > span {
+		 text-align: center;
+		 vertical-align: top;
+		 font-size: 20px;
+	}
+	 #f, #c {
+		 background-color: #312c32;
+		 border: none;
+		 text-decoration: none;
+	}
+	
+	
+	/* TODAYS FORECAST */
+	 #todaysForecast td {
+		 font-size: 16px;
+		 padding-left: 10%;
+		 padding-right: 20%;
+		 text-align: center;
+	}
+	 .temperatureReading {
+		 font-size: 24px;
+		 text-align: center;
+		 font-style: bold;
+	}
+	 .wi-raindrop {
+		 color: #0E5D9E;
+	}
+
+	/* WEEKLY FORECAST */
+	 #weeklySummary, #weeklyForecast {
+		 width: 100%;
+		 text-align: center;
+		 font-size: 16px;
 	}
      
 }

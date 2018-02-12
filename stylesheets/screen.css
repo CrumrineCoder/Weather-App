@@ -6,49 +6,47 @@
 /* Large devices (large desktops, 1200px and up) */
 /* line 26, ../sass/screen.scss */
 body, html {
-  height: 100%;
   background: #409834;
 }
 
-/* line 31, ../sass/screen.scss */
+/* line 30, ../sass/screen.scss */
 #splash {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
 }
-/* line 34, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 #splash span {
   color: red;
 }
-/* line 37, ../sass/screen.scss */
+/* line 38, ../sass/screen.scss */
 #splash h2 {
+  margin-top: 10%;
   font-size: 16px;
   padding: 30px;
   width: 80%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background: #B9E5B3;
 }
 @media (min-width: 1200px) {
-  /* line 37, ../sass/screen.scss */
+  /* line 38, ../sass/screen.scss */
   #splash h2 {
     font-size: 30px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 37, ../sass/screen.scss */
+  /* line 38, ../sass/screen.scss */
   #splash h2 {
     font-size: 24px;
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
-  /* line 37, ../sass/screen.scss */
+  /* line 38, ../sass/screen.scss */
   #splash h2 {
     font-size: 20px;
   }
 }
-/* line 56, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 #splash button {
   display: block;
   width: 80%;
@@ -59,71 +57,75 @@ body, html {
   margin: 10px auto;
 }
 @media (min-width: 1200px) {
-  /* line 56, ../sass/screen.scss */
+  /* line 54, ../sass/screen.scss */
   #splash button {
     font-size: 30px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 56, ../sass/screen.scss */
+  /* line 54, ../sass/screen.scss */
   #splash button {
     font-size: 24px;
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
-  /* line 56, ../sass/screen.scss */
+  /* line 54, ../sass/screen.scss */
   #splash button {
     font-size: 20px;
   }
 }
-/* line 74, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 #splash button:hover {
   background-color: #204c1a;
   border: #204c1a 3px solid;
   color: white;
 }
-/* line 79, ../sass/screen.scss */
+/* line 77, ../sass/screen.scss */
 #splash button:focus {
   outline: 0;
 }
 
-/* line 85, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 #index {
   display: none;
   color: white;
   font-family: 'Questrial', sans-serif;
   font-size: 16px;
+  height: 100%;
+  width: 100%;
+  /* TODAYS FORECAST */
+  /* WEEKLY FORECAST */
 }
-/* line 91, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
 #index nav {
   display: block;
   background: black;
 }
 @media (min-width: 1200px) {
-  /* line 91, ../sass/screen.scss */
+  /* line 90, ../sass/screen.scss */
   #index nav {
     padding: 10px;
   }
-  /* line 95, ../sass/screen.scss */
+  /* line 94, ../sass/screen.scss */
   #index nav nav > div {
     display: inline;
   }
 }
 @media (min-width: 768px) {
-  /* line 101, ../sass/screen.scss */
+  /* line 100, ../sass/screen.scss */
   #index nav #columns {
     padding-top: 10px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
   }
-  /* line 106, ../sass/screen.scss */
+  /* line 105, ../sass/screen.scss */
   #index nav #columns #ad, #index nav #columns #Location, #index nav #columns #Time {
     flex: 1;
   }
 }
 @media (min-width: 768px) and (min-width: 1200px) {
-  /* line 101, ../sass/screen.scss */
+  /* line 100, ../sass/screen.scss */
   #index nav #columns {
     padding: 0px;
     width: 70%;
@@ -131,39 +133,39 @@ body, html {
   }
 }
 
-/* line 116, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 #index nav #ad {
   text-align: center;
   font-size: 14px;
   margin: 0 auto;
   width: 100%;
 }
-/* line 121, ../sass/screen.scss */
+/* line 120, ../sass/screen.scss */
 #index nav #ad #nic {
   color: #40CC33;
   text-decoration: none;
 }
-/* line 125, ../sass/screen.scss */
+/* line 124, ../sass/screen.scss */
 #index nav #ad #nic:hover {
   color: #4A9943;
 }
 @media (min-width: 1200px) {
-  /* line 116, ../sass/screen.scss */
+  /* line 115, ../sass/screen.scss */
   #index nav #ad {
     font-size: 12px;
   }
 }
-/* line 132, ../sass/screen.scss */
+/* line 131, ../sass/screen.scss */
 #index nav #Location {
   text-align: center;
   width: 100%;
 }
-/* line 136, ../sass/screen.scss */
+/* line 135, ../sass/screen.scss */
 #index nav #Time {
   text-align: center;
   width: 100%;
 }
-/* line 140, ../sass/screen.scss */
+/* line 139, ../sass/screen.scss */
 #index nav #search-bar {
   width: 100%;
   color: grey;
@@ -171,19 +173,19 @@ body, html {
   height: 28px;
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 140, ../sass/screen.scss */
+  /* line 139, ../sass/screen.scss */
   #index nav #search-bar {
     width: 80%;
   }
 }
 @media (min-width: 1200px) {
-  /* line 140, ../sass/screen.scss */
+  /* line 139, ../sass/screen.scss */
   #index nav #search-bar {
     float: left;
     width: 25%;
   }
 }
-/* line 153, ../sass/screen.scss */
+/* line 152, ../sass/screen.scss */
 #index nav #searchButton {
   width: 100%;
   background: #8F92E0;
@@ -191,19 +193,19 @@ body, html {
   height: 28px;
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 153, ../sass/screen.scss */
+  /* line 152, ../sass/screen.scss */
   #index nav #searchButton {
     width: 20%;
   }
 }
 @media (min-width: 1200px) {
-  /* line 153, ../sass/screen.scss */
+  /* line 152, ../sass/screen.scss */
   #index nav #searchButton {
     width: 5%;
     border-radius: 0px 15px 15px 0px;
   }
 }
-/* line 166, ../sass/screen.scss */
+/* line 165, ../sass/screen.scss */
 #index nav #searchButton:hover {
   background: #6D6FAB;
 }
@@ -214,4 +216,44 @@ body, html {
   background: #312c32;
   color: white;
   padding: 2%;
+}
+/* line 179, ../sass/screen.scss */
+#index #fcButtons {
+  text-align: center;
+  width: 100%;
+}
+/* line 183, ../sass/screen.scss */
+#index #fcButtons > button, #index #fcButtons > span {
+  text-align: center;
+  vertical-align: top;
+  font-size: 20px;
+}
+/* line 188, ../sass/screen.scss */
+#index #f, #index #c {
+  background-color: #312c32;
+  border: none;
+  text-decoration: none;
+}
+/* line 196, ../sass/screen.scss */
+#index #todaysForecast td {
+  font-size: 16px;
+  padding-left: 10%;
+  padding-right: 20%;
+  text-align: center;
+}
+/* line 202, ../sass/screen.scss */
+#index .temperatureReading {
+  font-size: 24px;
+  text-align: center;
+  font-style: bold;
+}
+/* line 207, ../sass/screen.scss */
+#index .wi-raindrop {
+  color: #0E5D9E;
+}
+/* line 212, ../sass/screen.scss */
+#index #weeklySummary, #index #weeklyForecast {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
 }

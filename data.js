@@ -66,7 +66,7 @@ app.controller('weatherController', function($scope) {
 		return (temp - 32) * (5 / 9);
 	}
 	
-	// Descriptions for the Preciptiation
+	// Descriptions for the Precipitation
 	$scope.getPrecipDesc = function(precip) {
 		if (precip < 0.01) {
 			return "The flowers would be crying if they had water";
@@ -160,7 +160,6 @@ app.controller('weatherController', function($scope) {
 	// Update the clock on screen
 	function updateClockHome() {
 		clearInterval(window.interval);
-		console.log("ClockHome");
 		var date = new Date(Date.now());
 		var timestr = date.toLocaleTimeString();
 		$scope.$apply(function () {
@@ -171,14 +170,8 @@ app.controller('weatherController', function($scope) {
 	$scope.Location;
 	var interval; 
 	$scope.callByIP = function(position) {
-		
 		$(document).ready(function() {
-			//intervals.push(setInterval(updateClockHome, 1000));
-			console.log("ready");
-
 			 interval = window.setInterval(updateClockHome, 1000);
-
-		//	$scope.getLocation();
 			for (o = 0; o < 7; o++) {
 				$scope.$apply(function () {
 					$scope.thisWeek.push($scope.getDays(o));
@@ -191,8 +184,7 @@ app.controller('weatherController', function($scope) {
 		var long = position.coords.longitude;
 		var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + "," + long + "&key=" + apikey;
 		var for_call = "https://api.forecast.io/forecast/" + forkey + "/" + lat + "," + long + "?callback=?";
-		document.getElementById("index").style.display = "block";
-        document.getElementById("splash").style.display = "none";
+
 		$.getJSON(GEOCODING, function(json) {
 			// get location 
 			var address = json.results[2].formatted_address;
@@ -292,12 +284,10 @@ app.controller('weatherController', function($scope) {
 		$scope.todayLow;
 		$scope.todayHigh; 
 		$scope.getFarenheitTemp =function() {
-			$scope.$apply(function () {
-				$scope.actualTemperature = (Math.round(weatherInfo.currently.temperature));
-				$scope.feelTemperature =(Math.round(weatherInfo.currently.apparentTemperature));
-				$scope.todayLow =(Math.round(weatherInfo.daily.data[0].apparentTemperatureLow));
-				$scope.todayHigh =(Math.round(weatherInfo.daily.data[0].apparentTemperatureHigh));
-			});
+			$scope.actualTemperature = (Math.round(weatherInfo.currently.temperature));
+			$scope.feelTemperature =(Math.round(weatherInfo.currently.apparentTemperature));
+			$scope.todayLow =(Math.round(weatherInfo.daily.data[0].apparentTemperatureLow));
+			$scope.todayHigh =(Math.round(weatherInfo.daily.data[0].apparentTemperatureHigh));
 			// Not sure if I should change this
 				document.getElementById("f").style.color = "#FFFFF2";
 				document.getElementById("c").style.color = "#C2C2B8";
@@ -314,12 +304,10 @@ app.controller('weatherController', function($scope) {
 		}
 		// Update the temperature with Celsius. 
 		$scope.getCelsiusTemp =function() {
-			$scope.$apply(function () {
-				$scope.actualTemperature =(Math.round($scope.fTOc(weatherInfo.currently.temperature)));
-				$scope.feelTemperature =(Math.round($scope.fTOc(weatherInfo.currently.apparentTemperature)));
-				$scope.todayLow =(Math.round($scope.fTOc(weatherInfo.daily.data[0].apparentTemperatureLow)));
-				$scope.todayHigh =(Math.round($scope.fTOc(weatherInfo.daily.data[0].apparentTemperatureHigh)));
-			});
+			$scope.actualTemperature =(Math.round($scope.fTOc(weatherInfo.currently.temperature)));
+			$scope.feelTemperature =(Math.round($scope.fTOc(weatherInfo.currently.apparentTemperature)));
+			$scope.todayLow =(Math.round($scope.fTOc(weatherInfo.daily.data[0].apparentTemperatureLow)));
+			$scope.todayHigh =(Math.round($scope.fTOc(weatherInfo.daily.data[0].apparentTemperatureHigh)));
 			// Not sure if I should change this
 				document.getElementById("f").style.color = "#C2C2B8";
 				document.getElementById("c").style.color = "#FFFFF2";
@@ -367,10 +355,12 @@ app.controller('weatherController', function($scope) {
 		$scope.forecastIcons =[]; 
 		$scope.$apply(function () {
 			for (j = 0; j < 7; j++) {
-				$scope.forecastIcons.push($scope.getIcon(weatherInfo.daily.data[j + 1].icon)); // example #mon-icon
+				$scope.forecastIcons.push($scope.getIcon(weatherInfo.daily.data[j + 1].icon)); 
 			} 
 		});
-		console.log("The duplication error you see when you do a postal search is known about and I'm dealing with it. There is no actual problem, but Angular doesn't like that in a forecast some days will be similar enough to have a duplicate icon and  I'm working on a way so Angular doesn't loses its mind warning about this error. Thanks.");
+		document.getElementById("index").style.display = "block";
+        document.getElementById("splash").style.display = "none";
+		//console.log("The duplication error you see when you do a postal search is known about and I'm dealing with it. There is no actual problem, but Angular doesn't like that in a forecast some days will be similar enough to have a duplicate icon and  I'm working on a way so Angular doesn't loses its mind warning about this error. Thanks.");
 	}; // END OF FORECAST.IO 
 
 	$scope.error = function(err) {
