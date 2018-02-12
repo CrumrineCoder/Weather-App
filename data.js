@@ -3,7 +3,7 @@
 var app = angular.module('weatherApp', []);
 app.controller('weatherController', function($scope) {
 	
-	$scope.myDays = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"];
+	
 	// Convert the summary of the day to an icon
 	$scope.dayIcons = [{
 		summary: "clear-day",
@@ -49,14 +49,16 @@ app.controller('weatherController', function($scope) {
 	} 
 	
 	
-	
+	$scope.myDays = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"];
 	// Get the time
 	$scope.getDays = function(days) {
 		var currentDate = new Date(new Date().getTime() + (24 * 60 * 60 * 1000) * days);
 		var thisDay = currentDate.getDay();
-		thisDay = myDays[thisDay];
+		thisDay = $scope.myDays[thisDay];
+		console.log(thisDay);
 		return thisDay;
 	}
+	
 	// Convert celsius to farenheit
 	$scope.cTOf = function(temp) {
 		return (temp * 1.8) + 32;
@@ -65,6 +67,7 @@ app.controller('weatherController', function($scope) {
 	$scope.fTOc = function(temp) {
 		return (temp - 32) * (5 / 9);
 	}
+	
 	// Descriptions for the Preciptiation
 	$scope.getPrecipDesc = function(precip) {
 		if (precip < 0.01) {
@@ -106,38 +109,41 @@ app.controller('weatherController', function($scope) {
 			return "WHY THE FUCK ARE YOU OUTSIDE?";
 		}
 	}
-	$scope.backgroundColor = {background: "#FFFFF2"}; 
+	$scope.backgroundColor; 
 	// Based on the temperature outside, change the color of the background
 	$scope.changeBackground = function(val) {
-		if (val < 0) {
-			$scope.backgroundColor.background = "#D7FFF7";
-		} else if (val < 9) {
-			$scope.backgroundColor.background = "#C9FFF7";
-		} else if (val < 19) {
-			$scope.backgroundColor.background = "#BDFFF7";
-		} else if (val < 29) {
-			$scope.backgroundColor.background = "#AAFFF7";
-		} else if (val < 39) {
-			$scope.backgroundColor.background = "#86FFE6";
-		} else if (val < 49) {
-			$scope.backgroundColor.background = "#61FFBE";
-		} else if (val < 59) {
-			$scope.backgroundColor.background = "#55FF8C";
-		} else if (val < 69) {
-			$scope.backgroundColor.background = "#4AFF6A";
-		} else if (val < 79) {
-			$scope.backgroundColor.background = "#40DE40";
-		} else if (val < 85) {
-			$scope.backgroundColor.background = "#C6FF3E";
-		} else if (val < 90) {
-			$scope.backgroundColor.background = "#FFF744";
-		} else if (val < 95) {
-			$scope.backgroundColor.background = "#FFC92B";
-		} else if (val < 100) {
-			$scope.backgroundColor.background = "#FF9036";
-		} else if (val >= 100) {
-			$scope.backgroundColor.background = "#FF5337";
-		}
+		console.log("Yes?");
+		$scope.$apply(function () {
+			if (val < 0) {
+				$scope.backgroundColor = "#D7FFF7";
+			} else if (val < 9) {
+				$scope.backgroundColor = "#C9FFF7";
+			} else if (val < 19) {
+				$scope.backgroundColor = "#BDFFF7";
+			} else if (val < 29) {
+				$scope.backgroundColor = "#AAFFF7";
+			} else if (val < 39) {
+				$scope.backgroundColor= "#86FFE6";
+			} else if (val < 49) {
+				$scope.backgroundColor = "#61FFBE";
+			} else if (val < 59) {
+				$scope.backgroundColor = "#55FF8C";
+			} else if (val < 69) {
+				$scope.backgroundColor = "#4AFF6A";
+			} else if (val < 79) {
+				$scope.backgroundColor = "#40DE40";
+			} else if (val < 85) {
+				$scope.backgroundColor = "#C6FF3E";
+			} else if (val < 90) {
+				$scope.backgroundColor = "#FFF744";
+			} else if (val < 95) {
+				$scope.backgroundColor = "#FFC92B";
+			} else if (val < 100) {
+				$scope.backgroundColor = "#FF9036";
+			} else if (val >= 100) {
+				$scope.backgroundColor = "#FF5337";
+			}
+		});
 	}
 	
 
@@ -315,7 +321,7 @@ app.controller('weatherController', function($scope) {
 		// Show the user the cloudiness icon for the current day
 	//	getIcon(weatherInfo.currently.icon, "cloudinessIcon");
 		// Change the background based on the APPARENT temperature. 
-	//	changeBackground(weatherInfo.currently.apparentTemperature);
+		$scope.changeBackground(weatherInfo.currently.apparentTemperature);
 		// If we're in the USA, then use Farenheit. If not, use Celsius. 
 		if (country == "USA") {
 			getFarenheitTemp();
