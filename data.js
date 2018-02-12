@@ -157,10 +157,35 @@ app.controller('weatherController', function($scope) {
 	  maximumAge: 0
 	};
 	
+	// Update the clock on screen
+	function updateClockHome() {
+		clearInterval(window.interval);
+		console.log("ClockHome");
+		var date = new Date(Date.now());
+		var timestr = date.toLocaleTimeString();
+		$scope.$apply(function () {
+			$scope.Time = timestr; 
+		});
+	}
 	$scope.Time; 
 	$scope.Location;
-	
+	var interval; 
 	$scope.callByIP = function(position) {
+		
+		$(document).ready(function() {
+			//intervals.push(setInterval(updateClockHome, 1000));
+			console.log("ready");
+
+			 interval = window.setInterval(updateClockHome, 1000);
+
+		//	$scope.getLocation();
+			for (o = 0; o < 7; o++) {
+				$scope.$apply(function () {
+					$scope.thisWeek.push($scope.getDays(o));
+				});
+			}
+		}); 
+		
 		// API call
 		var lat = position.coords.latitude;
 		var long = position.coords.longitude;
@@ -183,14 +208,11 @@ app.controller('weatherController', function($scope) {
 	$scope.postal; 
 
 	$scope.callByPostal = function(postal) {
-		console.log(postal);
 		var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
 		$.getJSON(GEOCODING, function(json) {
 			// get the longitude and latitutde. 
 			var lat = json.results["0"].geometry.location.lat;
 			var long = json.results["0"].geometry.location.lng;
-			console.log(lat);
-			console.log(long);
 			// Forecast.io api call. 
 			var for_call = "https://api.forecast.io/forecast/" + forkey + "/" + lat + "," + long + "?callback=?";
 			// Get the address. 
@@ -210,32 +232,13 @@ app.controller('weatherController', function($scope) {
 		});
 	}
 	
+	
+		
 	$scope.getForecastData = function(weatherInfo, country, home) {
 	//	$scope.$apply(function () {
-			$scope.currentWeather = $scope.getIcon(weatherInfo.currently.icon);
+		$scope.currentWeather = $scope.getIcon(weatherInfo.currently.icon);
 	//	});
-		var intervals = []; 
-		
-		$(document).ready(function() {
-			intervals.push(setInterval(updateClockHome, 1000));
-		//	$scope.getLocation();
-			for (o = 0; o < 7; o++) {
-				$scope.$apply(function () {
-					$scope.thisWeek.push($scope.getDays(o));
-				});
-			}
-		}); 
-		
-		// Update the clock on screen
-		function updateClockHome() {
-			var date = new Date(Date.now());
-			var timestr = date.toLocaleTimeString();
-			$scope.$apply(function () {
-				$scope.Time = timestr; 
-			});
-		}
 
-	
 		// Get the maximum temperature that will happen today. 
 		$scope.getTemperatureMax = function(k) {
 			return Math.round(weatherInfo.daily.data[k + 1].temperatureMax);
@@ -246,12 +249,12 @@ app.controller('weatherController', function($scope) {
 		}
 		// get sunrise time and sunset time
 		$scope.$apply(function () {
-		$scope.secRise = weatherInfo.daily.data[0].sunriseTime;
-		$scope.dateRise = new Date($scope.secRise * 1000);
-		$scope.timestrRise = $scope.dateRise;
-		$scope.secSet = weatherInfo.daily.data[0].sunsetTime;
-		$scope.dateSet = new Date($scope.secSet * 1000);
-		$scope.timestrSet = $scope.dateSet;
+			$scope.secRise = weatherInfo.daily.data[0].sunriseTime;
+			$scope.dateRise = new Date($scope.secRise * 1000);
+			$scope.timestrRise = $scope.dateRise;
+			$scope.secSet = weatherInfo.daily.data[0].sunsetTime;
+			$scope.dateSet = new Date($scope.secSet * 1000);
+			$scope.timestrSet = $scope.dateSet;
 		});
 		// This is for when the home is changed by search and it can't be found by the API. It just will default to the normal time. 
 		
@@ -262,7 +265,9 @@ app.controller('weatherController', function($scope) {
 			});
 		} else {
 			// If the home area CAN be found, reset the intervals and make a new one. 
-			intervals.forEach(clearInterval);
+
+		   clearInterval(interval);
+
 			function updateClock() {
 				var timestr = new Date().toLocaleString('en-US', {
 					timeZone: home
@@ -271,7 +276,7 @@ app.controller('weatherController', function($scope) {
 					$scope.Time = timestr.split(",")[1];
 				});
 			}
-			intervals.push(setInterval(updateClock, 1000));
+			interval = window.setInterval(updateClock, 1000);
 			$scope.$apply(function () {
 				$scope.timestrRise = $scope.dateRise.toLocaleTimeString('en-US', {
 					timeZone: home
@@ -286,7 +291,7 @@ app.controller('weatherController', function($scope) {
 		$scope.feelTemperature;
 		$scope.todayLow;
 		$scope.todayHigh; 
-		function getFarenheitTemp() {
+		$scope.getFarenheitTemp =function() {
 			$scope.$apply(function () {
 				$scope.actualTemperature = (Math.round(weatherInfo.currently.temperature));
 				$scope.feelTemperature =(Math.round(weatherInfo.currently.apparentTemperature));
@@ -308,7 +313,7 @@ app.controller('weatherController', function($scope) {
 			}
 		}
 		// Update the temperature with Celsius. 
-		function getCelsiusTemp() {
+		$scope.getCelsiusTemp =function() {
 			$scope.$apply(function () {
 				$scope.actualTemperature =(Math.round($scope.fTOc(weatherInfo.currently.temperature)));
 				$scope.feelTemperature =(Math.round($scope.fTOc(weatherInfo.currently.apparentTemperature)));
@@ -335,18 +340,10 @@ app.controller('weatherController', function($scope) {
 		$scope.changeBackground(weatherInfo.currently.apparentTemperature);
 		// If we're in the USA, then use Farenheit. If not, use Celsius. 
 		if (country == "USA") {
-			getFarenheitTemp();
+			$scope.getFarenheitTemp();
 		} else {
-			getCelsiusTemp();
+			$scope.getCelsiusTemp();
 		}
-		// Set the onclicks for changing from Farenheit to Celsius and vice versa. 
-		document.getElementById('f').onclick = function() {
-			getFarenheitTemp();
-		}
-		document.getElementById('c').onclick = function() {
-			getCelsiusTemp();
-		} 
-		
 		$scope.$apply(function () {
 			// get the current cloudiness 
 			$scope.cloudiness = Math.round(weatherInfo.currently.cloudCover*100) + " percent cloudy";
@@ -373,6 +370,7 @@ app.controller('weatherController', function($scope) {
 				$scope.forecastIcons.push($scope.getIcon(weatherInfo.daily.data[j + 1].icon)); // example #mon-icon
 			} 
 		});
+		console.log("The duplication error you see when you do a postal search is known about and I'm dealing with it. There is no actual problem, but Angular doesn't like that in a forecast some days will be similar enough to have a duplicate icon and  I'm working on a way so Angular doesn't loses its mind warning about this error. Thanks.");
 	}; // END OF FORECAST.IO 
 
 	$scope.error = function(err) {
