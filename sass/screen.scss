@@ -92,6 +92,7 @@ body, html{
 	nav {
 		 display: block;
 		 background: black;
+		 min-height: 52px; 
 		  @include media(($large)){
 			nav > div{
 				display: inline; 
@@ -109,7 +110,7 @@ body, html{
 				}
 				 @include media(($large)){
 					padding: 0px; 
-					width: 70%;
+					width: 60%;
 					float: left; 
 				 }
 			}
@@ -133,6 +134,9 @@ body, html{
 		#Location{
 			text-align: center; 
 			width: 100%;
+			 @include media(($large)){
+					font-size: 12px; 
+			}
 		}
 		#Time{	
 			text-align: center; 
@@ -148,17 +152,17 @@ body, html{
 			}
 			@include media(($large)){
 				float: left; 
-				width: 25%; 
+				width: 30%; 
 			}
 		}
 		#callIP{
 			width: 50%;
 			 height: 28px;
-			background-color: darken($defaultBackground, 30%);
+			background-color: darken($defaultBackground, 40%);
 			color: brighten($defaultBackground, 90%); 
 			border: none; 
 			&:hover {
-				background-color: darken($defaultBackground, 60%); 
+				background-color: darken($defaultBackground, 65%); 
 			}
 			&:focus {
 				outline:0;
@@ -168,8 +172,9 @@ body, html{
 				width: 5%;
 			}
 			@include media(($large)){
+				float: left; 
 				width: 5%;
-				border-radius: 0px 15px 15px 0px;
+				border-radius: 8px 0px 0px 8px;
 			}
 		}
 		#searchButton {
