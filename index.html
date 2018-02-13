@@ -50,57 +50,50 @@
 				<!-- Temperature -->
 				<tr>
 					<td>Actual Temperature:
-						<p id="actualTemp" class="temperatureReading">{{actualTemperature}}</p>
+						<p class="temperatureReading">{{actualTemperature}}</p>
 					</td>
 					<td>Today's High:
-						<p id="todayHigh" class="temperatureReading">{{todayHigh}}</p>
+						<p class="temperatureReading">{{todayHigh}}</p>
 					</td>
 				</tr>
 				<tr>
 					<td>Due to humidity, the Temperature feels like:
-						<p id="feelsTemp" class="temperatureReading">{{feelTemperature}}</p>
+						<p class="temperatureReading">{{feelTemperature}}</p>
 					</td>
 					<td>Today's Low:
-						<p id="todayLow" class="temperatureReading">{{todayLow}}</p>
+						<p class="temperatureReading">{{todayLow}}</p>
 					</td>
 				</tr>
 
 				<!-- Cloudiness -->
 				<tr>
-					<td>Right now, it is
-						<p id="cloudinessForeCast">{{cloudinessForecast}} </p>
-						<i id="cloudinessIcon" class="{{currentWeather}}"> </i>
+					<td>
+						<i class="{{currentWeather}}"> </i>
+						<p> Right now, it is {{cloudinessForecast}}	</p>
 					</td>
 					<td>
-						Current Cloudiness: 
-						<p id="cloudinessCurrentDescription">{{cloudiness}}</p>
+						{{cloudiness}}
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<!-- Rain -->
 						<i class="wi wi-raindrop"></i>
-						<p id="rainDescription">{{rain}}</p>
-						(Rain intensity: <span id="rainNumber">{{rainIntensity}}</span> mm/h)
+						<p>{{rain}} (Rain intensity: {{rainIntensity}} mm/h)</p>		
 					</td>
 					<td>
 						<i class="wi wi-sunrise"></i> Sunrise: {{timestrRise}}
-						<p id="sunrise"></p>
 						<i class="wi wi-sunset"></i> Sunset: {{timestrSet}}
-						<p id="sunset"> </p>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<!-- Wind -->
 						<i class="wi wi-strong-wind"></i>
-						<p id="windDescription">{{wind}}</p>
-
-						(Wind speed: <span id="windNumber">{{windIntensity}}</span> mph)
+						{{wind}} (Wind speed: {{windIntensity}} mph)				
 					</td>
 					<td>
-
-						Today's Summary: <p id="todaySummary">{{todaySummary}}</p>
+						{{todaySummary}}
 					</td>
 				</tr>
 
@@ -110,20 +103,15 @@
 			<div id="tableContainer">
 			<!-- Replace this table? -->
 				<table id="weeklyForecast">
-					<!-- Naming convention starts with today as Sunday, because reasons -->
-					<tr id="names" >
+					<tr>
 						<td ng-repeat="day in thisWeek"> {{day}} </td>
 					</tr>
-					<!-- End of names -->
-					<tr id="forecast-icons">
-						<td ng-repeat="icon in forecastIcons track by $index"><i id="cloudinessIcon" class="wi {{icon}}"> </i> </td>
+					<tr>
+						<td ng-repeat="icon in forecastIcons track by $index"><i class="wi {{icon}}"> </i> </td>
 					</tr>
-					
-					<!-- end of forecast icons	 -->
-					<tr id="high">
+					<tr>
 						<td ng-repeat="temperature in forecastTemperatures"> <span class='wi wi-degrees'> {{temperature.high}} </span> <span class='wi wi-degrees' style="color: grey" > {{temperature.low}} </span> </td>
 					</tr>
-					<!-- end of highlow -->
 				</table>
 				<div id="weeklySummary"> Week's Summary: <p id="weekSummary">{{weekSummary}}</p> </div>
 			</div>
