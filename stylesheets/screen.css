@@ -237,61 +237,62 @@ body, html {
 #index #transparentGreyBackground .summary {
   width: 100%;
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
 }
 /* line 202, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature {
-  /**{
-  	display: inline;
-  } 
-  margin: 0 auto; 
-  text-align: center; 
-  #actualTemperature{
-  	 font-size: 24px;
-  	 text-align: center;
-  	font-style: bold;
-  }
-  #highs-and-low{
-  	display: block; 
-  }
-  #current-icon-description{	
-  	text-align: center; 
-  	float: left; 
-  	
-  }
-  clear: both; */
+  clear: left;
+  float: left;
+  width: 100%;
+  overflow: hidden;
+  font-size: 12px;
 }
-/* line 204, ../sass/screen.scss */
+/* line 208, ../sass/screen.scss */
+#index #transparentGreyBackground #todaysTemperature .extremeTemperature {
+  vertical-align: text-top;
+  display: block;
+  font-size: 12px;
+  padding-left: 23px;
+}
+/* line 213, ../sass/screen.scss */
+#index #transparentGreyBackground #todaysTemperature .extremeTemperature:nth-child(3) {
+  color: grey;
+}
+/* line 217, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature i {
   font-size: 50px;
   display: block;
 }
-/* line 208, ../sass/screen.scss */
-#index #transparentGreyBackground #todaysTemperature div {
-  width: 100%;
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-}
-/* line 214, ../sass/screen.scss */
+/* line 222, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature #actualTemperature {
   font-size: 40px;
 }
-/* line 217, ../sass/screen.scss */
-#index #transparentGreyBackground #todaysTemperature p {
-  display: inline;
+/* line 226, ../sass/screen.scss */
+#index #transparentGreyBackground #todaysTemperature #innerContainer {
+  float: left;
+  width: 100%;
+  position: relative;
+  right: 50%;
 }
-/* line 219, ../sass/screen.scss */
-#index #transparentGreyBackground #todaysTemperature p .extremeTemperature {
-  vertical-align: top;
-  font-size: 12px;
-  float: right;
+/* line 231, ../sass/screen.scss */
+#index #transparentGreyBackground #todaysTemperature #innerContainer #first {
+  float: left;
+  width: 46%;
+  position: relative;
+  left: 52%;
+  overflow: hidden;
+  text-align: right;
 }
-/* line 224, ../sass/screen.scss */
-#index #transparentGreyBackground #todaysTemperature p:nth-child(3) {
-  color: grey;
+/* line 239, ../sass/screen.scss */
+#index #transparentGreyBackground #todaysTemperature #innerContainer #second {
+  float: left;
+  width: 46%;
+  position: relative;
+  left: 56%;
+  overflow: hidden;
+  text-align: left;
 }
-/* line 248, ../sass/screen.scss */
+/* line 249, ../sass/screen.scss */
 #index #transparentGreyBackground .wi-raindrop {
   color: #0E5D9E;
 }

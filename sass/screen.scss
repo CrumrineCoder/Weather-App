@@ -196,54 +196,55 @@ body, html{
 		.summary {
 			 width: 100%;
 			 text-align: center;
-			 font-size: 16px;
+			 font-size: 15px;
 		}
 		
-		#todaysTemperature{
-			
-			i{
-				font-size: 50px; 	
+		#todaysTemperature{		
+			clear: left;
+			float: left;
+			width: 100%;
+			overflow: hidden; 
+			font-size: 12px; 
+			.extremeTemperature{
+				vertical-align: text-top; 
 				display: block; 
-			}
-			div{
-				width: 100%;
-				display: block; 
-				margin: 0 auto; 
-				text-align: center; 
-			}
-			#actualTemperature{
-				font-size: 40px; 
-			}
-			p{
-				display: inline; 
-				.extremeTemperature{
-					vertical-align: top; 
-					font-size: 12px; 
-					float: right; 
-				}
+				font-size: 12px; 
+				padding-left: 23px; 
 				&:nth-child(3) {
 					color: grey; 
 				}
 			}
-			/**{
-				display: inline;
-			} 
-			margin: 0 auto; 
-			text-align: center; 
-			#actualTemperature{
-				 font-size: 24px;
-				 text-align: center;
-				font-style: bold;
-			}
-			#highs-and-low{
+			i{
+				font-size: 50px; 	
 				display: block; 
 			}
-			#current-icon-description{	
-				text-align: center; 
-				float: left; 
-				
+	
+			#actualTemperature{
+				font-size: 40px; 
 			}
-			clear: both; */
+			// Positioning 
+			#innerContainer{
+				float: left;
+				width: 100%;
+				position: relative;
+				right: 50%;
+				#first{
+				    float: left;
+					width: 46%;
+					position: relative;
+					left: 52%;
+					overflow: hidden; 
+					text-align: right; 
+				}
+				#second{
+					float: left;
+					width: 46%;
+					position: relative;
+					left: 56%;
+					overflow: hidden; 
+					text-align: left; 					
+				}
+			}	
 		}
 		.wi-raindrop {
 			 color: #0E5D9E;
