@@ -199,26 +199,30 @@ app.controller('weatherController', function($scope) {
 		var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
 		$.getJSON(GEOCODING, function(json) {
 			// get the longitude and latitutde. 
-			var lat = json.results["0"].geometry.location.lat;
-			var long = json.results["0"].geometry.location.lng;
-			// Forecast.io api call. 
-			var for_call = "https://api.forecast.io/forecast/" + forkey + "/" + lat + "," + long + "?callback=?";
-			// Get the address. 
-			var address = json.results["0"].formatted_address;
-			// Show the address. 
-			$scope.Location = address;
-			// Get the country. 
-			var country = address.slice(-3);
-			var timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + long + "&timestamp=" + new Date(Date.now()).getTime() / 1000 + "&key=" + timeZoneKey;
-			var timeZoneID;
-			var offset; 
-			$.getJSON(timezone, function(json) {
-				timeZoneID = json.timeZoneId;
-				offset = json.rawOffset;
-				$.getJSON(for_call, function(json) {
-					$scope.getForecastData(json, country, timeZoneID, offset);
+			if(json.status == "ZERO_RESULTS"){
+				  alert("Geolocation API could not find that location. Be more specific or fix spelling errors");
+			} else{
+				var lat = json.results["0"].geometry.location.lat;
+				var long = json.results["0"].geometry.location.lng;
+				// Forecast.io api call. 
+				var for_call = "https://api.forecast.io/forecast/" + forkey + "/" + lat + "," + long + "?callback=?";
+				// Get the address. 
+				var address = json.results["0"].formatted_address;
+				// Show the address. 
+				$scope.Location = address;
+				// Get the country. 
+				var country = address.slice(-3);
+				var timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + long + "&timestamp=" + new Date(Date.now()).getTime() / 1000 + "&key=" + timeZoneKey;
+				var timeZoneID;
+				var offset; 
+				$.getJSON(timezone, function(json) {
+					timeZoneID = json.timeZoneId;
+					offset = json.rawOffset;
+					$.getJSON(for_call, function(json) {
+						$scope.getForecastData(json, country, timeZoneID, offset);
+					});
 				});
-			});
+			}
 		});
 	}
 	
@@ -386,10 +390,17 @@ app.controller('weatherController', function($scope) {
         document.getElementById("splash").style.display = "none";
 		//console.log("The duplication error you see when you do a postal search is known about and I'm dealing with it. There is no actual problem, but Angular doesn't like that in a forecast some days will be similar enough to have a duplicate icon and  I'm working on a way so Angular doesn't loses its mind warning about this error. Thanks.");
 	}; // END OF FORECAST.IO 
-
+	var phrases = ["Do you  want to use this website or not?", "Fine, we'll just sit here until you're ready to cooperate.", "You can check the Github. There is no database. https://github.com/CrumrineCoder/Weather-App. Or are you just a rebel?", "Rebel Rebel, you've torn your dress. Rebel Rebel, your face is a mess. Rebel Rebel, how could they know?", "Are you just going to sit through here and see all the funny clown jokes I made?", "I’m funny how? I mean funny, like I’m a clown? I amuse you? I make you laugh? I’m here to amuse you? Whattya you mean funny? Funny how? How am I funny?", "Look, will you just click accept so you can use my website? This is just some stupid joke I put in and it took me like 5 minutes to set up. The rest of the site took much longer.", "FINE, GO AHEAD. I WON'T SAY ANY MORE JOKES. GO STICK YOUR HEAD OUT OF THE WINDOW TO GET THE WEATHER, SEE IF I CARE.", "I'm sorry, we left off on the wrong foot. Just. Click. Allow.", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "I've run out of ideas for jokes. Just click allow or whatever I don't care.", "Filler", "Filler 1", "Filler 2", "Filler 3", "Filler 4", "Filler 5", "Filler 100", "Filler 7", "LOOK IF YOU WANT TO SEE ALL THE JOKES YOU CAN GO ON GITHUB AND LOOK AT THE DATA.JS FILE. JUST CLICK ALLOW."]
+	var phrasesIndex =0; 
 	$scope.error = function(err) {
 		// Have some funny phrases appear below the button and it just keeps adding on. Add like 30 of these. Haha.
-	  console.warn(`ERROR(${err.code}): ${err.message}`);
+		if(phrasesIndex > phrases.length-1){
+			phrasesIndex = 0; 
+		}
+		
+		alert(phrases[phrasesIndex]);
+		phrasesIndex++;
+	  //alert(`ERROR(${err.code}): ${err.message}`);
 	};
 
 	$scope.getLocation = function(){
