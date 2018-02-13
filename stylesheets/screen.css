@@ -186,30 +186,61 @@ body, html {
   }
 }
 /* line 154, ../sass/screen.scss */
-#index nav #searchButton {
-  width: 100%;
-  background: #8F92E0;
-  border: none;
+#index nav #callIP {
+  width: 50%;
   height: 28px;
+  background-color: #50be41;
+  color: brighten(#B9E5B3, 90%);
+  border: none;
+}
+/* line 160, ../sass/screen.scss */
+#index nav #callIP:hover {
+  background-color: #204c1a;
+}
+/* line 163, ../sass/screen.scss */
+#index nav #callIP:focus {
+  outline: 0;
 }
 @media (min-width: 992px) and (max-width: 1199px) {
   /* line 154, ../sass/screen.scss */
-  #index nav #searchButton {
-    width: 20%;
+  #index nav #callIP {
+    float: left;
+    width: 5%;
   }
 }
 @media (min-width: 1200px) {
   /* line 154, ../sass/screen.scss */
+  #index nav #callIP {
+    width: 5%;
+    border-radius: 0px 15px 15px 0px;
+  }
+}
+/* line 175, ../sass/screen.scss */
+#index nav #searchButton {
+  width: 50%;
+  background: #8F92E0;
+  border: none;
+  height: 28px;
+  float: right;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* line 175, ../sass/screen.scss */
+  #index nav #searchButton {
+    width: 15%;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 175, ../sass/screen.scss */
   #index nav #searchButton {
     width: 5%;
     border-radius: 0px 15px 15px 0px;
   }
 }
-/* line 166, ../sass/screen.scss */
+/* line 188, ../sass/screen.scss */
 #index nav #searchButton:hover {
   background: #6D6FAB;
 }
-/* line 174, ../sass/screen.scss */
+/* line 196, ../sass/screen.scss */
 #index #transparentGreyBackground {
   margin: 4%;
   opacity: .9;
@@ -218,30 +249,30 @@ body, html {
   padding: 10px;
   /* Fix this up */
 }
-/* line 180, ../sass/screen.scss */
+/* line 202, ../sass/screen.scss */
 #index #transparentGreyBackground #fcButtons {
   text-align: center;
   width: 100%;
 }
-/* line 185, ../sass/screen.scss */
+/* line 207, ../sass/screen.scss */
 #index #transparentGreyBackground #fcButtons > button, #index #transparentGreyBackground #fcButtons > span {
   text-align: center;
   vertical-align: top;
   font-size: 20px;
 }
-/* line 190, ../sass/screen.scss */
+/* line 212, ../sass/screen.scss */
 #index #transparentGreyBackground #f, #index #transparentGreyBackground #c {
   background-color: #312c32;
   border: none;
   text-decoration: none;
 }
-/* line 195, ../sass/screen.scss */
+/* line 217, ../sass/screen.scss */
 #index #transparentGreyBackground .summary {
   width: 100%;
   text-align: center;
   font-size: 15px;
 }
-/* line 201, ../sass/screen.scss */
+/* line 223, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature {
   clear: left;
   float: left;
@@ -249,34 +280,34 @@ body, html {
   overflow: hidden;
   font-size: 12px;
 }
-/* line 208, ../sass/screen.scss */
+/* line 230, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature .extremeTemperature {
   vertical-align: text-top;
   display: block;
   font-size: 12px;
   padding-left: 23px;
 }
-/* line 213, ../sass/screen.scss */
+/* line 235, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature .extremeTemperature:nth-child(3) {
   color: grey;
 }
-/* line 217, ../sass/screen.scss */
+/* line 239, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature i {
   font-size: 50px;
   display: block;
 }
-/* line 222, ../sass/screen.scss */
+/* line 244, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature #actualTemperature {
   font-size: 40px;
 }
-/* line 226, ../sass/screen.scss */
+/* line 248, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature #innerContainer {
   float: left;
   width: 100%;
   position: relative;
   right: 50%;
 }
-/* line 232, ../sass/screen.scss */
+/* line 254, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature #innerContainer #first {
   float: left;
   width: 46%;
@@ -286,7 +317,7 @@ body, html {
   text-align: right;
   padding-top: 20px;
 }
-/* line 241, ../sass/screen.scss */
+/* line 263, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature #innerContainer #second {
   float: left;
   width: 46%;
@@ -296,15 +327,15 @@ body, html {
   text-align: left;
   padding-top: 10px;
 }
-/* line 252, ../sass/screen.scss */
+/* line 274, ../sass/screen.scss */
 #index #transparentGreyBackground #today-details {
   text-align: center;
 }
-/* line 254, ../sass/screen.scss */
+/* line 276, ../sass/screen.scss */
 #index #transparentGreyBackground #today-details .wi-raindrop {
   color: #0E5D9E;
 }
-/* line 259, ../sass/screen.scss */
+/* line 281, ../sass/screen.scss */
 #index #transparentGreyBackground #weeklyForecast {
   width: 100%;
   text-align: center;
@@ -312,19 +343,19 @@ body, html {
   margin: 0 auto;
 }
 @media (min-width: 768px) and (max-width: 992px) {
-  /* line 259, ../sass/screen.scss */
+  /* line 281, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 80%;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 259, ../sass/screen.scss */
+  /* line 281, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 70%;
   }
 }
 @media (min-width: 1200px) {
-  /* line 259, ../sass/screen.scss */
+  /* line 281, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 60%;
   }
