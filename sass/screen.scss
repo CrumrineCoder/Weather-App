@@ -228,12 +228,10 @@ body, html{
 			float: left;
 			width: 100%;
 			overflow: hidden; 
-			font-size: 12px; 
-			
+			font-size: 12px; 		
 			.extremeTemperature{
 				vertical-align: text-top; 
 				display: block; 
-				font-size: 12px; 
 				padding-left: 23px; 
 				&:nth-child(3) {
 					color: grey; 
@@ -286,17 +284,9 @@ body, html{
 				// Left
 				div:nth-child(2){ float: left; width: 33%; }
 				// Right
-				div:nth-child(3){ float: right; width: 33%; }
-				
-				div{
-						display: inline; 
-						width: 33%;
-				} 
-				
+				div:nth-child(3){ float: right; width: 33%; }	
 			}
-			
 		}
-		
 		#weeklyForecast{
 			width: 100%;
 			text-align: center;
