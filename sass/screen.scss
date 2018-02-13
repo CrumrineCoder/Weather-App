@@ -25,6 +25,9 @@ $smallToLarge: "(min-width:768px)";
 
 body, html{
 	height: 100%; margin: 0; padding: 0;
+	button:focus {
+		outline:0;
+	}
 }
 
 #splash{
@@ -73,9 +76,6 @@ body, html{
 			background-color: darken($defaultBackground, 60%); 
 			border: darken($defaultBackground, 60%) 3px solid;
 			color: lighten($defaultBackground, 90%); 
-		}
-		&:focus {
-			outline:0;
 		}
 	}
 }
@@ -163,9 +163,6 @@ body, html{
 			border: none; 
 			&:hover {
 				background-color: darken($defaultBackground, 65%); 
-			}
-			&:focus {
-				outline:0;
 			}
 			@include media(($medium)){
 				float: left; 
