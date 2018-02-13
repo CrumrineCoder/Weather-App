@@ -93,8 +93,6 @@ body, html {
   font-size: 16px;
   height: 100%;
   width: 100%;
-  /* TODAYS FORECAST */
-  /* WEEKLY FORECAST */
 }
 /* line 90, ../sass/screen.scss */
 #index nav {
@@ -215,45 +213,43 @@ body, html {
   opacity: .9;
   background: #312c32;
   color: white;
-  padding: 2%;
+  padding: 10px;
+  /* Fix this up */
 }
-/* line 179, ../sass/screen.scss */
-#index #fcButtons {
+/* line 177, ../sass/screen.scss */
+#index #transparentGreyBackground #fcButtons {
   text-align: center;
   width: 100%;
 }
-/* line 183, ../sass/screen.scss */
-#index #fcButtons > button, #index #fcButtons > span {
+/* line 182, ../sass/screen.scss */
+#index #transparentGreyBackground #fcButtons > button, #index #transparentGreyBackground #fcButtons > span {
   text-align: center;
   vertical-align: top;
   font-size: 20px;
 }
-/* line 188, ../sass/screen.scss */
-#index #f, #index #c {
+/* line 187, ../sass/screen.scss */
+#index #transparentGreyBackground #f, #index #transparentGreyBackground #c {
   background-color: #312c32;
   border: none;
   text-decoration: none;
 }
-/* line 196, ../sass/screen.scss */
-#index #todaysForecast td {
-  font-size: 16px;
-  padding-left: 10%;
-  padding-right: 20%;
-  text-align: center;
-}
-/* line 202, ../sass/screen.scss */
-#index .temperatureReading {
-  font-size: 24px;
-  text-align: center;
-  font-style: bold;
-}
-/* line 207, ../sass/screen.scss */
-#index .wi-raindrop {
-  color: #0E5D9E;
-}
-/* line 212, ../sass/screen.scss */
-#index #weeklySummary, #index #weeklyForecast {
+/* line 192, ../sass/screen.scss */
+#index #transparentGreyBackground .summary {
   width: 100%;
   text-align: center;
   font-size: 16px;
+}
+/* line 197, ../sass/screen.scss */
+#index #transparentGreyBackground #current-icon-description {
+  float: left;
+  text-align: center;
+}
+/* line 200, ../sass/screen.scss */
+#index #transparentGreyBackground #current-icon-description i {
+  font-size: 50px;
+  display: block;
+}
+/* line 205, ../sass/screen.scss */
+#index #transparentGreyBackground .wi-raindrop {
+  color: #0E5D9E;
 }

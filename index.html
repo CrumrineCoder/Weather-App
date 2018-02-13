@@ -46,58 +46,31 @@
 				<button type="button" id="c" class="" ng-click="getCelsiusTemp()">Celsius</button>
 			</div>
 
-			<table id="todaysForecast" style="width:100%">
-				<!-- Temperature -->
-				<tr>
-					<td>Actual Temperature:
-						<p class="temperatureReading">{{actualTemperature}}</p>
-					</td>
-					<td>Today's High:
-						<p class="temperatureReading">{{todayHigh}}</p>
-					</td>
-				</tr>
-				<tr>
-					<td>Due to humidity, the Temperature feels like:
-						<p class="temperatureReading">{{feelTemperature}}</p>
-					</td>
-					<td>Today's Low:
-						<p class="temperatureReading">{{todayLow}}</p>
-					</td>
-				</tr>
+			<p class="summary"> {{todaySummary}} </p>
+			
+			<div id="current-icon-description"> 
+				{{cloudinessForecast}}
+				<i class="{{currentWeather}}"> </i> 
+			</div>
+			
+			<p class="temperatureReading">{{actualTemperature}}</p>
+			<p class="temperatureReading">{{todayHigh}}</p>
+			<p class="temperatureReading">{{todayLow}}</p>
+			
+			It feels like <p class="temperatureReading">{{feelTemperature}}</p>
+			
+			<!-- Cloud icon here -->
+			{{cloudiness}}
+			
+			<i class="wi wi-raindrop"></i>
+			<p>{{rain}} (Rain intensity: {{rainIntensity}} mm/h)</p>
+			
+			<i class="wi wi-strong-wind"></i>
+						{{wind}} (Wind speed: {{windIntensity}} mph)	
+			
+			<i class="wi wi-sunrise"></i> Sunrise: {{timestrRise}}
+			<i class="wi wi-sunset"></i> Sunset: {{timestrSet}}
 
-				<!-- Cloudiness -->
-				<tr>
-					<td>
-						<i class="{{currentWeather}}"> </i>
-						<p> Right now, it is {{cloudinessForecast}}	</p>
-					</td>
-					<td>
-						{{cloudiness}}
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<!-- Rain -->
-						<i class="wi wi-raindrop"></i>
-						<p>{{rain}} (Rain intensity: {{rainIntensity}} mm/h)</p>		
-					</td>
-					<td>
-						<i class="wi wi-sunrise"></i> Sunrise: {{timestrRise}}
-						<i class="wi wi-sunset"></i> Sunset: {{timestrSet}}
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<!-- Wind -->
-						<i class="wi wi-strong-wind"></i>
-						{{wind}} (Wind speed: {{windIntensity}} mph)				
-					</td>
-					<td>
-						{{todaySummary}}
-					</td>
-				</tr>
-
-			</table> 
 			<br />
 			<br />
 			<div id="tableContainer">
@@ -113,7 +86,7 @@
 						<td ng-repeat="temperature in forecastTemperatures"> <span class='wi wi-degrees'> {{temperature.high}} </span> <span class='wi wi-degrees' style="color: grey" > {{temperature.low}} </span> </td>
 					</tr>
 				</table>
-				<div id="weeklySummary"> Week's Summary: <p id="weekSummary">{{weekSummary}}</p> </div>
+				 <p class="summary">{{weekSummary}}</p> 
 			</div>
 		</div>
 	</div>

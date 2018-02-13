@@ -173,46 +173,37 @@ body, html{
 		 opacity: .9;
 		 background: #312c32;
 		 color: white;
-		 padding: 2%;
+		 padding: 10px;
+		 #fcButtons {
+			text-align: center;
+			width: 100%;
+		}
+		/* Fix this up */
+		#fcButtons > button, #fcButtons > span {
+			 text-align: center;
+			 vertical-align: top;
+			 font-size: 20px;
+		}
+		#f, #c {
+				background-color: #312c32;
+				 border: none;
+				 text-decoration: none;
+		}
+		.summary {
+			 width: 100%;
+			 text-align: center;
+			 font-size: 16px;
+		}
+		#current-icon-description{
+			float:  left; 
+			text-align: center; 
+			i{
+				font-size: 50px; 
+				display: block; 	
+			}
+		}
+		.wi-raindrop {
+			 color: #0E5D9E;
+		} 
 	}
-	
-	#fcButtons {
-		 text-align: center;
-		 width: 100%;
-	}
-	 #fcButtons > button, #fcButtons > span {
-		 text-align: center;
-		 vertical-align: top;
-		 font-size: 20px;
-	}
-	 #f, #c {
-		 background-color: #312c32;
-		 border: none;
-		 text-decoration: none;
-	}
-	
-	
-	/* TODAYS FORECAST */
-	 #todaysForecast td {
-		 font-size: 16px;
-		 padding-left: 10%;
-		 padding-right: 20%;
-		 text-align: center;
-	}
-	 .temperatureReading {
-		 font-size: 24px;
-		 text-align: center;
-		 font-style: bold;
-	}
-	 .wi-raindrop {
-		 color: #0E5D9E;
-	}
-
-	/* WEEKLY FORECAST */
-	 #weeklySummary, #weeklyForecast {
-		 width: 100%;
-		 text-align: center;
-		 font-size: 16px;
-	}
-     
 }
