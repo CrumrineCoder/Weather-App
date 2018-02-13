@@ -164,7 +164,7 @@ body button:focus, html button:focus {
 @media (min-width: 1100px) {
   /* line 134, ../sass/screen.scss */
   #index nav #Location {
-    font-size: 12px;
+    font-size: 15px;
   }
 }
 /* line 141, ../sass/screen.scss */
