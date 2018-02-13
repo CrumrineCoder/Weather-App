@@ -91,11 +91,11 @@ app.controller('weatherController', function($scope) {
 		} else if (speed < 3.3) {
 			return "You'll feel a bit of wind.";
 		} else if (speed < 5.4) {
-			return "While the twigs do look possessed, don't call the Ghostbusters";
+			return "Twigs are possessed, don't call the Ghostbusters.";
 		} else if (speed < 7.9) {
 			return "WATCH OUT IT'S A MINI TORNADO AAAAAAH!";
 		} else if (speed < 10.7) {
-			return "Be on the lookout for long branches on the ground, they might attack you.";
+			return "Long branches are now possessed.";
 		} else if (speed < 13.8) {
 			return "HAHAHA GOOD LUCK USING THAT UMBRELLA HAHAHAHAH";
 		} else if (speed < 17.1) {

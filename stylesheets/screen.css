@@ -34,19 +34,19 @@ body button:focus, html button:focus {
   width: 80%;
   background: #B9E5B3;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   /* line 42, ../sass/screen.scss */
   #splash h2 {
     font-size: 30px;
   }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 893px) and (max-width: 1099px) {
   /* line 42, ../sass/screen.scss */
   #splash h2 {
     font-size: 24px;
   }
 }
-@media (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 668px) and (max-width: 892px) {
   /* line 42, ../sass/screen.scss */
   #splash h2 {
     font-size: 20px;
@@ -62,19 +62,19 @@ body button:focus, html button:focus {
   color: black;
   margin: 10px auto;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   /* line 57, ../sass/screen.scss */
   #splash button {
     font-size: 30px;
   }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 893px) and (max-width: 1099px) {
   /* line 57, ../sass/screen.scss */
   #splash button {
     font-size: 24px;
   }
 }
-@media (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 668px) and (max-width: 892px) {
   /* line 57, ../sass/screen.scss */
   #splash button {
     font-size: 20px;
@@ -102,7 +102,7 @@ body button:focus, html button:focus {
   background: black;
   min-height: 52px;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   /* line 92, ../sass/screen.scss */
   #index nav {
     padding: 10px;
@@ -112,7 +112,7 @@ body button:focus, html button:focus {
     display: inline;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 668px) {
   /* line 103, ../sass/screen.scss */
   #index nav #columns {
     padding-top: 10px;
@@ -125,7 +125,7 @@ body button:focus, html button:focus {
     flex: 1;
   }
 }
-@media (min-width: 768px) and (min-width: 1200px) {
+@media (min-width: 668px) and (min-width: 1100px) {
   /* line 103, ../sass/screen.scss */
   #index nav #columns {
     padding: 0px;
@@ -150,7 +150,7 @@ body button:focus, html button:focus {
 #index nav #ad #nic:hover {
   color: #4A9943;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   /* line 118, ../sass/screen.scss */
   #index nav #ad {
     font-size: 12px;
@@ -161,7 +161,7 @@ body button:focus, html button:focus {
   text-align: center;
   width: 100%;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   /* line 134, ../sass/screen.scss */
   #index nav #Location {
     font-size: 12px;
@@ -179,13 +179,13 @@ body button:focus, html button:focus {
   font-size: 14px;
   height: 28px;
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 893px) and (max-width: 1099px) {
   /* line 145, ../sass/screen.scss */
   #index nav #search-bar {
     width: 80%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   /* line 145, ../sass/screen.scss */
   #index nav #search-bar {
     float: left;
@@ -204,14 +204,14 @@ body button:focus, html button:focus {
 #index nav #callIP:hover {
   background-color: #183914;
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 893px) and (max-width: 1099px) {
   /* line 158, ../sass/screen.scss */
   #index nav #callIP {
     float: left;
     width: 5%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   /* line 158, ../sass/screen.scss */
   #index nav #callIP {
     float: left;
@@ -227,13 +227,13 @@ body button:focus, html button:focus {
   height: 28px;
   float: right;
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 893px) and (max-width: 1099px) {
   /* line 177, ../sass/screen.scss */
   #index nav #searchButton {
     width: 15%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   /* line 177, ../sass/screen.scss */
   #index nav #searchButton {
     width: 5%;
@@ -339,27 +339,53 @@ body button:focus, html button:focus {
 #index #transparentGreyBackground #today-details .wi-raindrop {
   color: #0E5D9E;
 }
-/* line 283, ../sass/screen.scss */
+@media (min-width: 1100px) {
+  /* line 276, ../sass/screen.scss */
+  #index #transparentGreyBackground #today-details {
+    display: inline;
+  }
+  /* line 283, ../sass/screen.scss */
+  #index #transparentGreyBackground #today-details div:nth-child(2) {
+    float: left;
+    width: 33%;
+  }
+  /* line 284, ../sass/screen.scss */
+  #index #transparentGreyBackground #today-details div:nth-child(3) {
+    float: right;
+    width: 33%;
+  }
+  /* line 285, ../sass/screen.scss */
+  #index #transparentGreyBackground #today-details div:nth-child(1) {
+    display: inline-block;
+    width: 33%;
+  }
+  /* line 286, ../sass/screen.scss */
+  #index #transparentGreyBackground #today-details div {
+    display: inline;
+    width: 33%;
+  }
+}
+/* line 295, ../sass/screen.scss */
 #index #transparentGreyBackground #weeklyForecast {
   width: 100%;
   text-align: center;
   font-size: 16px;
   margin: 0 auto;
 }
-@media (min-width: 768px) and (max-width: 992px) {
-  /* line 283, ../sass/screen.scss */
+@media (min-width: 668px) and (max-width: 892px) {
+  /* line 295, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 80%;
   }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
-  /* line 283, ../sass/screen.scss */
+@media (min-width: 893px) and (max-width: 1099px) {
+  /* line 295, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 70%;
   }
 }
-@media (min-width: 1200px) {
-  /* line 283, ../sass/screen.scss */
+@media (min-width: 1100px) {
+  /* line 295, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 60%;
   }

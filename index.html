@@ -66,15 +66,18 @@
 			
 			<div id="today-details">
 				<!-- Cloud icon here -->
-				<i class="wi wi-cloud"></i>
-				<p>{{cloudiness}}</p>
-				
-				<i class="wi wi-raindrop"></i>
-				<p>{{rain}} (Rain intensity: {{rainIntensity}} mm/h)</p>
-				
-				<i class="wi wi-strong-wind"></i>
-				<p>{{wind}} (Wind speed: {{windIntensity}} mph)</p>
-				
+				<div>
+					<i class="wi wi-cloud"></i>
+					<p>{{cloudiness}}</p>
+				</div>
+				<div>
+					<i class="wi wi-raindrop"></i>
+					<p>{{rain}} (Rain intensity: {{rainIntensity}} mm/h)</p>
+				</div>
+				<div>
+					<i class="wi wi-strong-wind"></i>
+					<p>{{wind}} (Wind speed: {{windIntensity}} mph)</p>
+				</div>
 				<p> <i class="wi wi-sunrise"></i> Sunrise: {{timestrRise}}</p>
 				<p> <i class="wi wi-sunset"></i> Sunset: {{timestrSet}}</p>
 			</div>

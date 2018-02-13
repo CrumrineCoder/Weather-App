@@ -7,15 +7,15 @@ $defaultBackground: #B9E5B3;
 /* No media query because I'm doing Mobile first design. */
 
 /* Small devices (tablets, 768px and up) */
-$small: "(min-width: 768px) and (max-width: 992px)";
+$small: "(min-width: 668px) and (max-width: 892px)";
 
 /* Medium devices (desktops, 992px and up) */
-$medium: "(min-width: 992px) and (max-width: 1199px)";
+$medium: "(min-width: 893px) and (max-width: 1099px)";
 
 /* Large devices (large desktops, 1200px and up) */
-$large: "(min-width:1200px)";
+$large: "(min-width:1100px)";
 
-$smallToLarge: "(min-width:768px)";
+$smallToLarge: "(min-width:668px)";
 
 @mixin media($queryString){
 	@media #{$queryString} {
@@ -278,6 +278,18 @@ body, html{
 			.wi-raindrop {
 				color: #0E5D9E;
 			}
+			@include media(($large)){
+				display: inline; 
+				div:nth-child(2){ float: left; width: 33%; }
+				div:nth-child(3){ float: right; width: 33%; }
+				div:nth-child(1){ display: inline-block; width: 33%; }
+				div{
+						display: inline; 
+						width: 33%;
+				} 
+				
+			}
+			
 		}
 		
 		#weeklyForecast{
