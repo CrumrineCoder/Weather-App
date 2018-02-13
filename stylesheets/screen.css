@@ -6,42 +6,44 @@
 /* Large devices (large desktops, 1200px and up) */
 /* line 26, ../sass/screen.scss */
 body, html {
-  background: #409834;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* line 30, ../sass/screen.scss */
 #splash {
+  background: #409834;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
-/* line 35, ../sass/screen.scss */
+/* line 36, ../sass/screen.scss */
 #splash span {
   color: red;
 }
-/* line 38, ../sass/screen.scss */
+/* line 39, ../sass/screen.scss */
 #splash h2 {
-  margin-top: 10%;
   font-size: 16px;
   padding: 30px;
   width: 80%;
   background: #B9E5B3;
 }
 @media (min-width: 1200px) {
-  /* line 38, ../sass/screen.scss */
+  /* line 39, ../sass/screen.scss */
   #splash h2 {
     font-size: 30px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 38, ../sass/screen.scss */
+  /* line 39, ../sass/screen.scss */
   #splash h2 {
     font-size: 24px;
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
-  /* line 38, ../sass/screen.scss */
+  /* line 39, ../sass/screen.scss */
   #splash h2 {
     font-size: 20px;
   }

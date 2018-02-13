@@ -24,11 +24,12 @@ $smallToLarge: "(min-width:768px)";
 }
 
 body, html{
-	background: darken($defaultBackground, 40%);	
+	height: 100%; margin: 0; padding: 0;
 }
 
 #splash{
-	 display: flex;
+	background: darken($defaultBackground, 40%);	
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: $container-height;
@@ -36,7 +37,6 @@ body, html{
 		color: red;
 	}
 	h2{
-	  margin-top: 10%;
 	  font-size: 16px; 
 	  padding: 30px; 
 	  width: 80%;

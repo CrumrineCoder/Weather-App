@@ -167,7 +167,7 @@ app.controller('weatherController', function($scope) {
 	$scope.callByIP = function(position) {
 		$(document).ready(function() {
 			 interval = window.setInterval(updateClockHome, 1000);
-			for (o = 0; o < 7; o++) {
+			for (o = 1; o < 8; o++) {
 				$scope.$apply(function () {
 					$scope.thisWeek.push($scope.getDays(o));
 				});
@@ -287,7 +287,7 @@ app.controller('weatherController', function($scope) {
 			interval = window.setInterval(updateClock, 1000);
 
 			$scope.thisWeek = [];
-			for (z = 0; z < 7; z++) {
+			for (z = 1; z < 8; z++) {
 				$scope.$apply(function () {
 					$scope.thisWeek.push($scope.getDays(z + (offshoreTime - ourTime)));
 				});
