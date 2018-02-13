@@ -161,7 +161,7 @@ body, html{
 			}
 			#searchButton {
 				 width: 50%;
-				 background: #8F92E0;
+				 background: #6F71AD;
 				 border: none;
 				 height: 28px;
 				 float: right; 
@@ -173,7 +173,7 @@ body, html{
 					border-radius: 0px 15px 15px 0px;
 				}
 				&:hover {
-				background: #6D6FAB;
+				background: #3E3F61;
 				}
 			}
 		}
@@ -183,6 +183,7 @@ body, html{
 			background-color: darken($defaultBackground, 40%);
 			color: brighten($defaultBackground, 90%); 
 			border: none; 
+			font-size: 16px; 
 			&:hover {
 				background-color: darken($defaultBackground, 65%); 
 			}
