@@ -24,12 +24,14 @@ $smallToLarge: "(min-width:668px)";
 }
 
 body, html{
-	height: 100%; margin: 0; padding: 0;
+	height: $container-height; 
+	margin: 0; 
+	padding: 0;
 	button:focus {
 		outline:0;
 	}
 }
-
+// Initial Page
 #splash{
 	background: darken($defaultBackground, 40%);	
 	display: flex;
@@ -42,7 +44,7 @@ body, html{
 	h2{
 	  font-size: 16px; 
 	  padding: 30px; 
-	  width: 80%;
+	  width: $container-height - 20%;
 	  background: $defaultBackground; 
 		@include media(($large)){
 			font-size: 30px; 
@@ -62,7 +64,6 @@ body, html{
 		border: darken($defaultBackground, 40%) 3px solid;
 		color: darken($defaultBackground, 90%); 
 		margin: 10px auto;
-
 		@include media(($large)){
 			font-size: 30px; 
 		}
@@ -79,15 +80,14 @@ body, html{
 		}
 	}
 }
-
+// Page after clicking on 'Get Weather By IP'
 #index{
 	display: none; 
 	color: white;
 	font-family: 'Questrial', sans-serif;
 	font-size: 16px;
-	height: 100%;
-	width: 100%;
-	
+	height: $container-height;
+	width: $container-height;
 	// Nav
 	nav {
 		 display: block;
@@ -97,7 +97,7 @@ body, html{
 			nav > div{
 				display: inline; 
 			}
-			padding: 10px;
+			padding-top: 5px;
 		  }
 		@include media(($smallToLarge)) {
 			#columns{
@@ -284,9 +284,13 @@ body, html{
 			}
 			@include media(($large)){
 				display: inline; 
-				div:nth-child(2){ float: left; width: 33%; }
-				div:nth-child(3){ float: right; width: 33%; }
+				// Center
 				div:nth-child(1){ display: inline-block; width: 33%; }
+				// Left
+				div:nth-child(2){ float: left; width: 33%; }
+				// Right
+				div:nth-child(3){ float: right; width: 33%; }
+				
 				div{
 						display: inline; 
 						width: 33%;
