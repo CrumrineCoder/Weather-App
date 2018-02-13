@@ -31,6 +31,7 @@
 				<div id="Location"> {{Location}} </div>
 				<div id="Time"> {{Time}} </div>
 			</div>
+			 <button ng-click="getLocation()">IP</button> 
 			<input type="text" placeholder="Search. Be specific. API is not perfect." id="search-bar" class="col-md-4 text-center" 	ng-model="postal"> </input>
 			<!-- Angular up this search -->
 			<button id="searchButton" ng-click="callByPostal(postal);">
@@ -50,8 +51,9 @@
 			<div id="todaysTemperature">
 				<div id="innerContainer">
 					<div id="first">
-						{{cloudinessForecast}}
+						
 						<i class="{{currentWeather}}"> </i> 
+						<p> {{cloudinessForecast}} </p>
 					</div>
 					<div id="second">
 						<p class='wi wi-degrees' id="actualTemperature"> {{actualTemperature}} </p>

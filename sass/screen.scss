@@ -126,8 +126,6 @@ body, html{
 					color: #4A9943;
 				}
 			 }
-			 
-			 
 			  @include media(($large)){
 				font-size: 12px; 
 			  }
@@ -206,6 +204,7 @@ body, html{
 			width: 100%;
 			overflow: hidden; 
 			font-size: 12px; 
+			
 			.extremeTemperature{
 				vertical-align: text-top; 
 				display: block; 
@@ -229,6 +228,7 @@ body, html{
 				width: 100%;
 				position: relative;
 				right: 50%;
+			
 				#first{
 				    float: left;
 					width: 46%;
@@ -236,6 +236,7 @@ body, html{
 					left: 52%;
 					overflow: hidden; 
 					text-align: right; 
+					padding-top: 20px; 
 				}
 				#second{
 					float: left;
@@ -243,7 +244,8 @@ body, html{
 					position: relative;
 					left: 56%;
 					overflow: hidden; 
-					text-align: left; 					
+					text-align: left; 	
+					padding-top: 10px; 					
 				}
 			}	
 		}
@@ -258,6 +260,16 @@ body, html{
 			width: 100%;
 			text-align: center;
 			font-size: 16px;
+			margin: 0 auto;
+			@include media(($small)){
+				width: 80%;
+			}
+			@include media(($medium)){
+				width: 70%;
+			}
+			@include media(($large)){
+				width: 60%;
+			}
 		}
 	}
 }
