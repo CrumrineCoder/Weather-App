@@ -295,6 +295,16 @@ body, html {
   text-align: left;
 }
 /* line 249, ../sass/screen.scss */
-#index #transparentGreyBackground .wi-raindrop {
+#index #transparentGreyBackground #today-details {
+  text-align: center;
+}
+/* line 251, ../sass/screen.scss */
+#index #transparentGreyBackground #today-details .wi-raindrop {
   color: #0E5D9E;
+}
+/* line 256, ../sass/screen.scss */
+#index #transparentGreyBackground #weeklyForecast {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
 }

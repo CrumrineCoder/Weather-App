@@ -62,35 +62,34 @@
 			</div>
 			<p class="summary"> It feels like <span class="wi wi-degrees">{{feelTemperature}} </span></p>
 			
-			<!-- Cloud icon here -->
-			{{cloudiness}}
-			
-			<i class="wi wi-raindrop"></i>
-			<p>{{rain}} (Rain intensity: {{rainIntensity}} mm/h)</p>
-			
-			<i class="wi wi-strong-wind"></i>
-						{{wind}} (Wind speed: {{windIntensity}} mph)	
-			
-			<i class="wi wi-sunrise"></i> Sunrise: {{timestrRise}}
-			<i class="wi wi-sunset"></i> Sunset: {{timestrSet}}
-
-			<br />
-			<br />
-			<div id="tableContainer">
-			<!-- Replace this table? -->
-				<table id="weeklyForecast">
-					<tr>
-						<td ng-repeat="day in thisWeek"> {{day}} </td>
-					</tr>
-					<tr>
-						<td ng-repeat="icon in forecastIcons track by $index"><i class="wi {{icon}}"> </i> </td>
-					</tr>
-					<tr>
-						<td ng-repeat="temperature in forecastTemperatures"> <span class='wi wi-degrees'> {{temperature.high}} </span> <span class='wi wi-degrees' style="color: grey" > {{temperature.low}} </span> </td>
-					</tr>
-				</table>
-				 <p class="summary">{{weekSummary}}</p> 
+			<div id="today-details">
+				<!-- Cloud icon here -->
+				<i class="wi wi-cloud"></i>
+				<p>{{cloudiness}}</p>
+				
+				<i class="wi wi-raindrop"></i>
+				<p>{{rain}} (Rain intensity: {{rainIntensity}} mm/h)</p>
+				
+				<i class="wi wi-strong-wind"></i>
+				<p>{{wind}} (Wind speed: {{windIntensity}} mph)</p>
+				
+				<p> <i class="wi wi-sunrise"></i> Sunrise: {{timestrRise}}</p>
+				<p> <i class="wi wi-sunset"></i> Sunset: {{timestrSet}}</p>
 			</div>
+			
+			<!-- Replace this table? -->
+			<table id="weeklyForecast">
+				<tr>
+					<td ng-repeat="day in thisWeek"> {{day}} </td>
+				</tr>
+				<tr>
+					<td ng-repeat="icon in forecastIcons track by $index"><i class="wi {{icon}}"> </i> </td>
+				</tr>
+				<tr>
+					<td ng-repeat="temperature in forecastTemperatures"> <span class='wi wi-degrees'> {{temperature.high}} </span> <span class='wi wi-degrees' style="color: grey" > {{temperature.low}} </span> </td>
+				</tr>
+			</table>
+			<p class="summary">{{weekSummary}}</p> 
 		</div>
 	</div>
 
