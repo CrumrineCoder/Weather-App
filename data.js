@@ -166,6 +166,7 @@ app.controller('weatherController', function($scope) {
 	var interval; 
 	$scope.callByIP = function(position) {
 		$(document).ready(function() {
+			 clearInterval(interval);
 			 interval = window.setInterval(updateClockHome, 1000);
 			for (o = 1; o < 8; o++) {
 				$scope.$apply(function () {
