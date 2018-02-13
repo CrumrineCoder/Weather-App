@@ -300,19 +300,20 @@ body button:focus, html button:focus {
 #index #transparentGreyBackground #todaysTemperature i {
   font-size: 50px;
   display: block;
+  padding-bottom: 10px;
 }
-/* line 246, ../sass/screen.scss */
+/* line 247, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature #actualTemperature {
   font-size: 40px;
 }
-/* line 250, ../sass/screen.scss */
+/* line 251, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature #innerContainer {
   float: left;
   width: 100%;
   position: relative;
   right: 50%;
 }
-/* line 256, ../sass/screen.scss */
+/* line 257, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature #innerContainer #first {
   float: left;
   width: 46%;
@@ -322,7 +323,11 @@ body button:focus, html button:focus {
   text-align: right;
   padding-top: 20px;
 }
-/* line 265, ../sass/screen.scss */
+/* line 258, ../sass/screen.scss */
+#index #transparentGreyBackground #todaysTemperature #innerContainer #first p {
+  padding-right: 5px;
+}
+/* line 269, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature #innerContainer #second {
   float: left;
   width: 46%;
@@ -332,36 +337,36 @@ body button:focus, html button:focus {
   text-align: left;
   padding-top: 10px;
 }
-/* line 276, ../sass/screen.scss */
+/* line 280, ../sass/screen.scss */
 #index #transparentGreyBackground #today-details {
   text-align: center;
 }
-/* line 278, ../sass/screen.scss */
+/* line 282, ../sass/screen.scss */
 #index #transparentGreyBackground #today-details .wi-raindrop {
   color: #0E5D9E;
 }
 @media (min-width: 1100px) {
-  /* line 276, ../sass/screen.scss */
+  /* line 280, ../sass/screen.scss */
   #index #transparentGreyBackground #today-details {
     display: inline;
   }
-  /* line 284, ../sass/screen.scss */
+  /* line 288, ../sass/screen.scss */
   #index #transparentGreyBackground #today-details div:nth-child(1) {
     display: inline-block;
     width: 33%;
   }
-  /* line 286, ../sass/screen.scss */
+  /* line 290, ../sass/screen.scss */
   #index #transparentGreyBackground #today-details div:nth-child(2) {
     float: left;
     width: 33%;
   }
-  /* line 288, ../sass/screen.scss */
+  /* line 292, ../sass/screen.scss */
   #index #transparentGreyBackground #today-details div:nth-child(3) {
     float: right;
     width: 33%;
   }
 }
-/* line 291, ../sass/screen.scss */
+/* line 295, ../sass/screen.scss */
 #index #transparentGreyBackground #weeklyForecast {
   width: 100%;
   text-align: center;
@@ -369,19 +374,19 @@ body button:focus, html button:focus {
   margin: 0 auto;
 }
 @media (min-width: 668px) and (max-width: 892px) {
-  /* line 291, ../sass/screen.scss */
+  /* line 295, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 80%;
   }
 }
 @media (min-width: 893px) and (max-width: 1099px) {
-  /* line 291, ../sass/screen.scss */
+  /* line 295, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 70%;
   }
 }
 @media (min-width: 1100px) {
-  /* line 291, ../sass/screen.scss */
+  /* line 295, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 60%;
   }
