@@ -1,8 +1,6 @@
 # Weather App
 
-This is a front end project built as part of FreeCodeCamp's cirriculum. This is a web app that uses the Geolocation API to find the user's location and displays the local weather with the Forecast.io API.  The user can also search for any other location. The background color changes based on the weather. 
-
-This was the first project I was really proud to make. The revision process actually didn't change that much other than making the search bar work, improving the time zone marker, and cleaning up the backend functions and the page layout. I'm thinking about using Graph.JS like I did with the voting website for something with the forecast, but I need to think on it.
+This is a front end project built as part of FreeCodeCamp's cirriculum. This is a web app that uses the Geolocation API to find the user's location and displays the local weather with the Forecast.io API.  The user can also search for any other location. The background color changes based on the weather. This is my first experiment with using Sass.
 
 ## User Stories
 
@@ -23,6 +21,8 @@ This was the first project I was really proud to make. The revision process actu
 
 * [Forecast.io API](https://darksky.net/) - The api used to get the weather based on location. 
 * [Geolocation API](https://developers.google.com/maps/documentation/geolocation/intro) - The api used to get the location of the User based on their IP.
+* [Angular](https://angularjs.org/) - Used to display data.
+* [Sass](https://sass-lang.com/) - Used to format CSS.
 
 ## Authors
 
