@@ -32,10 +32,13 @@
 				<div id="Time"> {{Time}} </div>
 			</div>
 			<button ng-click="getLocation()" id="callIP">IP</button> 
-			<button id="searchButton" ng-click="callByPostal(postal);">
-				  <i class="fa fa-search"  style="color: #fff"></i>
-			 </button>
-			<input type="text" placeholder="Search. Be specific. API is not perfect." id="search-bar" class="col-md-4 text-center" 	ng-model="postal"> </input>
+			<form ng-submit="callByPostal(postal);">
+				<button id="searchButton">
+					  <i class="fa fa-search"  style="color: #fff"></i>
+				 </button>
+				 <input type="text" placeholder="Search. Be specific. API is not perfect." id="search-bar" class="col-md-4 text-center" 	ng-model="postal"> </input>
+			 </form>
+			
 			
 		</nav>
 

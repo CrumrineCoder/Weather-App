@@ -142,17 +142,37 @@ body, html{
 			text-align: center; 
 			width: 100%;
 		}
-		#search-bar {
-			width: 100%;
-			color: grey;
-			font-size: 14px;
-			height: 28px;
-			@include media(($medium)){
-				width: 80%;
+		form{
+			display: inline; 
+			#search-bar {
+				width: 100%;
+				color: grey;
+				font-size: 14px;
+				height: 28px;
+				@include media(($medium)){
+					width: 80%;
+				}
+				@include media(($large)){
+					float: left; 
+					width: 30%; 
+				}
 			}
-			@include media(($large)){
-				float: left; 
-				width: 30%; 
+			#searchButton {
+				 width: 50%;
+				 background: #8F92E0;
+				 border: none;
+				 height: 28px;
+				 float: right; 
+				@include media(($medium)){
+					width: 15%;
+				}
+				@include media(($large)){
+					width: 5%;
+					border-radius: 0px 15px 15px 0px;
+				}
+				&:hover {
+				background: #6D6FAB;
+				}
 			}
 		}
 		#callIP{
@@ -174,23 +194,7 @@ body, html{
 				border-radius: 8px 0px 0px 8px;
 			}
 		}
-		#searchButton {
-			 width: 50%;
-			 background: #8F92E0;
-			 border: none;
-			 height: 28px;
-			 float: right; 
-			@include media(($medium)){
-				width: 15%;
-			}
-			@include media(($large)){
-				width: 5%;
-				border-radius: 0px 15px 15px 0px;
-			}
-			&:hover {
-			background: #6D6FAB;
-			}
-		}
+
 		
     }
 	
