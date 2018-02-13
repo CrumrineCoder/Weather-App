@@ -47,17 +47,18 @@
 			</div>
 
 			<p class="summary"> {{todaySummary}} </p>
-			
-			<div id="current-icon-description"> 
-				{{cloudinessForecast}}
-				<i class="{{currentWeather}}"> </i> 
+			<div id="todaysTemperature">
+					<div>
+						{{cloudinessForecast}}
+						<i class="{{currentWeather}}"> </i> 
+					</div>
+					<div>
+						<p  class='wi wi-degrees' id="actualTemperature"> {{actualTemperature}} </p>
+						<p class="wi wi-degrees extremeTemperature" >{{todayHigh}}(high)</p>
+						<p class="wi wi-degrees extremeTemperature" >{{todayLow}}(low)</p>
+					</div>
 			</div>
-			
-			<p class="temperatureReading">{{actualTemperature}}</p>
-			<p class="temperatureReading">{{todayHigh}}</p>
-			<p class="temperatureReading">{{todayLow}}</p>
-			
-			It feels like <p class="temperatureReading">{{feelTemperature}}</p>
+			 <p class="summary"> It feels like <span class="wi wi-degrees">{{feelTemperature}} </span></p>
 			
 			<!-- Cloud icon here -->
 			{{cloudiness}}

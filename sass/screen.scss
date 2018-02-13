@@ -87,6 +87,8 @@ body, html{
 	font-size: 16px;
 	height: 100%;
 	width: 100%;
+	
+	// Nav
 	nav {
 		 display: block;
 		 background: black;
@@ -120,10 +122,11 @@ body, html{
 			 #nic {
 				 color: #40CC33;
 				 text-decoration: none;
+				 &:hover {
+					color: #4A9943;
+				}
 			 }
-			 #nic:hover {
-				 color: #4A9943;
-			 }
+			 
 			  @include media(($large)){
 				font-size: 12px; 
 			  }
@@ -161,13 +164,14 @@ body, html{
 				width: 5%;
 				border-radius: 0px 15px 15px 0px;
 			}
-		}
-		#searchButton:hover {
+			&:hover {
 			background: #6D6FAB;
+			}
 		}
-
+		
     }
 	
+	// Main body
 	#transparentGreyBackground {
 		 margin: 4%;
 		 opacity: .9;
@@ -194,13 +198,52 @@ body, html{
 			 text-align: center;
 			 font-size: 16px;
 		}
-		#current-icon-description{
-			float:  left; 
-			text-align: center; 
+		
+		#todaysTemperature{
+			
 			i{
-				font-size: 50px; 
-				display: block; 	
+				font-size: 50px; 	
+				display: block; 
 			}
+			div{
+				width: 100%;
+				display: block; 
+				margin: 0 auto; 
+				text-align: center; 
+			}
+			#actualTemperature{
+				font-size: 40px; 
+			}
+			p{
+				display: inline; 
+				.extremeTemperature{
+					vertical-align: top; 
+					font-size: 12px; 
+					float: right; 
+				}
+				&:nth-child(3) {
+					color: grey; 
+				}
+			}
+			/**{
+				display: inline;
+			} 
+			margin: 0 auto; 
+			text-align: center; 
+			#actualTemperature{
+				 font-size: 24px;
+				 text-align: center;
+				font-style: bold;
+			}
+			#highs-and-low{
+				display: block; 
+			}
+			#current-icon-description{	
+				text-align: center; 
+				float: left; 
+				
+			}
+			clear: both; */
 		}
 		.wi-raindrop {
 			 color: #0E5D9E;
