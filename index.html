@@ -26,8 +26,8 @@
 			<div id="columns"> 
 				<div id="ad">
 					<span id="weatherApp"> Weather App by</span>
-					<a href="https://crumrinecoder.github.io/Profile-Website-version2/" id="nic"> Nicolas Crumrine</span></a>
-					<br> Powered by <a href="https://darksky.net/poweredby/">Dark Skys </a> and Geolocation
+					<a href="https://crumrinecoder.github.io/Profile-Website-version2/" target="_blank" id="nic"> Nicolas Crumrine</span></a>
+					<br> Powered by <a href="https://darksky.net/poweredby/" target="_blank" >Dark Skys </a> and Geolocation
 				</div>
 				<div id="Location"> {{Location}} </div>
 				<div id="Time"> {{Time}} </div>
@@ -51,11 +51,11 @@
 				<button type="button" id="c" class="" ng-click="getCelsiusTemp()">Celsius</button>
 			</div>
 
-			<p class="summary"> {{todaySummary}} </p>
+			
 			<div id="todaysTemperature">
+				<p class="summary"> {{todaySummary}} </p>
 				<div id="innerContainer">
-					<div id="first">
-						
+					<div id="first">				
 						<i class="{{currentWeather}}"> </i> 
 						<p> {{cloudinessForecast}} </p>
 					</div>
@@ -65,9 +65,10 @@
 						<p class="wi wi-degrees extremeTemperature" >{{todayLow}}(low)</p>
 					</div>
 				</div>
+				<p class="summary"> It feels like <span class="wi wi-degrees">{{feelTemperature}} </span></p>
 			</div>
-			<p class="summary"> It feels like <span class="wi wi-degrees">{{feelTemperature}} </span></p>
 			
+
 			<div id="today-details">
 				<!-- Cloud icon here -->
 				<div>
@@ -85,7 +86,9 @@
 				<p> <i class="wi wi-sunrise"></i> Sunrise: {{timestrRise}}</p>
 				<p> <i class="wi wi-sunset"></i> Sunset: {{timestrSet}}</p>
 			</div>
-			
+			<br />
+			<p class="summary">{{weekSummary}}</p> 
+			<br />
 			<!-- Replace this table? -->
 			<table id="weeklyForecast">
 				<tr>
@@ -97,8 +100,7 @@
 				<tr>
 					<td ng-repeat="temperature in forecastTemperatures"> <span class='wi wi-degrees'> {{temperature.high}} </span> <span class='wi wi-degrees' style="color: grey" > {{temperature.low}} </span> </td>
 				</tr>
-			</table>
-			<p class="summary">{{weekSummary}}</p> 
+			</table>			
 		</div>
 	</div>
 
