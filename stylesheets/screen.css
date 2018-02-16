@@ -34,13 +34,13 @@ body button:focus, html button:focus {
   width: 80%;
   background: #B9E5B3;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   /* line 44, ../sass/screen.scss */
   #splash h2 {
     font-size: 30px;
   }
 }
-@media (min-width: 893px) and (max-width: 1099px) {
+@media (min-width: 893px) and (max-width: 1199px) {
   /* line 44, ../sass/screen.scss */
   #splash h2 {
     font-size: 24px;
@@ -62,13 +62,13 @@ body button:focus, html button:focus {
   color: black;
   margin: 10px auto;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   /* line 59, ../sass/screen.scss */
   #splash button {
     font-size: 30px;
   }
 }
-@media (min-width: 893px) and (max-width: 1099px) {
+@media (min-width: 893px) and (max-width: 1199px) {
   /* line 59, ../sass/screen.scss */
   #splash button {
     font-size: 24px;
@@ -102,7 +102,7 @@ body button:focus, html button:focus {
   background: black;
   min-height: 52px;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   /* line 92, ../sass/screen.scss */
   #index nav {
     padding-top: 5px;
@@ -125,7 +125,7 @@ body button:focus, html button:focus {
     flex: 1;
   }
 }
-@media (min-width: 668px) and (min-width: 1100px) {
+@media (min-width: 668px) and (min-width: 1200px) {
   /* line 103, ../sass/screen.scss */
   #index nav #columns {
     padding: 0px;
@@ -153,7 +153,7 @@ body button:focus, html button:focus {
 #index nav #ad #nic:hover {
   color: #4A9943;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   /* line 118, ../sass/screen.scss */
   #index nav #ad {
     font-size: 12px;
@@ -164,7 +164,7 @@ body button:focus, html button:focus {
   text-align: center;
   width: 100%;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   /* line 136, ../sass/screen.scss */
   #index nav #Location {
     font-size: 15px;
@@ -186,13 +186,13 @@ body button:focus, html button:focus {
   font-size: 14px;
   height: 28px;
 }
-@media (min-width: 893px) and (max-width: 1099px) {
+@media (min-width: 893px) and (max-width: 1199px) {
   /* line 149, ../sass/screen.scss */
   #index nav form #search-bar {
     width: 80%;
   }
 }
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   /* line 149, ../sass/screen.scss */
   #index nav form #search-bar {
     float: left;
@@ -207,13 +207,13 @@ body button:focus, html button:focus {
   height: 28px;
   float: right;
 }
-@media (min-width: 893px) and (max-width: 1099px) {
+@media (min-width: 893px) and (max-width: 1199px) {
   /* line 162, ../sass/screen.scss */
   #index nav form #searchButton {
     width: 15%;
   }
 }
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   /* line 162, ../sass/screen.scss */
   #index nav form #searchButton {
     width: 5%;
@@ -237,14 +237,14 @@ body button:focus, html button:focus {
 #index nav #callIP:hover {
   background-color: #183914;
 }
-@media (min-width: 893px) and (max-width: 1099px) {
+@media (min-width: 893px) and (max-width: 1199px) {
   /* line 180, ../sass/screen.scss */
   #index nav #callIP {
     float: left;
     width: 5%;
   }
 }
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   /* line 180, ../sass/screen.scss */
   #index nav #callIP {
     float: left;
@@ -345,7 +345,7 @@ body button:focus, html button:focus {
 #index #transparentGreyBackground #today-details .wi-raindrop {
   color: #0E5D9E;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   /* line 280, ../sass/screen.scss */
   #index #transparentGreyBackground #today-details {
     display: inline;
@@ -379,13 +379,13 @@ body button:focus, html button:focus {
     width: 80%;
   }
 }
-@media (min-width: 893px) and (max-width: 1099px) {
+@media (min-width: 893px) and (max-width: 1199px) {
   /* line 295, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 70%;
   }
 }
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   /* line 295, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 60%;
