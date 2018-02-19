@@ -12,10 +12,10 @@ This is a front end project built as part of FreeCodeCamp's cirriculum. This is 
 
 ### Personal User Stories
 
-* User Story: I can tell the general weather by the background alone
 * User Story: I can search for the weather in a different location
 * User Story: I can see the general weather for the next 7 days
-* User Story: By weather, I personally take it as: temperature, preceived temperature, today's high and low, cloudiness, rain intensity, wind intensity, the summary of the day, and general forecast. Also showing the location and the time because I can. 
+* User Story: The data is presentable. The data is temperature, perceived teperature, today's low and high, cloudiness, rain, wind, summary of the day, and the forecast for the next week.
+* User Story: I can see the time and the location found for a search. 
 
 ## Built With
 
