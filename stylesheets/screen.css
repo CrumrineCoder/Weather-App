@@ -379,10 +379,15 @@ body button:focus, html button:focus {
   text-align: center;
 }
 /* line 311, ../sass/screen.scss */
+#index #transparentGreyBackground #today-details .number {
+  color: grey;
+  font-size: 14px;
+}
+/* line 315, ../sass/screen.scss */
 #index #transparentGreyBackground #today-details .header-icon {
   font-size: 30px;
 }
-/* line 314, ../sass/screen.scss */
+/* line 318, ../sass/screen.scss */
 #index #transparentGreyBackground #today-details div {
   padding-bottom: 10px;
 }
@@ -400,13 +405,13 @@ body button:focus, html button:focus {
     div:nth-child(3){ float: right; width: 25%; }	
     */
   }
-  /* line 320, ../sass/screen.scss */
+  /* line 324, ../sass/screen.scss */
   #index #transparentGreyBackground #today-details div {
     display: inline-block;
     width: 50%;
   }
 }
-/* line 334, ../sass/screen.scss */
+/* line 338, ../sass/screen.scss */
 #index #transparentGreyBackground #weeklyForecast {
   width: 100%;
   text-align: center;
@@ -414,19 +419,19 @@ body button:focus, html button:focus {
   margin: 0 auto;
 }
 @media (min-width: 668px) and (max-width: 892px) {
-  /* line 334, ../sass/screen.scss */
+  /* line 338, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 80%;
   }
 }
 @media (min-width: 893px) and (max-width: 1099px) {
-  /* line 334, ../sass/screen.scss */
+  /* line 338, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 70%;
   }
 }
 @media (min-width: 1100px) {
-  /* line 334, ../sass/screen.scss */
+  /* line 338, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 60%;
   }

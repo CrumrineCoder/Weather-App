@@ -308,6 +308,10 @@ body, html{
 		}
 		#today-details{
 			text-align: center;
+			.number{
+				color: grey; 
+				font-size: 14px; 
+			}
 			.header-icon{
 				font-size: 30px; 
 			}
