@@ -3,7 +3,7 @@
 <head>
     <title>Weather App</title>
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
-
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://erikflowers.github.io/weather-icons/css/weather-icons.min.css">
@@ -48,7 +48,7 @@
 		</nav>
 
 		<div id="transparentGreyBackground">
-			<div> {{Time}} </div>
+			
 
 			
 			<div id="todaysTemperature">
@@ -82,8 +82,12 @@
 					<i class="wi wi-strong-wind"></i>
 					<p>{{wind}} (Wind speed: {{windIntensity}} mph)</p>
 				</div>
-				<p> <i class="wi wi-sunrise"></i> Sunrise: {{timestrRise}}</p>
-				<p> <i class="wi wi-sunset"></i> Sunset: {{timestrSet}}</p>
+				<div>
+					<i class="fa fa-clock"></i>
+					<p> {{Time}} </p>
+					<p> <i class="wi wi-sunrise"></i> Sunrise: {{timestrRise}}</p>
+					<p> <i class="wi wi-sunset"></i> Sunset: {{timestrSet}}</p>
+				</div>			
 			</div>
 			<br />
 			<p class="summary">{{weekSummary}}</p> 

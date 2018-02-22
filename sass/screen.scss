@@ -140,8 +140,11 @@ body, html{
 				text-decoration: none;
 				background: black; 
 		   }
-		   @include media(($large)){
+		   @include media(($medium)){
 				font-size: 16px; 
+			}
+			 @include media(($large)){
+				font-size: 18px; 
 			}
 		}
 	/*	#Location{
