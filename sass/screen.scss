@@ -10,10 +10,10 @@ $defaultBackground: #B9E5B3;
 $small: "(min-width: 668px) and (max-width: 892px)";
 
 /* Medium devices (desktops, 992px and up) */
-$medium: "(min-width: 893px) and (max-width: 1199px)";
+$medium: "(min-width: 893px) and (max-width: 1099px)";
 
 /* Large devices (large desktops, 1200px and up) */
-$large: "(min-width:1200px)";
+$large: "(min-width:1100px)";
 
 $smallToLarge: "(min-width:668px)";
 
@@ -108,7 +108,7 @@ body, html{
 				} 
 				 @include media(($large)){
 					padding: 0px; 
-					width: 60%;
+					width: 40%;
 					float: left; 
 				 }
 			}
@@ -160,6 +160,7 @@ body, html{
 		} */
 		form{
 			display: inline; 
+			
 			#search-bar {
 				width: 100%;
 				color: grey;
@@ -169,8 +170,8 @@ body, html{
 					width: 80%;
 				}
 				@include media(($large)){
-					
-					width: 30%; 
+					margin-left: 10%;
+					width: 35%; 
 				}
 			}
 			#searchButton {
@@ -239,8 +240,18 @@ body, html{
 			overflow: hidden; 
 			font-size: 14px; 	
 			padding: 20px 0px; 
+			
+			@include media(($large)){
+				width: 50%; 
+				display: inline; 
+				font-size: 18px; 
+				margin-bottom: 60px; 
+			}
 			.summary{
-				font-size: 20px; 
+				font-size: 20px;
+				@include media(($large)){
+					font-size: 23px; 
+				}				
 			}
 			.extremeTemperature{
 				vertical-align: text-top; 
@@ -254,10 +265,16 @@ body, html{
 				font-size: 50px; 	
 				display: block; 
 				padding-bottom: 10px; 
+				@include media(($large)){
+					font-size: 60px; 
+				}
 			}
 	
 			#actualTemperature{
 				font-size: 40px; 
+				@include media(($large)){
+					font-size: 50px; 
+				}
 			}
 			// Positioning 
 			#innerContainer{
@@ -291,14 +308,24 @@ body, html{
 		}
 		#today-details{
 			text-align: center;
+			.header-icon{
+				font-size: 30px; 
+			}
 			@include media(($large)){
 				display: inline; 
+				width: 50%; 
+				div{
+					display: inline-block;
+					width: 50%;
+				}
+				/*
 				// Center
-				div:nth-child(1){ display: inline-block; width: 33%; }
+				div:nth-child(1){ display: inline-block; width: 25%; }
 				// Left
-				div:nth-child(2){ float: left; width: 33%; }
+				div:nth-child(2){ float: left; width: 25%; }
 				// Right
-				div:nth-child(3){ float: right; width: 33%; }	
+				div:nth-child(3){ float: right; width: 25%; }	
+				*/
 			}
 		}
 		#weeklyForecast{
@@ -318,3 +345,4 @@ body, html{
 		}
 	}
 }
+	

@@ -4,7 +4,6 @@
     <title>Weather App</title>
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://erikflowers.github.io/weather-icons/css/weather-icons.min.css">
 
@@ -71,26 +70,28 @@
 			<div id="today-details">
 				<!-- Cloud icon here -->
 				<div>
-					<i class="wi wi-cloud"></i>
-					<p>{{cloudiness}}</p>
+					<i class="wi wi-cloud header-icon"></i>
+					<p>{{cloud}}</p>
+					<p class="number">{{(cloudiness)}}</p>
 				</div>
 				<div>
-					<i class="wi wi-raindrop"></i>
-					<p>{{rain}} (Rain intensity: {{rainIntensity}} mm/h)</p>
+					<i class="wi wi-raindrop header-icon"></i>
+					<p>{{rain}}</p>
+					<p class="number"> (Rain intensity: {{rainIntensity}} mm/h)</p>
 				</div>
 				<div>
-					<i class="wi wi-strong-wind"></i>
-					<p>{{wind}} (Wind speed: {{windIntensity}} mph)</p>
+					<i class="wi wi-strong-wind header-icon"></i>
+					<p>{{wind}}</p>
+					<p class="number">(Wind speed: {{windIntensity}} mph)</p>
 				</div>
 				<div>
-					<i class="fa fa-clock"></i>
+					<i class="fa fa-clock header-icon"></i>
 					<p> {{Time}} </p>
 					<p> <i class="wi wi-sunrise"></i> Sunrise: {{timestrRise}}</p>
 					<p> <i class="wi wi-sunset"></i> Sunset: {{timestrSet}}</p>
 				</div>			
 			</div>
 			<br />
-			<p class="summary">{{weekSummary}}</p> 
 			<br />
 			<!-- Replace this table? -->
 			<table id="weeklyForecast">
@@ -103,7 +104,10 @@
 				<tr>
 					<td ng-repeat="temperature in forecastTemperatures"> <span class='wi wi-degrees'> {{temperature.high}} </span> <span class='wi wi-degrees' style="color: grey" > {{temperature.low}} </span> </td>
 				</tr>
-			</table>			
+			</table>		
+	
+				<p class="summary">{{weekSummary}}</p> 
+			<br />			
 		</div>
 	</div>
 
