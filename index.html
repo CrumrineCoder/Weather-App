@@ -28,27 +28,26 @@
 					<a href="https://crumrinecoder.github.io/Profile-Website-version2/" target="_blank" id="nic"> Nicolas Crumrine</span></a>
 					<br> Powered by <a href="https://darksky.net/poweredby/" target="_blank" >Dark Skys </a> and Geolocation
 				</div>
-				<div id="Location"> {{Location}} </div>
-				<div id="Time"> {{Time}} </div>
+				<div id="fcButtons">
+					<button type="button" id="f" class="" ng-click="getFarenheitTemp()">Fahrenheit </button>
+					<span> | </span>
+					<button type="button" id="c" class="" ng-click="getCelsiusTemp()">Celsius</button>
+				</div>
 			</div>
 			<button ng-click="getLocation()" id="callIP">Local</button> 
 			<form ng-submit="callByPostal(postal);">
 				<button id="searchButton">
 					  <i class="fa fa-search"  style="color: #fff"></i>
 				 </button>
-				 <input type="text" placeholder="Search. Be specific. API is not perfect." id="search-bar" class="col-md-4 text-center" 	ng-model="postal"> </input>
+				 <!-- placeholder="Search. Be specific. API is not perfect." -->
+				 <input type="text" placeholder="{{Location}}" id="search-bar" class="col-md-4 text-center" ng-model="postal"></input>
 			 </form>
 			
 			
 		</nav>
 
 		<div id="transparentGreyBackground">
-			<!-- Buttons to change the temperature reading to Fahrenheit or to Celsius -->
-			<div id="fcButtons">
-				<button type="button" id="f" class="" ng-click="getFarenheitTemp()">Fahrenheit </button>
-				<span> | </span>
-				<button type="button" id="c" class="" ng-click="getCelsiusTemp()">Celsius</button>
-			</div>
+			<div> {{Time}} </div>
 
 			
 			<div id="todaysTemperature">

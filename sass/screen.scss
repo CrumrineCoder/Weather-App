@@ -103,9 +103,9 @@ body, html{
 				display: flex;
 				flex-flow: row wrap;
 				justify-content: center;
-				#ad, #Location, #Time{
+				#ad, #fcButtons{
 					flex: 1;
-				}
+				} 
 				 @include media(($large)){
 					padding: 0px; 
 					width: 60%;
@@ -131,7 +131,20 @@ body, html{
 				font-size: 12px; 
 			  }
 		}
-		#Location{
+		#fcButtons {
+			text-align: center;
+			width: 100%;
+			font-size: 14px;
+		   button{
+				border: none;
+				text-decoration: none;
+				background: black; 
+		   }
+		   @include media(($large)){
+				font-size: 16px; 
+			}
+		}
+	/*	#Location{
 			text-align: center; 
 			width: 100%;
 			 @include media(($large)){
@@ -141,7 +154,7 @@ body, html{
 		#Time{	
 			text-align: center; 
 			width: 100%;
-		}
+		} */
 		form{
 			display: inline; 
 			#search-bar {
@@ -209,16 +222,6 @@ body, html{
 		 background: #312c32;
 		 color: white;
 		 padding: 10px;
-		#fcButtons {
-			text-align: center;
-			width: 100%;
-			font-size: 20px;
-		   button{
-				background-color: #312c32;
-				border: none;
-				text-decoration: none;
-		   }
-		}
 		.summary {
 			 width: 100%;
 			 text-align: center;

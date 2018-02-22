@@ -162,7 +162,7 @@ app.controller('weatherController', function($scope) {
 		});
 	}
 	$scope.Time; 
-	$scope.Location;
+	$scope.Location = "Search. Be specific. API is not perfect.";
 	var interval; 
 	$scope.callByIP = function(position) {
 		$(document).ready(function() {
@@ -319,8 +319,8 @@ app.controller('weatherController', function($scope) {
 			// Not sure if I should change this
 				document.getElementById("f").style.color = "#FFFFF2";
 				document.getElementById("c").style.color = "#C2C2B8";
-				document.getElementById("f").style.background = "#201D21";
-				document.getElementById("c").style.background = "#312c32";
+			//	document.getElementById("f").style.background = "#201D21";
+			//	document.getElementById("c").style.background = "#312c32";
 			//
 			$scope.forecastTemperatures = [];
 			for (k = 0; k < 7; k++) {
@@ -339,8 +339,8 @@ app.controller('weatherController', function($scope) {
 			// Not sure if I should change this
 				document.getElementById("f").style.color = "#C2C2B8";
 				document.getElementById("c").style.color = "#FFFFF2";
-				document.getElementById("f").style.background = "#312c32";
-				document.getElementById("c").style.background = "#201D21";
+			//	document.getElementById("f").style.background = "#312c32";
+			//	document.getElementById("c").style.background = "#201D21";
 			//
 			$scope.forecastTemperatures = [];
 			for (k = 0; k < 7; k++) {
