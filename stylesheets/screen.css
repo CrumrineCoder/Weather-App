@@ -204,7 +204,6 @@ body button:focus, html button:focus {
 @media (min-width: 1200px) {
   /* line 160, ../sass/screen.scss */
   #index nav form #search-bar {
-    float: left;
     width: 30%;
   }
 }
@@ -214,26 +213,24 @@ body button:focus, html button:focus {
   background: #6F71AD;
   border: none;
   height: 28px;
-  float: right;
 }
 @media (min-width: 893px) and (max-width: 1199px) {
   /* line 173, ../sass/screen.scss */
   #index nav form #searchButton {
-    width: 15%;
+    width: 10%;
   }
 }
 @media (min-width: 1200px) {
   /* line 173, ../sass/screen.scss */
   #index nav form #searchButton {
     width: 5%;
-    border-radius: 0px 15px 15px 0px;
   }
 }
-/* line 186, ../sass/screen.scss */
+/* line 185, ../sass/screen.scss */
 #index nav form #searchButton:hover {
   background: #3E3F61;
 }
-/* line 191, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 #index nav #callIP {
   width: 50%;
   height: 28px;
@@ -241,24 +238,24 @@ body button:focus, html button:focus {
   color: brighten(#B9E5B3, 90%);
   border: none;
   font-size: 16px;
+  float: left;
 }
 /* line 198, ../sass/screen.scss */
 #index nav #callIP:hover {
   background-color: #183914;
 }
 @media (min-width: 893px) and (max-width: 1199px) {
-  /* line 191, ../sass/screen.scss */
+  /* line 190, ../sass/screen.scss */
   #index nav #callIP {
     float: left;
-    width: 5%;
+    width: 10%;
   }
 }
 @media (min-width: 1200px) {
-  /* line 191, ../sass/screen.scss */
+  /* line 190, ../sass/screen.scss */
   #index nav #callIP {
     float: left;
     width: 5%;
-    border-radius: 8px 0px 0px 8px;
   }
 }
 /* line 216, ../sass/screen.scss */

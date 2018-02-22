@@ -34,15 +34,16 @@
 					<button type="button" id="c" class="" ng-click="getCelsiusTemp()">Celsius</button>
 				</div>
 			</div>
-			<button ng-click="getLocation()" id="callIP">Local</button> 
+			
 			<form ng-submit="callByPostal(postal);">
-				<button id="searchButton">
-					  <i class="fa fa-search"  style="color: #fff"></i>
-				 </button>
+				
 				 <!-- placeholder="Search. Be specific. API is not perfect." -->
 				 <input type="text" placeholder="{{Location}}" id="search-bar" class="col-md-4 text-center" ng-model="postal"></input>
+				 <button id="searchButton">
+					  <i class="fa fa-search"  style="color: #fff"></i>
+				 </button>
 			 </form>
-			
+			<button ng-click="getLocation()" id="callIP">Local</button> 
 			
 		</nav>
 

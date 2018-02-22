@@ -166,7 +166,7 @@ body, html{
 					width: 80%;
 				}
 				@include media(($large)){
-					float: left; 
+					
 					width: 30%; 
 				}
 			}
@@ -175,16 +175,15 @@ body, html{
 				 background: #6F71AD;
 				 border: none;
 				 height: 28px;
-				 float: right; 
 				@include media(($medium)){
-					width: 15%;
+					width: 10%;
 				}
 				@include media(($large)){
 					width: 5%;
-					border-radius: 0px 15px 15px 0px;
+			//		border-radius: 0px 15px 15px 0px;		
 				}
 				&:hover {
-				background: #3E3F61;
+					background: #3E3F61;
 				}
 			}
 		}
@@ -195,17 +194,18 @@ body, html{
 			color: brighten($defaultBackground, 90%); 
 			border: none; 
 			font-size: 16px; 
+			float: left; 
 			&:hover {
 				background-color: darken($defaultBackground, 65%); 
 			}
 			@include media(($medium)){
 				float: left; 
-				width: 5%;
+				width: 10%;
 			}
 			@include media(($large)){
 				float: left; 
 				width: 5%;
-				border-radius: 8px 0px 0px 8px;
+			//	border-radius: 8px 0px 0px 8px;
 			}
 		}
 
