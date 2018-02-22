@@ -239,7 +239,7 @@ body, html{
 			width: 100%;
 			overflow: hidden; 
 			font-size: 14px; 	
-			padding: 20px 0px; 
+			padding: 30px 0px; 
 			
 			@include media(($large)){
 				width: 50%; 
@@ -310,6 +310,9 @@ body, html{
 			text-align: center;
 			.header-icon{
 				font-size: 30px; 
+			}
+			div{
+				padding-bottom: 10px; 
 			}
 			@include media(($large)){
 				display: inline; 
