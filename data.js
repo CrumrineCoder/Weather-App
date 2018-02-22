@@ -68,17 +68,36 @@ app.controller('weatherController', function($scope) {
 		if (precip < 0.01) {
 			return "The flowers would be crying if they had water";
 		}
-		if (precip < 0.098) {
+		else if (precip < 0.098) {
 			return "You could carry this rain it's so light";
 		}
-		if (precip < .1) {
+		else if (precip < .1) {
 			return "Meh, bring an umbrella";
 		}
-		if (precip < .3) {
+		else if (precip < .3) {
 			return "Bring your shampoo to work and shower on the way"
 		}
-		if (precip >= .3) {
+		else if (precip >= .3) {
 			return "GET IN THE ARK, NOAH";
+		}
+	}
+	
+	// Descriptions for the Clouds
+	$scope.getCloudDesc = function(cover) {
+		if (cover < 10) {
+			return "Sunshine, lollipops and rainbows";
+		}
+		else if(cover < 30){
+			return "You'll see faces, dogs, and dolphins in the clouds today"
+		}
+		else if(cover < 60){
+			return "A cloudy day is no match for a sunny disposition";
+		}
+		else if(cover < 90){
+			return "I'd say it might rain, but that's the precipitation description's job";
+		}
+		else if(cover >= 100){
+			return "OUR WATER WILL BLOCK OUT THE SUN";
 		}
 	}
 	// Descriptions for the Wind Speed
@@ -369,6 +388,7 @@ app.controller('weatherController', function($scope) {
 			// get witty precip and wind descriptions
 			$scope.wind = $scope.getWindDesc(weatherInfo.currently.windSpeed);
 			$scope.rain = $scope.getPrecipDesc(weatherInfo.currently.precipIntensity);
+			$scope.cloud = $scope.getCloudDesc(Math.round(weatherInfo.currently.cloudCover*100));
 
 			// get actual precip and wind
 			$scope.windIntensity = weatherInfo.currently.windSpeed;
