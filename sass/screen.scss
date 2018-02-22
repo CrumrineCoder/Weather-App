@@ -175,6 +175,7 @@ body, html{
 				 background: #6F71AD;
 				 border: none;
 				 height: 28px;
+				 float: left; 
 				@include media(($medium)){
 					width: 10%;
 				}
@@ -194,7 +195,7 @@ body, html{
 			color: brighten($defaultBackground, 90%); 
 			border: none; 
 			font-size: 16px; 
-			float: left; 
+			
 			&:hover {
 				background-color: darken($defaultBackground, 65%); 
 			}
