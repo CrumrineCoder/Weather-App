@@ -267,7 +267,7 @@ body button:focus, html button:focus {
 }
 /* line 221, ../sass/screen.scss */
 #index #transparentGreyBackground {
-  margin: 4%;
+  margin: 20px;
   opacity: .9;
   background: #312c32;
   color: white;
