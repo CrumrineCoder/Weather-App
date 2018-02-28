@@ -97,7 +97,7 @@ app.controller('weatherController', function($scope) {
 			return "I'd say it might rain, but that's the precipitation description's job";
 		}
 		else if(cover >= 100){
-			return "OUR WATER WILL BLOCK OUT THE SUN";
+			return "OUR CLOUDS WILL BLOCK OUT THE SUN!";
 		}
 	}
 	// Descriptions for the Wind Speed
