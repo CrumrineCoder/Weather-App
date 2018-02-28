@@ -344,6 +344,11 @@ body, html{
 				position: absolute; 
 				bottom: 0; 
 				width: 100%; 
+				@include media(($large)){
+					.summary{
+						font-size: 17px; 
+					}
+				}
 			}
 		}
 		#weeklyForecast{
@@ -358,7 +363,8 @@ body, html{
 				width: 70%;
 			}
 			@include media(($large)){
-				width: 60%;
+			    width: 70%; 
+				font-size: 20px; 
 			}
 		}
 	}

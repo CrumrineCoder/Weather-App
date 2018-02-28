@@ -426,7 +426,14 @@ body button:focus, html button:focus {
     width: 100%;
   }
 }
-/* line 349, ../sass/screen.scss */
+@media (min-width: 1100px) and (min-width: 1100px) {
+  /* line 348, ../sass/screen.scss */
+  #index #transparentGreyBackground #bottom .summary {
+    font-size: 17px;
+  }
+}
+
+/* line 354, ../sass/screen.scss */
 #index #transparentGreyBackground #weeklyForecast {
   width: 100%;
   text-align: center;
@@ -434,20 +441,21 @@ body button:focus, html button:focus {
   margin: 0 auto;
 }
 @media (min-width: 668px) and (max-width: 892px) {
-  /* line 349, ../sass/screen.scss */
+  /* line 354, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 80%;
   }
 }
 @media (min-width: 893px) and (max-width: 1099px) {
-  /* line 349, ../sass/screen.scss */
+  /* line 354, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 70%;
   }
 }
 @media (min-width: 1100px) {
-  /* line 349, ../sass/screen.scss */
+  /* line 354, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
-    width: 60%;
+    width: 70%;
+    font-size: 20px;
   }
 }
