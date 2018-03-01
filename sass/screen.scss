@@ -245,11 +245,13 @@ body, html{
 			font-size: 14px; 	
 			padding: 30px 0px; 
 			
+			
 			@include media(($large)){
 				width: 50%; 
-				display: inline; 
-				font-size: 18px; 
-				margin-bottom: 60px; 
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				height: 80%;
 			}
 			.summary{
 				font-size: 20px;
@@ -310,6 +312,7 @@ body, html{
 				}
 			}	
 		}
+		
 		#today-details{
 			text-align: center;
 			.number{
@@ -322,12 +325,21 @@ body, html{
 			div{
 				padding-bottom: 10px; 
 			}
+			
 			@include media(($large)){
 				display: inline; 
 				width: 50%; 
+				
+				height: 80%; 
 				div{
+					padding-top: 20px;; 
 					display: inline-block;
 					width: 50%;
+				}
+				#time{
+					i{
+						padding-left: 10px; 
+					}
 				}
 				/*
 				// Center
