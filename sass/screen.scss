@@ -147,20 +147,8 @@ body, html{
 				font-size: 18px; 
 			}
 		}
-	/*	#Location{
-			text-align: center; 
-			width: 100%;
-			 @include media(($large)){
-					font-size: 15px; 
-			}
-		}
-		#Time{	
-			text-align: center; 
-			width: 100%;
-		} */
 		form{
 			display: inline; 
-			
 			#search-bar {
 				width: 100%;
 				color: grey;
@@ -219,33 +207,26 @@ body, html{
 	
 	// Main body
 	#transparentGreyBackground {
-	     p{
-			margin: 0px; 
+		@include media(($large)){
+				height: 90%;
 		 }
+	     
 		 margin: 20px;
-		 opacity: .9;
 		 background: #312c32;
 		 color: white;
 		 padding: 10px; 
 		 position: relative; 
-		 @include media(($large)){
-				height: 90%;
-		 }
+		
+		p{
+			margin: 0px; 
+		}
 		.summary {
 			 width: 100%;
 			 text-align: center;
 			 font-size: 15px;
 		}
 		
-		#todaysTemperature{		
-			clear: left;
-			float: left;
-			width: 100%;
-			overflow: hidden; 
-			font-size: 14px; 	
-			padding: 30px 0px; 
-			
-			
+		#todaysTemperature{	
 			@include media(($large)){
 				width: 50%; 
 				display: flex;
@@ -253,64 +234,56 @@ body, html{
 				justify-content: center;
 				height: 80%;
 			}
-			.summary{
-				font-size: 20px;
-				@include media(($large)){
-					font-size: 23px; 
-				}				
-			}
-			.extremeTemperature{
-				vertical-align: text-top; 
-				display: block; 
-				padding-left: 23px; 
-				&:nth-child(3) {
-					color: grey; 
+			
+			clear: left;
+			float: left;
+			width: 100%;
+			overflow: hidden; 
+			font-size: 14px; 	
+			padding: 30px 0px; 
+			table{
+				margin: 0 auto; 
+				text-align: center; 
+				td{
+					padding-left: 20px; 
 				}
 			}
+					
 			i{
 				font-size: 50px; 	
-				display: block; 
-				padding-bottom: 10px; 
 				@include media(($large)){
 					font-size: 60px; 
 				}
 			}
-	
+			
 			#actualTemperature{
-				font-size: 40px; 
+				font-size: 50px; 
 				@include media(($large)){
-					font-size: 50px; 
+					font-size: 70px; 
 				}
 			}
-			// Positioning 
-			#innerContainer{
-				float: left;
-				width: 100%;
-				position: relative;
-				right: 50%;
-			
-				#first{
-					p{
-						padding-right: 5px; 
-					}
-				    float: left;
-					width: 46%;
-					position: relative;
-					left: 52%;
-					overflow: hidden; 
-					text-align: right; 
-					padding-top: 20px; 
+			#high{
+				margin-top: 20px;
+			}
+			#low{
+				margin-top: -50px; 
+			}
+			.extremeTemperature{
+				text-align: left; 
+				display: block; 
+				padding-left: 10px; 
+				
+				float: right; 
+				color: grey; 
+				font-size: 15px; 
+				@include media(($large)){
+					font-size: 20px; 
 				}
-				#second{
-					float: left;
-					width: 46%;
-					position: relative;
-					left: 56%;
-					overflow: hidden; 
-					text-align: left; 	
-					padding-top: 10px; 					
-				}
-			}	
+				
+			}
+			.summary{
+				font-size: 18px; 
+			}
 		}
 		
 		#today-details{
