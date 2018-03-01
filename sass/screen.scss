@@ -209,9 +209,16 @@ body, html{
 	#transparentGreyBackground {
 		@include media(($large)){
 				height: 90%;
+				 margin: 20px;
+		 }
+		 @include media(($medium)){
+			 margin: 15px;
+		 }
+		 @include media(($small)){
+			margin: 10px;
 		 }
 	     
-		 margin: 20px;
+		 margin: 5px;
 		 background: #312c32;
 		 color: white;
 		 padding: 10px; 

@@ -256,7 +256,7 @@ body button:focus, html button:focus {
 }
 /* line 209, ../sass/screen.scss */
 #index #transparentGreyBackground {
-  margin: 20px;
+  margin: 5px;
   background: #312c32;
   color: white;
   padding: 10px;
@@ -266,19 +266,32 @@ body button:focus, html button:focus {
   /* line 209, ../sass/screen.scss */
   #index #transparentGreyBackground {
     height: 90%;
+    margin: 20px;
   }
 }
-/* line 220, ../sass/screen.scss */
+@media (min-width: 893px) and (max-width: 1099px) {
+  /* line 209, ../sass/screen.scss */
+  #index #transparentGreyBackground {
+    margin: 15px;
+  }
+}
+@media (min-width: 668px) and (max-width: 892px) {
+  /* line 209, ../sass/screen.scss */
+  #index #transparentGreyBackground {
+    margin: 10px;
+  }
+}
+/* line 227, ../sass/screen.scss */
 #index #transparentGreyBackground p {
   margin: 0px;
 }
-/* line 223, ../sass/screen.scss */
+/* line 230, ../sass/screen.scss */
 #index #transparentGreyBackground .summary {
   width: 100%;
   text-align: center;
   font-size: 15px;
 }
-/* line 229, ../sass/screen.scss */
+/* line 236, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature {
   clear: left;
   float: left;
@@ -288,7 +301,7 @@ body button:focus, html button:focus {
   padding: 30px 0px;
 }
 @media (min-width: 1100px) {
-  /* line 229, ../sass/screen.scss */
+  /* line 236, ../sass/screen.scss */
   #index #transparentGreyBackground #todaysTemperature {
     width: 50%;
     display: flex;
@@ -297,56 +310,56 @@ body button:focus, html button:focus {
     height: 80%;
   }
 }
-/* line 244, ../sass/screen.scss */
+/* line 251, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature table {
   margin: 0 auto;
   text-align: center;
 }
-/* line 247, ../sass/screen.scss */
+/* line 254, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature table td {
   padding-left: 20px;
 }
-/* line 252, ../sass/screen.scss */
+/* line 259, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature i {
   font-size: 50px;
 }
 @media (min-width: 1100px) {
-  /* line 252, ../sass/screen.scss */
+  /* line 259, ../sass/screen.scss */
   #index #transparentGreyBackground #todaysTemperature i {
     font-size: 60px;
   }
 }
-/* line 259, ../sass/screen.scss */
+/* line 266, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature #actualTemperature {
   font-size: 50px;
 }
 @media (min-width: 1100px) {
-  /* line 259, ../sass/screen.scss */
+  /* line 266, ../sass/screen.scss */
   #index #transparentGreyBackground #todaysTemperature #actualTemperature {
     font-size: 70px;
   }
 }
-/* line 266, ../sass/screen.scss */
+/* line 273, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature #high {
   margin-top: 10px;
 }
 @media (min-width: 1100px) {
-  /* line 266, ../sass/screen.scss */
+  /* line 273, ../sass/screen.scss */
   #index #transparentGreyBackground #todaysTemperature #high {
     margin-top: 20px;
   }
 }
-/* line 272, ../sass/screen.scss */
+/* line 279, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature #low {
   margin-top: -40px;
 }
 @media (min-width: 1100px) {
-  /* line 272, ../sass/screen.scss */
+  /* line 279, ../sass/screen.scss */
   #index #transparentGreyBackground #todaysTemperature #low {
     margin-top: -50px;
   }
 }
-/* line 280, ../sass/screen.scss */
+/* line 287, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature .extremeTemperature {
   text-align: left;
   display: block;
@@ -356,52 +369,52 @@ body button:focus, html button:focus {
   font-size: 15px;
 }
 @media (min-width: 1100px) {
-  /* line 280, ../sass/screen.scss */
+  /* line 287, ../sass/screen.scss */
   #index #transparentGreyBackground #todaysTemperature .extremeTemperature {
     font-size: 20px;
   }
 }
-/* line 293, ../sass/screen.scss */
+/* line 300, ../sass/screen.scss */
 #index #transparentGreyBackground #todaysTemperature .summary {
   font-size: 18px;
 }
-/* line 298, ../sass/screen.scss */
+/* line 305, ../sass/screen.scss */
 #index #transparentGreyBackground #today-details {
   text-align: center;
 }
-/* line 300, ../sass/screen.scss */
+/* line 307, ../sass/screen.scss */
 #index #transparentGreyBackground #today-details .number {
   color: grey;
   font-size: 14px;
 }
-/* line 304, ../sass/screen.scss */
+/* line 311, ../sass/screen.scss */
 #index #transparentGreyBackground #today-details .header-icon {
   font-size: 30px;
 }
-/* line 307, ../sass/screen.scss */
+/* line 314, ../sass/screen.scss */
 #index #transparentGreyBackground #today-details div {
   padding-bottom: 10px;
 }
 @media (min-width: 1100px) {
-  /* line 298, ../sass/screen.scss */
+  /* line 305, ../sass/screen.scss */
   #index #transparentGreyBackground #today-details {
     display: inline;
     width: 50%;
     height: 80%;
   }
-  /* line 316, ../sass/screen.scss */
+  /* line 323, ../sass/screen.scss */
   #index #transparentGreyBackground #today-details div {
     padding-top: 20px;
     display: inline-block;
     width: 50%;
   }
-  /* line 322, ../sass/screen.scss */
+  /* line 329, ../sass/screen.scss */
   #index #transparentGreyBackground #today-details #time i {
     padding-left: 10px;
   }
 }
 @media (min-width: 1100px) {
-  /* line 329, ../sass/screen.scss */
+  /* line 336, ../sass/screen.scss */
   #index #transparentGreyBackground #bottom {
     position: absolute;
     bottom: 0;
@@ -409,13 +422,13 @@ body button:focus, html button:focus {
   }
 }
 @media (min-width: 1100px) and (min-width: 1100px) {
-  /* line 334, ../sass/screen.scss */
+  /* line 341, ../sass/screen.scss */
   #index #transparentGreyBackground #bottom .summary {
     font-size: 17px;
   }
 }
 
-/* line 340, ../sass/screen.scss */
+/* line 347, ../sass/screen.scss */
 #index #transparentGreyBackground #weeklyForecast {
   width: 100%;
   text-align: center;
@@ -423,19 +436,19 @@ body button:focus, html button:focus {
   margin: 0 auto;
 }
 @media (min-width: 668px) and (max-width: 892px) {
-  /* line 340, ../sass/screen.scss */
+  /* line 347, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 80%;
   }
 }
 @media (min-width: 893px) and (max-width: 1099px) {
-  /* line 340, ../sass/screen.scss */
+  /* line 347, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 70%;
   }
 }
 @media (min-width: 1100px) {
-  /* line 340, ../sass/screen.scss */
+  /* line 347, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 70%;
     font-size: 20px;
