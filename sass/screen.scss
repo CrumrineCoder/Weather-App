@@ -262,11 +262,20 @@ body, html{
 					font-size: 70px; 
 				}
 			}
+			
 			#high{
-				margin-top: 20px;
+				margin-top: 10px; 
+				@include media(($large)){
+					margin-top: 20px;
+				}
 			}
 			#low{
-				margin-top: -50px; 
+				margin-top: -40px; 
+				@include media(($large)){
+					margin-top: -50px; 
+				}
+		
+				
 			}
 			.extremeTemperature{
 				text-align: left; 
@@ -314,14 +323,6 @@ body, html{
 						padding-left: 10px; 
 					}
 				}
-				/*
-				// Center
-				div:nth-child(1){ display: inline-block; width: 25%; }
-				// Left
-				div:nth-child(2){ float: left; width: 25%; }
-				// Right
-				div:nth-child(3){ float: right; width: 25%; }	
-				*/
 			}
 		}
 		@include media(($large)){
