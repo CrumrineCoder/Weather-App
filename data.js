@@ -383,7 +383,7 @@ app.controller('weatherController', function($scope) {
 			// get the current cloudiness 
 			$scope.cloudiness = Math.round(weatherInfo.currently.cloudCover*100) + " percent cloudy";
 			// get the cloudiness for the rest of the day 
-			$scope.cloudinessForecast = weatherInfo.currently.summary;
+	//		$scope.cloudinessForecast = weatherInfo.currently.summary;
 
 			// get witty precip and wind descriptions
 			$scope.wind = $scope.getWindDesc(weatherInfo.currently.windSpeed);
