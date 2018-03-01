@@ -184,6 +184,7 @@ app.controller('weatherController', function($scope) {
 	$scope.Location = "Search. Be specific. API is not perfect.";
 	var interval; 
 	$scope.callByIP = function(position) {
+		document.getElementById('search-bar').value = '';
 		$(document).ready(function() {
 			 clearInterval(interval);
 			 interval = window.setInterval(updateClockHome, 1000);
@@ -215,6 +216,7 @@ app.controller('weatherController', function($scope) {
 	$scope.postal; 
 
 	$scope.callByPostal = function(postal) {
+		document.getElementById('search-bar').value = '';
 		var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
 		$.getJSON(GEOCODING, function(json) {
 			// get the longitude and latitutde. 
