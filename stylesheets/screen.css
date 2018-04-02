@@ -31,7 +31,7 @@ body button:focus, html button:focus {
   width: 80%;
   background: #B9E5B3;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 42, ../sass/screen.scss */
   #splash h2 {
     font-size: 30px;
@@ -59,7 +59,7 @@ body button:focus, html button:focus {
   color: black;
   margin: 10px auto;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 58, ../sass/screen.scss */
   #splash button {
     font-size: 30px;
@@ -98,7 +98,7 @@ body button:focus, html button:focus {
   background: black;
   min-height: 52px;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 90, ../sass/screen.scss */
   #index nav {
     padding-top: 5px;
@@ -121,7 +121,7 @@ body button:focus, html button:focus {
     flex: 1;
   }
 }
-@media (min-width: 668px) and (min-width: 1100px) {
+@media (min-width: 668px) and (min-width: 1000px) {
   /* line 101, ../sass/screen.scss */
   #index nav #columns {
     padding: 0px;
@@ -149,7 +149,7 @@ body button:focus, html button:focus {
 #index nav #ad #nic:hover {
   color: #4A9943;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 116, ../sass/screen.scss */
   #index nav #ad {
     font-size: 12px;
@@ -173,7 +173,7 @@ body button:focus, html button:focus {
     font-size: 16px;
   }
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 134, ../sass/screen.scss */
   #index nav #fcButtons {
     font-size: 18px;
@@ -196,7 +196,7 @@ body button:focus, html button:focus {
     width: 80%;
   }
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 152, ../sass/screen.scss */
   #index nav form #search-bar {
     margin-left: 10%;
@@ -217,7 +217,7 @@ body button:focus, html button:focus {
     width: 10%;
   }
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 165, ../sass/screen.scss */
   #index nav form #searchButton {
     width: 5%;
@@ -247,7 +247,7 @@ body button:focus, html button:focus {
     width: 10%;
   }
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 183, ../sass/screen.scss */
   #index nav #callIP {
     float: left;
@@ -262,7 +262,7 @@ body button:focus, html button:focus {
   padding: 10px;
   position: relative;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 209, ../sass/screen.scss */
   #index #transparentGreyBackground {
     height: 90%;
@@ -300,7 +300,7 @@ body button:focus, html button:focus {
   font-size: 14px;
   padding: 30px 0px;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 236, ../sass/screen.scss */
   #index #transparentGreyBackground #todaysTemperature {
     width: 50%;
@@ -323,7 +323,7 @@ body button:focus, html button:focus {
 #index #transparentGreyBackground #todaysTemperature i {
   font-size: 50px;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 259, ../sass/screen.scss */
   #index #transparentGreyBackground #todaysTemperature i {
     font-size: 60px;
@@ -333,7 +333,7 @@ body button:focus, html button:focus {
 #index #transparentGreyBackground #todaysTemperature #actualTemperature {
   font-size: 50px;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 266, ../sass/screen.scss */
   #index #transparentGreyBackground #todaysTemperature #actualTemperature {
     font-size: 70px;
@@ -343,7 +343,7 @@ body button:focus, html button:focus {
 #index #transparentGreyBackground #todaysTemperature #high {
   margin-top: 10px;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 273, ../sass/screen.scss */
   #index #transparentGreyBackground #todaysTemperature #high {
     margin-top: 20px;
@@ -353,7 +353,7 @@ body button:focus, html button:focus {
 #index #transparentGreyBackground #todaysTemperature #low {
   margin-top: -40px;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 279, ../sass/screen.scss */
   #index #transparentGreyBackground #todaysTemperature #low {
     margin-top: -50px;
@@ -368,7 +368,7 @@ body button:focus, html button:focus {
   color: grey;
   font-size: 15px;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 287, ../sass/screen.scss */
   #index #transparentGreyBackground #todaysTemperature .extremeTemperature {
     font-size: 20px;
@@ -395,7 +395,7 @@ body button:focus, html button:focus {
 #index #transparentGreyBackground #today-details div {
   padding-bottom: 10px;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 305, ../sass/screen.scss */
   #index #transparentGreyBackground #today-details {
     display: inline;
@@ -413,7 +413,7 @@ body button:focus, html button:focus {
     padding-left: 10px;
   }
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 336, ../sass/screen.scss */
   #index #transparentGreyBackground #bottom {
     position: absolute;
@@ -421,7 +421,7 @@ body button:focus, html button:focus {
     width: 100%;
   }
 }
-@media (min-width: 1100px) and (min-width: 1100px) {
+@media (min-width: 1000px) and (min-width: 1000px) {
   /* line 341, ../sass/screen.scss */
   #index #transparentGreyBackground #bottom .summary {
     font-size: 17px;
@@ -447,7 +447,7 @@ body button:focus, html button:focus {
     width: 70%;
   }
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   /* line 347, ../sass/screen.scss */
   #index #transparentGreyBackground #weeklyForecast {
     width: 70%;
