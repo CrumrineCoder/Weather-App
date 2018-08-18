@@ -230,8 +230,10 @@ app.controller('weatherController', function ($scope) {
 
 	$scope.callByPostal = function (postal) {
 		document.getElementById('search-bar').value = '';
-		var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
+		//var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
+		var GEOCODING = "https://nominatim.openstreetmap.org/search/Unter%20den%20Linden%201%20Berlin?format=json&addressdetails=1&limit=1&polygon_svg=1";
 		$.getJSON(GEOCODING, function (json) {
+			console.log(json);
 			// get the longitude and latitutde. 
 			if (json.status == "ZERO_RESULTS") {
 				alert("Geolocation API could not find that location. Be more specific or fix spelling errors.");
@@ -257,16 +259,16 @@ app.controller('weatherController', function ($scope) {
 				}); 
 			}
 			else {
-				var lat = json.results["0"].geometry.location.lat;
-				var long = json.results["0"].geometry.location.lng;
+				var lat = json[0].lat;
+				var long = json[0].lon;
 				// Forecast.io api call. 
 				var for_call = "https://api.forecast.io/forecast/" + forkey + "/" + lat + "," + long + "?callback=?";
 				// Get the address. 
-				var address = json.results["0"].formatted_address;
+				var address = json[0].display_name;
 				// Show the address. 
 				$scope.Location = address;
 				// Get the country. 
-				var country = address.slice(-3);
+				var country = json[0].address.country;
 				var timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + long + "&timestamp=" + new Date(Date.now()).getTime() / 1000 + "&key=" + timeZoneKey;
 				var timeZoneID;
 				var offset;
