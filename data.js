@@ -200,7 +200,7 @@ app.controller('weatherController', function ($scope) {
 		// API call
 		var lat = position.coords.latitude;
 		var long = position.coords.longitude;
-		var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + "," + long + "&key=" + apikey;
+		var GEOCODING = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat="+lat+"&lon="+long;
 		var for_call = "https://api.forecast.io/forecast/" + forkey + "/" + lat + "," + long + "?callback=?";
 		$.getJSON(GEOCODING, function (json) {
 			if (json.status == "OVER_QUERY_LIMIT") {
@@ -215,8 +215,8 @@ app.controller('weatherController', function ($scope) {
 				});
 			} else {
 				// get location 
-				var address = json.results[2].formatted_address;
-				var country = address.slice(-3);
+				var address = json.display_name;
+				var country = json.address.country; 
 				$scope.$apply(function () {
 					$scope.Location = address;
 				});
@@ -231,7 +231,7 @@ app.controller('weatherController', function ($scope) {
 	$scope.callByPostal = function (postal) {
 		document.getElementById('search-bar').value = '';
 		//var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
-		var GEOCODING = "https://nominatim.openstreetmap.org/search/Unter%20den%20Linden%201%20Berlin?format=json&addressdetails=1&limit=1&polygon_svg=1";
+		var GEOCODING = "https://nominatim.openstreetmap.org/search/" + postal + "?format=json&addressdetails=1&limit=1&polygon_svg=1";
 		$.getJSON(GEOCODING, function (json) {
 			console.log(json);
 			// get the longitude and latitutde. 
