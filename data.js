@@ -233,7 +233,6 @@ app.controller('weatherController', function ($scope) {
 		//var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + postal + "&key=" + apikey;
 		var GEOCODING = "https://nominatim.openstreetmap.org/search/" + postal + "?format=json&addressdetails=1&limit=1&polygon_svg=1";
 		$.getJSON(GEOCODING, function (json) {
-			console.log(json);
 			// get the longitude and latitutde. 
 			if (json.status == "ZERO_RESULTS") {
 				alert("Geolocation API could not find that location. Be more specific or fix spelling errors.");
@@ -269,12 +268,13 @@ app.controller('weatherController', function ($scope) {
 				$scope.Location = address;
 				// Get the country. 
 				var country = json[0].address.country;
-				var timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + long + "&timestamp=" + new Date(Date.now()).getTime() / 1000 + "&key=" + timeZoneKey;
+				//var timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + long + "&timestamp=" + new Date(Date.now()).getTime() / 1000 + "&key=" + timeZoneKey;
+				var timezone = "http://api.timezonedb.com/v2/get-time-zone?key=P5DRD9NE0BK6&format=json&by=position&lat=" + lat + "&lng=" + long;
 				var timeZoneID;
 				var offset;
 				$.getJSON(timezone, function (json) {
-					timeZoneID = json.timeZoneId;
-					offset = json.rawOffset;
+					timeZoneID = json.zoneName;
+					offset = json.gmtOffset;
 					$.getJSON(for_call, function (json) {
 						$scope.getForecastData(json, country, timeZoneID, offset);
 					});
