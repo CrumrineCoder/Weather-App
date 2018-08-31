@@ -200,7 +200,7 @@ app.controller('weatherController', function ($scope) {
 		// API call
 		var lat = position.coords.latitude;
 		var long = position.coords.longitude;
-		var GEOCODING = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat="+lat+"&lon="+long;
+		var GEOCODING = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" + lat + "&lon=" + long;
 		var for_call = "https://api.forecast.io/forecast/" + forkey + "/" + lat + "," + long + "?callback=?";
 		$.getJSON(GEOCODING, function (json) {
 			if (json.status == "OVER_QUERY_LIMIT") {
@@ -216,7 +216,7 @@ app.controller('weatherController', function ($scope) {
 			} else {
 				// get location 
 				var address = json.display_name;
-				var country = json.address.country; 
+				var country = json.address.country;
 				$scope.$apply(function () {
 					$scope.Location = address;
 				});
@@ -255,30 +255,36 @@ app.controller('weatherController', function ($scope) {
 					$.getJSON(for_call, function (json) {
 						$scope.getForecastData(json, country, timeZoneID, offset);
 					});
-				}); 
+				});
 			}
 			else {
-				var lat = json[0].lat;
-				var long = json[0].lon;
-				// Forecast.io api call. 
-				var for_call = "https://api.forecast.io/forecast/" + forkey + "/" + lat + "," + long + "?callback=?";
-				// Get the address. 
-				var address = json[0].display_name;
-				// Show the address. 
-				$scope.Location = address;
-				// Get the country. 
-				var country = json[0].address.country;
-				//var timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + long + "&timestamp=" + new Date(Date.now()).getTime() / 1000 + "&key=" + timeZoneKey;
-				var timezone = "http://api.timezonedb.com/v2/get-time-zone?key=P5DRD9NE0BK6&format=json&by=position&lat=" + lat + "&lng=" + long;
-				var timeZoneID;
-				var offset;
-				$.getJSON(timezone, function (json) {
-					timeZoneID = json.zoneName;
-					offset = json.gmtOffset;
-					$.getJSON(for_call, function (json) {
-						$scope.getForecastData(json, country, timeZoneID, offset);
+				if (json[0] != undefined) {
+
+					var lat = json[0].lat;
+					var long = json[0].lon;
+					// Forecast.io api call. 
+					var for_call = "https://api.forecast.io/forecast/" + forkey + "/" + lat + "," + long + "?callback=?";
+					// Get the address. 
+					var address = json[0].display_name;
+					// Show the address. 
+					$scope.Location = address;
+					// Get the country. 
+					var country = json[0].address.country;
+					//var timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + long + "&timestamp=" + new Date(Date.now()).getTime() / 1000 + "&key=" + timeZoneKey;
+					var timezone = "https://api.timezonedb.com/v2/get-time-zone?key=P5DRD9NE0BK6&format=json&by=position&lat=" + lat + "&lng=" + long;
+					var timeZoneID;
+					var offset;
+					$.getJSON(timezone, function (json) {
+						timeZoneID = json.zoneName;
+						offset = json.gmtOffset;
+						$.getJSON(for_call, function (json) {
+							$scope.getForecastData(json, country, timeZoneID, offset);
+						});
 					});
-				});
+				}
+				else {
+					alert("The location requested was not found.")
+				}
 			}
 		});
 	}
